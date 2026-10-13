@@ -94,3 +94,7 @@ threads. Both use the same tile queue and produce identical raw images.
 See [SCALING.md](SCALING.md) for the 1/2/4/8-P, 1/2/4/8/16-E, mixed-core and
 SMT comparisons, worker diagnostics and available perf timing events.
 `OMP_FLAGS` defaults to `-fopenmp`; set it empty for a std-only build.
+
+Hardware counters, cycle samples, memory-controller traffic, and frequency evidence
+are in [PERF.md](PERF.md). [TALKS.md](TALKS.md) connects twelve additional
+transcript-backed talks to three simple and three more aggressive next experiments.

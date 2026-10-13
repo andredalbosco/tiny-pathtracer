@@ -1,0 +1,52 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 1K of event 'cpu_core/cycles/u'
+# Event count (approx.): 23040158596
+#
+# Children      Self  Shared Object              Symbol                                                                                                                                                                               IPC   [IPC Coverage]
+# ........  ........  .........................  ...................................................................................................................................................................................  ....................
+#
+   100.00%    61.78%  pathtracer_simple_profile  [.] render_image<RayScene, 8, PathsAoS>(RayScene const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const                                                             -      -
+   100.00%     0.00%  libc.so.6                  [.] __libc_start_call_main                                                                                                                                                           -      -
+   100.00%     0.00%  libc.so.6                  [.] __libc_start_main_impl (inlined)                                                                                                                                                 -      -
+   100.00%     0.00%  pathtracer_simple_profile  [.] Statistics dispatch_batch<RayScene, PathsAoS>(RayScene const&, Options const&, float*) (inlined)                                                                                 -      -
+   100.00%     0.00%  pathtracer_simple_profile  [.] Statistics render_image<RayScene, 8, PathsAoS>(RayScene const&, Options const&, float*)                                                                                          -      -
+   100.00%     0.00%  pathtracer_simple_profile  [.] _start                                                                                                                                                                           -      -
+   100.00%     0.00%  pathtracer_simple_profile  [.] int render_main<RayScene>(Options const&) (inlined)                                                                                                                              -      -
+   100.00%     0.00%  pathtracer_simple_profile  [.] main                                                                                                                                                                             -      -
+   100.00%     0.00%  pathtracer_simple_profile  [.] void render_tile_refill<RayScene, 8, PathsAoS>(RayScene const&, Options const&, int, int, int, int, float*, RayScene::Scratch&, Statistics&) (inlined)                           -      -
+    47.10%     0.00%  pathtracer_simple_profile  [.] RayScene::intersect_batch(Ray const*, Hit*, int, EmptyScratch&) const (inlined)                                                                                                  -      -
+    35.69%    12.38%  pathtracer_simple_profile  [.] scatter(SceneData const&, Path&, Hit)                                                                                                                                            -      -
+    23.31%    11.65%  pathtracer_simple_profile  [.] sample_hemisphere(Float3, Random&)                                                                                                                                               -      -
+     7.93%     0.00%  pathtracer_simple_profile  [.] std::cos(float) (inlined)                                                                                                                                                        -      -
+     7.24%     0.00%  pathtracer_simple_profile  [.] PathsAoS<8>::set(int, Path const&) (inlined)                                                                                                                                     -      -
+     7.05%     7.05%  libm.so.6                  [.] __cosf_fma                                                                                                                                                                       -      -
+     6.55%     0.00%  pathtracer_simple_profile  [.] render_tile_refill<RayScene, 8, PathsAoS>(RayScene const&, Options const&, int, int, int, int, float*, RayScene::Scratch&, Statistics&)::{lambda(int)#1}::operator()(int) const (inlined)  -      -
+     4.91%     0.00%  pathtracer_simple_profile  [.] cross(Float3, Float3) (inlined)                                                                                                                                                  -      -
+     4.35%     0.00%  pathtracer_simple_profile  [.] std::sin(float) (inlined)                                                                                                                                                        -      -
+     3.73%     0.00%  libm.so.6                  [.] sinf_poly (inlined)                                                                                                                                                              -      -
+     3.52%     3.52%  libm.so.6                  [.] __sinf_fma                                                                                                                                                                       -      -
+     2.53%     2.53%  pathtracer_simple_profile  [.] normalize(Float3)                                                                                                                                                                -      -
+     2.43%     0.00%  pathtracer_simple_profile  [.] Float3::operator+(Float3) const (inlined)                                                                                                                                        -      -
+     2.17%     0.00%  pathtracer_simple_profile  [.] dot(Float3, Float3) (inlined)                                                                                                                                                    -      -
+     2.07%     0.00%  pathtracer_simple_profile  [.] Float3::operator-(Float3) const (inlined)                                                                                                                                        -      -
+     2.02%     0.00%  pathtracer_simple_profile  [.] Float3::operator*(float) const (inlined)                                                                                                                                         -      -
+     1.66%     0.00%  pathtracer_simple_profile  [.] Random::uniform() (inlined)                                                                                                                                                      -      -
+     1.35%     0.00%  pathtracer_simple_profile  [.] Float3::operator*(float) const (inlined)                                                                                                                                         -      -
+     1.30%     0.00%  pathtracer_simple_profile  [.] Float3::operator*=(Float3) (inlined)                                                                                                                                             -      -
+     1.19%     0.00%  pathtracer_simple_profile  [.] Float3::operator*(Float3) const (inlined)                                                                                                                                        -      -
+     0.93%     0.00%  libm.so.6                  [.] sinf_poly (inlined)                                                                                                                                                              -      -
+     0.88%     0.88%  pathtracer_simple_profile  [.] cosf@plt                                                                                                                                                                         -      -
+     0.78%     0.00%  libm.so.6                  [.] reduce_fast (inlined)                                                                                                                                                            -      -
+     0.78%     0.00%  pathtracer_simple_profile  [.] PathsAoS<8>::get(int) const (inlined)                                                                                                                                            -      -
+     0.72%     0.00%  pathtracer_simple_profile  [.] Random::next() (inlined)                                                                                                                                                         -      -
+     0.57%     0.00%  libm.so.6                  [.] reduce_fast (inlined)                                                                                                                                                            -      -
+     0.57%     0.00%  pathtracer_simple_profile  [.] Float3::operator+(Float3) const (inlined)                                                                                                                                        -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

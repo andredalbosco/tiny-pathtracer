@@ -2,6 +2,8 @@
 
 The refill kernel scales close to linearly within each core family. Eight P cores achieve **7.552×** speedup (**94.40%** of linear); sixteen E cores achieve **15.855×** (**99.09%**). OpenMP and `std::thread` are effectively tied: their median wall differences range from −0.17% to +0.52%, and all 15 configuration ranges overlap. There is no established runtime speedup.
 
+A subsequent privileged pass obtained hardware counters without changing machine settings. [PERF.md](PERF.md) now records P/E cycle samples, topdown metrics, active/reference-cycle ratios, and memory-controller traffic. Lower active/reference ratios under package load support a frequency contribution to the scaling gap. Permission limits and hypotheses below describe the earlier unprivileged pass.
+
 The workload is 320×320/128 spp, 13,107,200 completed paths, with identical PCG streams and path termination. Every one of the 150 scored runs executes exactly 88,965,817 live ray segments and 89,020,640 slots. The same binary contains both runtime choices; GCC 15.2 uses `-O3 -march=native -ffp-contract=fast -std=c++17 -pthread -fopenmp`. Each configuration receives one complete warmup and five interleaved measurements. The supplemental E/SMT sweep is recorded separately. Primary time includes process startup, preparation, the entire render, HDR writing and teardown; internal render times are also saved. Ranges are observed spread, not confidence intervals.
 
 ![Measured scaling](benchmarks/core-scaling.svg)

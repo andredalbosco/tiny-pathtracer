@@ -1,0 +1,8 @@
+# started on Tue Oct 13 21:28:47 2026
+
+22304474314,,cpu_core/cycles/u,4545375439,99.00,,
+14458814715,,cpu_core/ref-cycles/u,4545375439,99.00,,
+37414476796,,cpu_core/instructions/u,4545375439,99.00,1.68,insn per cycle
+18020668828,,cpu_atom/cycles/u,4602648278,100.00,,
+14563661151,,cpu_atom/ref-cycles/u,4602648278,100.00,,
+21332272269,,cpu_atom/instructions/u,4602648278,100.00,1.18,insn per cycle

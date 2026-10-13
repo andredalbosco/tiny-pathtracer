@@ -1,0 +1,22 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 5K of event 'cpu_atom/cycles/u'
+# Event count (approx.): 49637423282
+#
+# Overhead  Shared Object              Symbol                                                                                                                    IPC   [IPC Coverage]
+# ........  .........................  ........................................................................................................................  ....................
+#
+    75.32%  pathtracer_simple_profile  [.] render_image<RayScene, 8, PathsAoS>(RayScene const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const  -      -
+     8.04%  pathtracer_simple_profile  [.] sample_hemisphere(Float3, Random&)                                                                                    -      -
+     7.50%  pathtracer_simple_profile  [.] scatter(SceneData const&, Path&, Hit)                                                                                 -      -
+     5.08%  libm.so.6                  [.] __cosf_fma                                                                                                            -      -
+     2.57%  libm.so.6                  [.] __sinf_fma                                                                                                            -      -
+     1.37%  pathtracer_simple_profile  [.] normalize(Float3)                                                                                                     -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

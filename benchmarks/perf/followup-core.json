@@ -1,0 +1,958 @@
+[
+  {
+    "name": "topdown-scalar-P1",
+    "command": [
+      "sudo",
+      "-n",
+      "/usr/bin/perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/topdown-scalar-P1.csv",
+      "--cputype",
+      "core",
+      "--all-user",
+      "-M",
+      "TopdownL1",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_simple",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/render.hdr",
+      "--kernel",
+      "scalar",
+      "--threads",
+      "1",
+      "--cpus",
+      "8",
+      "--batch",
+      "1",
+      "--runtime",
+      "std"
+    ],
+    "wall_seconds": 13.316955456975847,
+    "returncode": 0,
+    "stderr": "{\"kernel\":\"scalar\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":1,\"batch\":1,\"refill\":false,\"render_seconds\":13.2368407,\"rays\":88965776,\"completed_paths\":13107200,\"paths_per_second\":990206.068,\"ray_segments_per_second\":6721073.24,\"ray_slots\":88965776,\"batch_calls\":0}\n",
+    "events": [
+      {
+        "value": 470986350126.0,
+        "value_text": "470986350126",
+        "unit": "",
+        "event": "cpu_core/TOPDOWN.SLOTS/",
+        "running_ns": "13226914510",
+        "running_percent": "100.00",
+        "extra": [
+          "16.3",
+          "%  tma_backend_bound"
+        ]
+      },
+      {
+        "value": null,
+        "value_text": "",
+        "unit": "",
+        "event": "",
+        "running_ns": "",
+        "running_percent": "",
+        "extra": [
+          "31.1",
+          "%  tma_retiring"
+        ]
+      },
+      {
+        "value": null,
+        "value_text": "",
+        "unit": "",
+        "event": "",
+        "running_ns": "",
+        "running_percent": "",
+        "extra": [
+          "42.8",
+          "%  tma_bad_speculation"
+        ]
+      },
+      {
+        "value": null,
+        "value_text": "",
+        "unit": "",
+        "event": "",
+        "running_ns": "",
+        "running_percent": "",
+        "extra": [
+          "9.8",
+          "%  tma_frontend_bound"
+        ]
+      },
+      {
+        "value": 147759766343.0,
+        "value_text": "147759766343",
+        "unit": "",
+        "event": "cpu_core/topdown-retiring/",
+        "running_ns": "13226914510",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 201322704264.0,
+        "value_text": "201322704264",
+        "unit": "",
+        "event": "cpu_core/topdown-bad-spec/",
+        "running_ns": "13226914510",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 48023558113.0,
+        "value_text": "48023558113",
+        "unit": "",
+        "event": "cpu_core/topdown-fe-bound/",
+        "running_ns": "13226914510",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 77574349577.0,
+        "value_text": "77574349577",
+        "unit": "",
+        "event": "cpu_core/topdown-be-bound/",
+        "running_ns": "13226914510",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 1727964048.0,
+        "value_text": "1727964048",
+        "unit": "",
+        "event": "cpu_core/INT_MISC.UOP_DROPPING/",
+        "running_ns": "13226914510",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "name": "topdown-rays-refill-P1",
+    "command": [
+      "sudo",
+      "-n",
+      "/usr/bin/perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/topdown-rays-refill-P1.csv",
+      "--cputype",
+      "core",
+      "--all-user",
+      "-M",
+      "TopdownL1",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_simple",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/render.hdr",
+      "--kernel",
+      "rays",
+      "--threads",
+      "1",
+      "--cpus",
+      "8",
+      "--batch",
+      "8",
+      "--runtime",
+      "std",
+      "--refill"
+    ],
+    "wall_seconds": 3.9195368383079767,
+    "returncode": 0,
+    "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":1,\"batch\":8,\"refill\":true,\"render_seconds\":3.88789928,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":3371280.75,\"ray_segments_per_second\":22882747.4,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+    "events": [
+      {
+        "value": 138447827642.0,
+        "value_text": "138447827642",
+        "unit": "",
+        "event": "cpu_core/TOPDOWN.SLOTS/",
+        "running_ns": "3891955242",
+        "running_percent": "99.00",
+        "extra": [
+          "27.3",
+          "%  tma_backend_bound"
+        ]
+      },
+      {
+        "value": null,
+        "value_text": "",
+        "unit": "",
+        "event": "",
+        "running_ns": "",
+        "running_percent": "",
+        "extra": [
+          "46.5",
+          "%  tma_retiring"
+        ]
+      },
+      {
+        "value": null,
+        "value_text": "",
+        "unit": "",
+        "event": "",
+        "running_ns": "",
+        "running_percent": "",
+        "extra": [
+          "22.0",
+          "%  tma_bad_speculation"
+        ]
+      },
+      {
+        "value": null,
+        "value_text": "",
+        "unit": "",
+        "event": "",
+        "running_ns": "",
+        "running_percent": "",
+        "extra": [
+          "4.1",
+          "%  tma_frontend_bound"
+        ]
+      },
+      {
+        "value": 64607982848.0,
+        "value_text": "64607982848",
+        "unit": "",
+        "event": "cpu_core/topdown-retiring/",
+        "running_ns": "3891955242",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 30403907731.0,
+        "value_text": "30403907731",
+        "unit": "",
+        "event": "cpu_core/topdown-bad-spec/",
+        "running_ns": "3891955242",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 5973694068.0,
+        "value_text": "5973694068",
+        "unit": "",
+        "event": "cpu_core/topdown-fe-bound/",
+        "running_ns": "3891955242",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 38005175646.0,
+        "value_text": "38005175646",
+        "unit": "",
+        "event": "cpu_core/topdown-be-bound/",
+        "running_ns": "3891955242",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 239638048.0,
+        "value_text": "239638048",
+        "unit": "",
+        "event": "cpu_core/INT_MISC.UOP_DROPPING/",
+        "running_ns": "3891955242",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "name": "topdown-rays-refill-E1",
+    "command": [
+      "sudo",
+      "-n",
+      "/usr/bin/perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/topdown-rays-refill-E1.csv",
+      "-e",
+      "cpu_atom/cycles/u,cpu_atom/topdown-fe-bound/u,cpu_atom/topdown-bad-spec/u,cpu_atom/topdown-be-bound/u,cpu_atom/topdown-retiring/u",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "16",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_simple",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/render.hdr",
+      "--kernel",
+      "rays",
+      "--threads",
+      "1",
+      "--cpus",
+      "16",
+      "--batch",
+      "8",
+      "--runtime",
+      "std",
+      "--refill"
+    ],
+    "wall_seconds": 11.114161468110979,
+    "returncode": 0,
+    "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":1,\"batch\":8,\"refill\":true,\"render_seconds\":11.0919631,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":1181684.42,\"ray_segments_per_second\":8020745.86,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+    "events": [
+      {
+        "value": 49615016495.0,
+        "value_text": "49615016495",
+        "unit": "",
+        "event": "cpu_atom/cycles/u",
+        "running_ns": "11075649648",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 8372814579.0,
+        "value_text": "8372814579",
+        "unit": "",
+        "event": "cpu_atom/topdown-fe-bound/u",
+        "running_ns": "11075649648",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 25722208575.0,
+        "value_text": "25722208575",
+        "unit": "",
+        "event": "cpu_atom/topdown-bad-spec/u",
+        "running_ns": "11075649648",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 113450658054.0,
+        "value_text": "113450658054",
+        "unit": "",
+        "event": "cpu_atom/topdown-be-bound/u",
+        "running_ns": "11075649648",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 100408184722.0,
+        "value_text": "100408184722",
+        "unit": "",
+        "event": "cpu_atom/topdown-retiring/u",
+        "running_ns": "11075649648",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "name": "frequency-rays-refill-P1",
+    "command": [
+      "sudo",
+      "-n",
+      "/usr/bin/perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/frequency-rays-refill-P1.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/ref-cycles/u,cpu_core/instructions/u",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_simple",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/render.hdr",
+      "--kernel",
+      "rays",
+      "--threads",
+      "1",
+      "--cpus",
+      "8",
+      "--batch",
+      "8",
+      "--runtime",
+      "std",
+      "--refill"
+    ],
+    "wall_seconds": 3.896816361695528,
+    "returncode": 0,
+    "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":1,\"batch\":8,\"refill\":true,\"render_seconds\":3.8786392,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":3379329.53,\"ray_segments_per_second\":22937378.9,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+    "events": [
+      {
+        "value": 23052791183.0,
+        "value_text": "23052791183",
+        "unit": "",
+        "event": "cpu_core/cycles/u",
+        "running_ns": "3882524996",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 12353132951.0,
+        "value_text": "12353132951",
+        "unit": "",
+        "event": "cpu_core/ref-cycles/u",
+        "running_ns": "3882524996",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 58721700383.0,
+        "value_text": "58721700383",
+        "unit": "",
+        "event": "cpu_core/instructions/u",
+        "running_ns": "3882524996",
+        "running_percent": "99.00",
+        "extra": [
+          "2.55",
+          "insn per cycle"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "frequency-rays-refill-P8",
+    "command": [
+      "sudo",
+      "-n",
+      "/usr/bin/perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/frequency-rays-refill-P8.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/ref-cycles/u,cpu_core/instructions/u",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "0,2,4,6,8,10,12,14",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_simple",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/render.hdr",
+      "--kernel",
+      "rays",
+      "--threads",
+      "8",
+      "--cpus",
+      "0,2,4,6,8,10,12,14",
+      "--batch",
+      "8",
+      "--runtime",
+      "std",
+      "--refill"
+    ],
+    "wall_seconds": 0.5271839783526957,
+    "returncode": 0,
+    "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":8,\"batch\":8,\"refill\":true,\"render_seconds\":0.509022084,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":25749766.9,\"ray_segments_per_second\":174777912,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+    "events": [
+      {
+        "value": 23097569269.0,
+        "value_text": "23097569269",
+        "unit": "",
+        "event": "cpu_core/cycles/u",
+        "running_ns": "4071182975",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 12950439278.0,
+        "value_text": "12950439278",
+        "unit": "",
+        "event": "cpu_core/ref-cycles/u",
+        "running_ns": "4071182975",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 58722077691.0,
+        "value_text": "58722077691",
+        "unit": "",
+        "event": "cpu_core/instructions/u",
+        "running_ns": "4071182975",
+        "running_percent": "99.00",
+        "extra": [
+          "2.54",
+          "insn per cycle"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "frequency-rays-refill-E1",
+    "command": [
+      "sudo",
+      "-n",
+      "/usr/bin/perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/frequency-rays-refill-E1.csv",
+      "-e",
+      "cpu_atom/cycles/u,cpu_atom/ref-cycles/u,cpu_atom/instructions/u",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "16",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_simple",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/render.hdr",
+      "--kernel",
+      "rays",
+      "--threads",
+      "1",
+      "--cpus",
+      "16",
+      "--batch",
+      "8",
+      "--runtime",
+      "std",
+      "--refill"
+    ],
+    "wall_seconds": 11.085329250898212,
+    "returncode": 0,
+    "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":1,\"batch\":8,\"refill\":true,\"render_seconds\":11.0633821,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":1184737.17,\"ray_segments_per_second\":8041466.56,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+    "events": [
+      {
+        "value": 49590919678.0,
+        "value_text": "49590919678",
+        "unit": "",
+        "event": "cpu_atom/cycles/u",
+        "running_ns": "11068150261",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 35207775727.0,
+        "value_text": "35207775727",
+        "unit": "",
+        "event": "cpu_atom/ref-cycles/u",
+        "running_ns": "11068150261",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 58717032313.0,
+        "value_text": "58717032313",
+        "unit": "",
+        "event": "cpu_atom/instructions/u",
+        "running_ns": "11068150261",
+        "running_percent": "100.00",
+        "extra": [
+          "1.18",
+          "insn per cycle"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "frequency-rays-refill-E16",
+    "command": [
+      "sudo",
+      "-n",
+      "/usr/bin/perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/frequency-rays-refill-E16.csv",
+      "-e",
+      "cpu_atom/cycles/u,cpu_atom/ref-cycles/u,cpu_atom/instructions/u",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_simple",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/render.hdr",
+      "--kernel",
+      "rays",
+      "--threads",
+      "16",
+      "--cpus",
+      "16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+      "--batch",
+      "8",
+      "--runtime",
+      "std",
+      "--refill"
+    ],
+    "wall_seconds": 0.7222608202137053,
+    "returncode": 0,
+    "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":16,\"batch\":8,\"refill\":true,\"render_seconds\":0.699932333,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":18726381.7,\"ray_segments_per_second\":127106311,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+    "events": [
+      {
+        "value": 49623896238.0,
+        "value_text": "49623896238",
+        "unit": "",
+        "event": "cpu_atom/cycles/u",
+        "running_ns": "11157769790",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 35476089827.0,
+        "value_text": "35476089827",
+        "unit": "",
+        "event": "cpu_atom/ref-cycles/u",
+        "running_ns": "11157769790",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 58717334201.0,
+        "value_text": "58717334201",
+        "unit": "",
+        "event": "cpu_atom/instructions/u",
+        "running_ns": "11157769790",
+        "running_percent": "100.00",
+        "extra": [
+          "1.18",
+          "insn per cycle"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "frequency-rays-refill-physical24",
+    "command": [
+      "sudo",
+      "-n",
+      "/usr/bin/perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/frequency-rays-refill-physical24.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/ref-cycles/u,cpu_core/instructions/u,cpu_atom/cycles/u,cpu_atom/ref-cycles/u,cpu_atom/instructions/u",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "0,2,4,6,8,10,12,14,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_simple",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/render.hdr",
+      "--kernel",
+      "rays",
+      "--threads",
+      "24",
+      "--cpus",
+      "0,2,4,6,8,10,12,14,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+      "--batch",
+      "8",
+      "--runtime",
+      "std",
+      "--refill"
+    ],
+    "wall_seconds": 0.34899477707222104,
+    "returncode": 0,
+    "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":24,\"batch\":8,\"refill\":true,\"render_seconds\":0.328753737,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":39869356.7,\"ray_segments_per_second\":270615379,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+    "events": [
+      {
+        "value": 13211343178.0,
+        "value_text": "13211343178",
+        "unit": "",
+        "event": "cpu_core/cycles/u",
+        "running_ns": "2571822987",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 8198555692.0,
+        "value_text": "8198555692",
+        "unit": "",
+        "event": "cpu_core/ref-cycles/u",
+        "running_ns": "2571822987",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 33529081267.0,
+        "value_text": "33529081267",
+        "unit": "",
+        "event": "cpu_core/instructions/u",
+        "running_ns": "2571822987",
+        "running_percent": "99.00",
+        "extra": [
+          "2.54",
+          "insn per cycle"
+        ]
+      },
+      {
+        "value": 21346229398.0,
+        "value_text": "21346229398",
+        "unit": "",
+        "event": "cpu_atom/cycles/u",
+        "running_ns": "5169255263",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 16426103383.0,
+        "value_text": "16426103383",
+        "unit": "",
+        "event": "cpu_atom/ref-cycles/u",
+        "running_ns": "5169255263",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 25266138147.0,
+        "value_text": "25266138147",
+        "unit": "",
+        "event": "cpu_atom/instructions/u",
+        "running_ns": "5169255263",
+        "running_percent": "99.00",
+        "extra": [
+          "1.18",
+          "insn per cycle"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "frequency-rays-refill-logical32",
+    "command": [
+      "sudo",
+      "-n",
+      "/usr/bin/perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/frequency-rays-refill-logical32.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/ref-cycles/u,cpu_core/instructions/u,cpu_atom/cycles/u,cpu_atom/ref-cycles/u,cpu_atom/instructions/u",
+      "--",
+      "/usr/bin/taskset",
+      "-c",
+      "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_simple",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/perf/render.hdr",
+      "--kernel",
+      "rays",
+      "--threads",
+      "32",
+      "--cpus",
+      "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+      "--batch",
+      "8",
+      "--runtime",
+      "std",
+      "--refill"
+    ],
+    "wall_seconds": 0.3137536309659481,
+    "returncode": 0,
+    "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.292978425,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":44737765.2,\"ray_segments_per_second\":303659961,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+    "events": [
+      {
+        "value": 22304474314.0,
+        "value_text": "22304474314",
+        "unit": "",
+        "event": "cpu_core/cycles/u",
+        "running_ns": "4545375439",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 14458814715.0,
+        "value_text": "14458814715",
+        "unit": "",
+        "event": "cpu_core/ref-cycles/u",
+        "running_ns": "4545375439",
+        "running_percent": "99.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 37414476796.0,
+        "value_text": "37414476796",
+        "unit": "",
+        "event": "cpu_core/instructions/u",
+        "running_ns": "4545375439",
+        "running_percent": "99.00",
+        "extra": [
+          "1.68",
+          "insn per cycle"
+        ]
+      },
+      {
+        "value": 18020668828.0,
+        "value_text": "18020668828",
+        "unit": "",
+        "event": "cpu_atom/cycles/u",
+        "running_ns": "4602648278",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 14563661151.0,
+        "value_text": "14563661151",
+        "unit": "",
+        "event": "cpu_atom/ref-cycles/u",
+        "running_ns": "4602648278",
+        "running_percent": "100.00",
+        "extra": [
+          "",
+          ""
+        ]
+      },
+      {
+        "value": 21332272269.0,
+        "value_text": "21332272269",
+        "unit": "",
+        "event": "cpu_atom/instructions/u",
+        "running_ns": "4602648278",
+        "running_percent": "100.00",
+        "extra": [
+          "1.18",
+          "insn per cycle"
+        ]
+      }
+    ]
+  }
+]

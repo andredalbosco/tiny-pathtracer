@@ -1,0 +1,11 @@
+# started on Tue Oct 13 21:28:15 2026
+
+138447827642,,cpu_core/TOPDOWN.SLOTS/,3891955242,99.00,27.3,%  tma_backend_bound
+,,,,,46.5,%  tma_retiring
+,,,,,22.0,%  tma_bad_speculation
+,,,,,4.1,%  tma_frontend_bound
+64607982848,,cpu_core/topdown-retiring/,3891955242,99.00,,
+30403907731,,cpu_core/topdown-bad-spec/,3891955242,99.00,,
+5973694068,,cpu_core/topdown-fe-bound/,3891955242,99.00,,
+38005175646,,cpu_core/topdown-be-bound/,3891955242,99.00,,
+239638048,,cpu_core/INT_MISC.UOP_DROPPING/,3891955242,99.00,,

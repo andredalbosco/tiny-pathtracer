@@ -1,0 +1,14 @@
+# started on Tue Oct 13 21:22:05 2026
+
+22342907982,,cpu_core/cycles/u,4622464995,99.00,,
+37494305044,,cpu_core/instructions/u,4622464995,99.00,1.68,insn per cycle
+1596696100,,cpu_core/branch-instructions/u,4622464995,99.00,,
+66054653,,cpu_core/branch-misses/u,4622464995,99.00,4.14,of all branches
+17983513503,,cpu_atom/cycles/u,4675823350,99.00,,
+21273961185,,cpu_atom/instructions/u,4675823350,99.00,1.18,insn per cycle
+905418325,,cpu_atom/branch-instructions/u,4675823350,99.00,,
+40748455,,cpu_atom/branch-misses/u,4675823350,99.00,4.50,of all branches
+9298288345,,task-clock,9298288345,100.00,30.360,CPUs utilized
+4978,,context-switches,9298288345,100.00,535.367,/sec
+58,,cpu-migrations,9298288345,100.00,6.238,/sec
+4049,,page-faults,9298288345,100.00,435.456,/sec

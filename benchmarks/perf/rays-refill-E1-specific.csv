@@ -1,0 +1,7 @@
+# started on Tue Oct 13 21:24:35 2026
+
+49597874964,,cpu_atom/cycles/u,11071891668,100.00,,
+58717034355,,cpu_atom/instructions/u,11071891668,100.00,1.18,insn per cycle
+9376029391,,cpu_atom/arith.fpdiv_active/u,11071891668,100.00,,
+593042,,cpu_atom/mem_load_uops_retired.l1_miss/u,11071891668,100.00,,
+25928741279,,cpu_atom/mem_uops_retired.all_loads/u,11071891668,100.00,,

@@ -1,0 +1,378 @@
+{
+  "scope": "System-wide controller traffic, including unrelated work; loaded windows contain ten full renders.",
+  "renders_per_loaded_window": 10,
+  "results": [
+    {
+      "name": "imc-idle-before",
+      "command": [
+        "sudo",
+        "-n",
+        "/usr/bin/perf",
+        "stat",
+        "--no-big-num",
+        "-x,",
+        "-o",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/perf/imc-idle-before.csv",
+        "-a",
+        "-e",
+        "uncore_imc_free_running_0/data_read/,uncore_imc_free_running_0/data_write/,uncore_imc_free_running_1/data_read/,uncore_imc_free_running_1/data_write/",
+        "--",
+        "/usr/bin/sleep",
+        "3"
+      ],
+      "wall_seconds": 3.0194463338702917,
+      "returncode": 0,
+      "stderr": "",
+      "events": [
+        {
+          "value": 80.19,
+          "value_text": "80.19",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_read/",
+          "running_ns": "3002824486",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 17.55,
+          "value_text": "17.55",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_write/",
+          "running_ns": "3002826488",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 79.95,
+          "value_text": "79.95",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_read/",
+          "running_ns": "3002834413",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 17.25,
+          "value_text": "17.25",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_write/",
+          "running_ns": "3002835977",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "name": "imc-loaded-0",
+      "command": [
+        "sudo",
+        "-n",
+        "/usr/bin/perf",
+        "stat",
+        "--no-big-num",
+        "-x,",
+        "-o",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/perf/imc-loaded-0.csv",
+        "-a",
+        "-e",
+        "uncore_imc_free_running_0/data_read/,uncore_imc_free_running_0/data_write/,uncore_imc_free_running_1/data_read/,uncore_imc_free_running_1/data_write/",
+        "--",
+        "/usr/sbin/runuser",
+        "-u",
+        "blacknoir",
+        "--",
+        "/usr/bin/python3",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/perf/repeat_render.py"
+      ],
+      "wall_seconds": 2.9349426459521055,
+      "returncode": 0,
+      "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.28093994,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46654811.7,\"ray_segments_per_second\":316672015,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.278158581,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":47121321.8,\"ray_segments_per_second\":319838477,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.277320687,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":47263693.7,\"ray_segments_per_second\":320804834,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.279335344,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46922812.6,\"ray_segments_per_second\":318491086,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.282481878,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46400144.6,\"ray_segments_per_second\":314943449,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.281575087,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46549572.8,\"ray_segments_per_second\":315957700,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.281052338,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46636153.6,\"ray_segments_per_second\":316545372,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.282168516,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46451674.3,\"ray_segments_per_second\":315293209,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.281823825,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46508488.1,\"ray_segments_per_second\":315678836,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.28179497,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46513250.4,\"ray_segments_per_second\":315711160,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+      "events": [
+        {
+          "value": 189.72,
+          "value_text": "189.72",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_read/",
+          "running_ns": "2898199763",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 60.83,
+          "value_text": "60.83",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_write/",
+          "running_ns": "2898193072",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 189.28,
+          "value_text": "189.28",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_read/",
+          "running_ns": "2898190639",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 60.86,
+          "value_text": "60.86",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_write/",
+          "running_ns": "2898188925",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "name": "imc-loaded-1",
+      "command": [
+        "sudo",
+        "-n",
+        "/usr/bin/perf",
+        "stat",
+        "--no-big-num",
+        "-x,",
+        "-o",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/perf/imc-loaded-1.csv",
+        "-a",
+        "-e",
+        "uncore_imc_free_running_0/data_read/,uncore_imc_free_running_0/data_write/,uncore_imc_free_running_1/data_read/,uncore_imc_free_running_1/data_write/",
+        "--",
+        "/usr/sbin/runuser",
+        "-u",
+        "blacknoir",
+        "--",
+        "/usr/bin/python3",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/perf/repeat_render.py"
+      ],
+      "wall_seconds": 2.887378722894937,
+      "returncode": 0,
+      "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.2864915,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":45750746.5,\"ray_segments_per_second\":310535625,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.282061044,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46469373.5,\"ray_segments_per_second\":315413344,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.28084691,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46670266,\"ray_segments_per_second\":316776912,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.279960764,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46817989.1,\"ray_segments_per_second\":317779591,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.282390542,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46415152.2,\"ray_segments_per_second\":315045314,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.282535981,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46391259.5,\"ray_segments_per_second\":314883140,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.28097479,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46649025,\"ray_segments_per_second\":316632738,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.283180484,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46285675.5,\"ray_segments_per_second\":314166484,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.281226191,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46607323.3,\"ray_segments_per_second\":316349685,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.282315217,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46427536.4,\"ray_segments_per_second\":315129372,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+      "events": [
+        {
+          "value": 166.48,
+          "value_text": "166.48",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_read/",
+          "running_ns": "2873745130",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 58.66,
+          "value_text": "58.66",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_write/",
+          "running_ns": "2873744319",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 166.21,
+          "value_text": "166.21",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_read/",
+          "running_ns": "2873743624",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 58.59,
+          "value_text": "58.59",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_write/",
+          "running_ns": "2873743698",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "name": "imc-loaded-2",
+      "command": [
+        "sudo",
+        "-n",
+        "/usr/bin/perf",
+        "stat",
+        "--no-big-num",
+        "-x,",
+        "-o",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/perf/imc-loaded-2.csv",
+        "-a",
+        "-e",
+        "uncore_imc_free_running_0/data_read/,uncore_imc_free_running_0/data_write/,uncore_imc_free_running_1/data_read/,uncore_imc_free_running_1/data_write/",
+        "--",
+        "/usr/sbin/runuser",
+        "-u",
+        "blacknoir",
+        "--",
+        "/usr/bin/python3",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/perf/repeat_render.py"
+      ],
+      "wall_seconds": 2.9092046967707574,
+      "returncode": 0,
+      "stderr": "{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.295906949,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":44295005.7,\"ray_segments_per_second\":300654707,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.283985607,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46154451.8,\"ray_segments_per_second\":313275796,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.281856332,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46503124.2,\"ray_segments_per_second\":315642428,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.283138421,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46292551.7,\"ray_segments_per_second\":314213157,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.282454948,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46404568.6,\"ray_segments_per_second\":314973477,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.280270352,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46766273.7,\"ray_segments_per_second\":317428570,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.283285654,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46268491.9,\"ray_segments_per_second\":314049849,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.282441861,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46406718.7,\"ray_segments_per_second\":314988071,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.285062686,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":45980062.1,\"ray_segments_per_second\":312092116,\"ray_slots\":89020640,\"batch_calls\":11127580}\n{\"kernel\":\"rays\",\"layout\":\"aos\",\"runtime\":\"std\",\"threads\":32,\"batch\":8,\"refill\":true,\"render_seconds\":0.281719756,\"rays\":88965817,\"completed_paths\":13107200,\"paths_per_second\":46525668.6,\"ray_segments_per_second\":315795450,\"ray_slots\":89020640,\"batch_calls\":11127580}\n",
+      "events": [
+        {
+          "value": 162.01,
+          "value_text": "162.01",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_read/",
+          "running_ns": "2895866614",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 56.54,
+          "value_text": "56.54",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_write/",
+          "running_ns": "2895865638",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 161.48,
+          "value_text": "161.48",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_read/",
+          "running_ns": "2895865116",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 56.57,
+          "value_text": "56.57",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_write/",
+          "running_ns": "2895865270",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "name": "imc-idle-after",
+      "command": [
+        "sudo",
+        "-n",
+        "/usr/bin/perf",
+        "stat",
+        "--no-big-num",
+        "-x,",
+        "-o",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/perf/imc-idle-after.csv",
+        "-a",
+        "-e",
+        "uncore_imc_free_running_0/data_read/,uncore_imc_free_running_0/data_write/,uncore_imc_free_running_1/data_read/,uncore_imc_free_running_1/data_write/",
+        "--",
+        "/usr/bin/sleep",
+        "3"
+      ],
+      "wall_seconds": 3.0200660238042474,
+      "returncode": 0,
+      "stderr": "",
+      "events": [
+        {
+          "value": 73.91,
+          "value_text": "73.91",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_read/",
+          "running_ns": "3002784353",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 13.01,
+          "value_text": "13.01",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_0/data_write/",
+          "running_ns": "3002786193",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 73.94,
+          "value_text": "73.94",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_read/",
+          "running_ns": "3002787838",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        },
+        {
+          "value": 12.96,
+          "value_text": "12.96",
+          "unit": "MiB",
+          "event": "uncore_imc_free_running_1/data_write/",
+          "running_ns": "3002789587",
+          "running_percent": "100.00",
+          "extra": [
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  ]
+}

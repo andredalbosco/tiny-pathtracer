@@ -1,0 +1,5 @@
+# started on Tue Oct 13 21:28:30 2026
+
+23052791183,,cpu_core/cycles/u,3882524996,99.00,,
+12353132951,,cpu_core/ref-cycles/u,3882524996,99.00,,
+58721700383,,cpu_core/instructions/u,3882524996,99.00,2.55,insn per cycle
