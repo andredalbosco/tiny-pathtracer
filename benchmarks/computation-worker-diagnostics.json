@@ -1,0 +1,1297 @@
+{
+  "note": "Separate diagnostic runs with perf timing pseudoevents and worker reporting; not primary benchmark timings",
+  "runs": [
+    {
+      "name": "1P-std",
+      "perf_seconds": {
+        "duration_time": 3.8887190410000003,
+        "user_time": 3.886347,
+        "system_time": 0.001999
+      },
+      "stats": {
+        "kernel": "rays",
+        "layout": "aos",
+        "runtime": "std",
+        "threads": 1,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 3.88591085,
+        "rays": 88965817,
+        "completed_paths": 13107200,
+        "paths_per_second": 3373005.84,
+        "ray_segments_per_second": 22894456.5,
+        "ray_slots": 89020640,
+        "batch_calls": 11127580
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "cpu": 8,
+          "tiles": 800,
+          "rays": 88965817,
+          "started_seconds": 3.41e-07,
+          "finished_seconds": 3.88582187,
+          "thread_cpu_seconds": 3.8854796,
+          "completed_paths": 13107200
+        }
+      ]
+    },
+    {
+      "name": "8P-std",
+      "perf_seconds": {
+        "duration_time": 0.5120357720000001,
+        "user_time": 4.061573,
+        "system_time": 0.0040030000000000005
+      },
+      "stats": {
+        "kernel": "rays",
+        "layout": "aos",
+        "runtime": "std",
+        "threads": 8,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 0.508590183,
+        "rays": 88965817,
+        "completed_paths": 13107200,
+        "paths_per_second": 25771633.9,
+        "ray_segments_per_second": 174926336,
+        "ray_slots": 89020640,
+        "batch_calls": 11127580
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "cpu": 0,
+          "tiles": 101,
+          "rays": 11107827,
+          "started_seconds": 4.7791e-05,
+          "finished_seconds": 0.508175215,
+          "thread_cpu_seconds": 0.508084838,
+          "completed_paths": 1654784
+        },
+        {
+          "worker": 1,
+          "cpu": 2,
+          "tiles": 100,
+          "rays": 11124570,
+          "started_seconds": 0.000131077,
+          "finished_seconds": 0.507913763,
+          "thread_cpu_seconds": 0.507736317,
+          "completed_paths": 1638400
+        },
+        {
+          "worker": 2,
+          "cpu": 4,
+          "tiles": 99,
+          "rays": 11126688,
+          "started_seconds": 7.9676e-05,
+          "finished_seconds": 0.507409875,
+          "thread_cpu_seconds": 0.507278839,
+          "completed_paths": 1622016
+        },
+        {
+          "worker": 3,
+          "cpu": 6,
+          "tiles": 93,
+          "rays": 11113299,
+          "started_seconds": 9.6177e-05,
+          "finished_seconds": 0.507901542,
+          "thread_cpu_seconds": 0.507781581,
+          "completed_paths": 1523712
+        },
+        {
+          "worker": 4,
+          "cpu": 8,
+          "tiles": 109,
+          "rays": 11132904,
+          "started_seconds": 0.000123299,
+          "finished_seconds": 0.507786036,
+          "thread_cpu_seconds": 0.507582154,
+          "completed_paths": 1785856
+        },
+        {
+          "worker": 5,
+          "cpu": 10,
+          "tiles": 90,
+          "rays": 11118285,
+          "started_seconds": 0.000146565,
+          "finished_seconds": 0.508162303,
+          "thread_cpu_seconds": 0.507978662,
+          "completed_paths": 1474560
+        },
+        {
+          "worker": 6,
+          "cpu": 12,
+          "tiles": 102,
+          "rays": 11126538,
+          "started_seconds": 0.000228166,
+          "finished_seconds": 0.50772243,
+          "thread_cpu_seconds": 0.507473261,
+          "completed_paths": 1671168
+        },
+        {
+          "worker": 7,
+          "cpu": 14,
+          "tiles": 106,
+          "rays": 11115706,
+          "started_seconds": 0.000196491,
+          "finished_seconds": 0.507642711,
+          "thread_cpu_seconds": 0.507414669,
+          "completed_paths": 1736704
+        }
+      ]
+    },
+    {
+      "name": "16E-std",
+      "perf_seconds": {
+        "duration_time": 0.702909161,
+        "user_time": 11.143126,
+        "system_time": 0.007001
+      },
+      "stats": {
+        "kernel": "rays",
+        "layout": "aos",
+        "runtime": "std",
+        "threads": 16,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 0.699319013,
+        "rays": 88965817,
+        "completed_paths": 13107200,
+        "paths_per_second": 18742805.2,
+        "ray_segments_per_second": 127217787,
+        "ray_slots": 89020640,
+        "batch_calls": 11127580
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "cpu": 16,
+          "tiles": 51,
+          "rays": 5569933,
+          "started_seconds": 4.814e-05,
+          "finished_seconds": 0.697990285,
+          "thread_cpu_seconds": 0.697823746,
+          "completed_paths": 835584
+        },
+        {
+          "worker": 1,
+          "cpu": 17,
+          "tiles": 51,
+          "rays": 5550337,
+          "started_seconds": 7.4344e-05,
+          "finished_seconds": 0.695229067,
+          "thread_cpu_seconds": 0.695090924,
+          "completed_paths": 835584
+        },
+        {
+          "worker": 2,
+          "cpu": 18,
+          "tiles": 49,
+          "rays": 5556447,
+          "started_seconds": 8.6523e-05,
+          "finished_seconds": 0.696729908,
+          "thread_cpu_seconds": 0.696582414,
+          "completed_paths": 802816
+        },
+        {
+          "worker": 3,
+          "cpu": 19,
+          "tiles": 50,
+          "rays": 5563811,
+          "started_seconds": 0.000104933,
+          "finished_seconds": 0.69722795,
+          "thread_cpu_seconds": 0.697090216,
+          "completed_paths": 819200
+        },
+        {
+          "worker": 4,
+          "cpu": 20,
+          "tiles": 50,
+          "rays": 5550889,
+          "started_seconds": 0.000131674,
+          "finished_seconds": 0.695344646,
+          "thread_cpu_seconds": 0.695181922,
+          "completed_paths": 819200
+        },
+        {
+          "worker": 5,
+          "cpu": 21,
+          "tiles": 51,
+          "rays": 5553835,
+          "started_seconds": 0.000162889,
+          "finished_seconds": 0.695748162,
+          "thread_cpu_seconds": 0.695554707,
+          "completed_paths": 835584
+        },
+        {
+          "worker": 6,
+          "cpu": 22,
+          "tiles": 50,
+          "rays": 5561933,
+          "started_seconds": 0.000182918,
+          "finished_seconds": 0.697204303,
+          "thread_cpu_seconds": 0.696981465,
+          "completed_paths": 819200
+        },
+        {
+          "worker": 7,
+          "cpu": 23,
+          "tiles": 52,
+          "rays": 5580356,
+          "started_seconds": 0.000213988,
+          "finished_seconds": 0.6989477,
+          "thread_cpu_seconds": 0.698706092,
+          "completed_paths": 851968
+        },
+        {
+          "worker": 8,
+          "cpu": 24,
+          "tiles": 53,
+          "rays": 5564685,
+          "started_seconds": 0.000290503,
+          "finished_seconds": 0.697521035,
+          "thread_cpu_seconds": 0.697000087,
+          "completed_paths": 868352
+        },
+        {
+          "worker": 9,
+          "cpu": 25,
+          "tiles": 47,
+          "rays": 5566516,
+          "started_seconds": 0.000254702,
+          "finished_seconds": 0.697561096,
+          "thread_cpu_seconds": 0.697244352,
+          "completed_paths": 770048
+        },
+        {
+          "worker": 10,
+          "cpu": 26,
+          "tiles": 49,
+          "rays": 5561450,
+          "started_seconds": 0.000317165,
+          "finished_seconds": 0.697485985,
+          "thread_cpu_seconds": 0.697053433,
+          "completed_paths": 802816
+        },
+        {
+          "worker": 11,
+          "cpu": 27,
+          "tiles": 46,
+          "rays": 5563974,
+          "started_seconds": 0.000369043,
+          "finished_seconds": 0.698272476,
+          "thread_cpu_seconds": 0.697862795,
+          "completed_paths": 753664
+        },
+        {
+          "worker": 12,
+          "cpu": 28,
+          "tiles": 53,
+          "rays": 5551504,
+          "started_seconds": 0.000410531,
+          "finished_seconds": 0.695528196,
+          "thread_cpu_seconds": 0.694836147,
+          "completed_paths": 868352
+        },
+        {
+          "worker": 13,
+          "cpu": 29,
+          "tiles": 49,
+          "rays": 5554677,
+          "started_seconds": 0.000392092,
+          "finished_seconds": 0.696436151,
+          "thread_cpu_seconds": 0.695791268,
+          "completed_paths": 802816
+        },
+        {
+          "worker": 14,
+          "cpu": 30,
+          "tiles": 50,
+          "rays": 5560512,
+          "started_seconds": 0.000464321,
+          "finished_seconds": 0.697110672,
+          "thread_cpu_seconds": 0.696427155,
+          "completed_paths": 819200
+        },
+        {
+          "worker": 15,
+          "cpu": 31,
+          "tiles": 49,
+          "rays": 5554958,
+          "started_seconds": 0.000419918,
+          "finished_seconds": 0.696597993,
+          "thread_cpu_seconds": 0.695872468,
+          "completed_paths": 802816
+        }
+      ]
+    },
+    {
+      "name": "24physical-std",
+      "perf_seconds": {
+        "duration_time": 0.32680431400000004,
+        "user_time": 7.65115,
+        "system_time": 0.008008000000000001
+      },
+      "stats": {
+        "kernel": "rays",
+        "layout": "aos",
+        "runtime": "std",
+        "threads": 24,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 0.323945265,
+        "rays": 88965817,
+        "completed_paths": 13107200,
+        "paths_per_second": 40461156.3,
+        "ray_segments_per_second": 274632250,
+        "ray_slots": 89020640,
+        "batch_calls": 11127580
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "cpu": 0,
+          "tiles": 60,
+          "rays": 6320299,
+          "started_seconds": 0.000107795,
+          "finished_seconds": 0.320063148,
+          "thread_cpu_seconds": 0.316778141,
+          "completed_paths": 983040
+        },
+        {
+          "worker": 1,
+          "cpu": 2,
+          "tiles": 56,
+          "rays": 6377233,
+          "started_seconds": 0.000111371,
+          "finished_seconds": 0.319060537,
+          "thread_cpu_seconds": 0.318936706,
+          "completed_paths": 917504
+        },
+        {
+          "worker": 2,
+          "cpu": 4,
+          "tiles": 54,
+          "rays": 6304592,
+          "started_seconds": 0.000166783,
+          "finished_seconds": 0.319304445,
+          "thread_cpu_seconds": 0.315981334,
+          "completed_paths": 884736
+        },
+        {
+          "worker": 3,
+          "cpu": 6,
+          "tiles": 54,
+          "rays": 6238024,
+          "started_seconds": 0.000157497,
+          "finished_seconds": 0.319612223,
+          "thread_cpu_seconds": 0.319435506,
+          "completed_paths": 884736
+        },
+        {
+          "worker": 4,
+          "cpu": 8,
+          "tiles": 57,
+          "rays": 6345451,
+          "started_seconds": 0.000170596,
+          "finished_seconds": 0.320670127,
+          "thread_cpu_seconds": 0.317345028,
+          "completed_paths": 933888
+        },
+        {
+          "worker": 5,
+          "cpu": 10,
+          "tiles": 58,
+          "rays": 6330836,
+          "started_seconds": 0.000129406,
+          "finished_seconds": 0.320136688,
+          "thread_cpu_seconds": 0.316770067,
+          "completed_paths": 950272
+        },
+        {
+          "worker": 6,
+          "cpu": 12,
+          "tiles": 53,
+          "rays": 6318882,
+          "started_seconds": 0.000161192,
+          "finished_seconds": 0.32001836,
+          "thread_cpu_seconds": 0.316648733,
+          "completed_paths": 868352
+        },
+        {
+          "worker": 7,
+          "cpu": 14,
+          "tiles": 59,
+          "rays": 6329749,
+          "started_seconds": 0.000178832,
+          "finished_seconds": 0.32005315,
+          "thread_cpu_seconds": 0.316642982,
+          "completed_paths": 966656
+        },
+        {
+          "worker": 8,
+          "cpu": 16,
+          "tiles": 25,
+          "rays": 2427362,
+          "started_seconds": 0.000198775,
+          "finished_seconds": 0.322969757,
+          "thread_cpu_seconds": 0.322665448,
+          "completed_paths": 409600
+        },
+        {
+          "worker": 9,
+          "cpu": 17,
+          "tiles": 23,
+          "rays": 2412410,
+          "started_seconds": 0.00022122,
+          "finished_seconds": 0.321699891,
+          "thread_cpu_seconds": 0.321267716,
+          "completed_paths": 376832
+        },
+        {
+          "worker": 10,
+          "cpu": 18,
+          "tiles": 23,
+          "rays": 2403408,
+          "started_seconds": 0.000243699,
+          "finished_seconds": 0.320389088,
+          "thread_cpu_seconds": 0.320135819,
+          "completed_paths": 376832
+        },
+        {
+          "worker": 11,
+          "cpu": 19,
+          "tiles": 24,
+          "rays": 2410621,
+          "started_seconds": 0.000282176,
+          "finished_seconds": 0.321332793,
+          "thread_cpu_seconds": 0.32098909,
+          "completed_paths": 393216
+        },
+        {
+          "worker": 12,
+          "cpu": 20,
+          "tiles": 21,
+          "rays": 2411231,
+          "started_seconds": 0.000318283,
+          "finished_seconds": 0.321749966,
+          "thread_cpu_seconds": 0.321171326,
+          "completed_paths": 344064
+        },
+        {
+          "worker": 13,
+          "cpu": 21,
+          "tiles": 23,
+          "rays": 2428253,
+          "started_seconds": 0.000339519,
+          "finished_seconds": 0.323659273,
+          "thread_cpu_seconds": 0.32322789,
+          "completed_paths": 376832
+        },
+        {
+          "worker": 14,
+          "cpu": 22,
+          "tiles": 23,
+          "rays": 2400248,
+          "started_seconds": 0.000452014,
+          "finished_seconds": 0.320269254,
+          "thread_cpu_seconds": 0.319631813,
+          "completed_paths": 376832
+        },
+        {
+          "worker": 15,
+          "cpu": 23,
+          "tiles": 24,
+          "rays": 2412679,
+          "started_seconds": 0.00047812,
+          "finished_seconds": 0.321635776,
+          "thread_cpu_seconds": 0.321148154,
+          "completed_paths": 393216
+        },
+        {
+          "worker": 16,
+          "cpu": 24,
+          "tiles": 20,
+          "rays": 2413522,
+          "started_seconds": 0.000627889,
+          "finished_seconds": 0.322338623,
+          "thread_cpu_seconds": 0.321695545,
+          "completed_paths": 327680
+        },
+        {
+          "worker": 17,
+          "cpu": 25,
+          "tiles": 21,
+          "rays": 2424601,
+          "started_seconds": 0.000739156,
+          "finished_seconds": 0.323840214,
+          "thread_cpu_seconds": 0.323008761,
+          "completed_paths": 344064
+        },
+        {
+          "worker": 18,
+          "cpu": 26,
+          "tiles": 19,
+          "rays": 2378904,
+          "started_seconds": 0.004255823,
+          "finished_seconds": 0.321774165,
+          "thread_cpu_seconds": 0.317442627,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 19,
+          "cpu": 27,
+          "tiles": 21,
+          "rays": 2384475,
+          "started_seconds": 0.00437565,
+          "finished_seconds": 0.322361268,
+          "thread_cpu_seconds": 0.317904004,
+          "completed_paths": 344064
+        },
+        {
+          "worker": 20,
+          "cpu": 28,
+          "tiles": 19,
+          "rays": 2383848,
+          "started_seconds": 0.004390348,
+          "finished_seconds": 0.322269051,
+          "thread_cpu_seconds": 0.317870535,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 21,
+          "cpu": 29,
+          "tiles": 19,
+          "rays": 2380231,
+          "started_seconds": 0.004416342,
+          "finished_seconds": 0.32206314,
+          "thread_cpu_seconds": 0.317609792,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 22,
+          "cpu": 30,
+          "tiles": 20,
+          "rays": 2353845,
+          "started_seconds": 0.006232877,
+          "finished_seconds": 0.320203009,
+          "thread_cpu_seconds": 0.313875771,
+          "completed_paths": 327680
+        },
+        {
+          "worker": 23,
+          "cpu": 31,
+          "tiles": 24,
+          "rays": 2375113,
+          "started_seconds": 0.004450039,
+          "finished_seconds": 0.320784686,
+          "thread_cpu_seconds": 0.316326517,
+          "completed_paths": 393216
+        }
+      ]
+    },
+    {
+      "name": "32logical-std",
+      "perf_seconds": {
+        "duration_time": 0.282928218,
+        "user_time": 8.715128,
+        "system_time": 0.010009
+      },
+      "stats": {
+        "kernel": "rays",
+        "layout": "aos",
+        "runtime": "std",
+        "threads": 32,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 0.280101244,
+        "rays": 88965817,
+        "completed_paths": 13107200,
+        "paths_per_second": 46794508.3,
+        "ray_segments_per_second": 317620214,
+        "ray_slots": 89020640,
+        "batch_calls": 11127580
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "cpu": 0,
+          "tiles": 30,
+          "rays": 3222046,
+          "started_seconds": 9.8713e-05,
+          "finished_seconds": 0.273688262,
+          "thread_cpu_seconds": 0.247519305,
+          "completed_paths": 491520
+        },
+        {
+          "worker": 1,
+          "cpu": 1,
+          "tiles": 34,
+          "rays": 3605749,
+          "started_seconds": 0.000134443,
+          "finished_seconds": 0.274296009,
+          "thread_cpu_seconds": 0.273932584,
+          "completed_paths": 557056
+        },
+        {
+          "worker": 2,
+          "cpu": 2,
+          "tiles": 31,
+          "rays": 3569643,
+          "started_seconds": 0.000189988,
+          "finished_seconds": 0.274482372,
+          "thread_cpu_seconds": 0.274188424,
+          "completed_paths": 507904
+        },
+        {
+          "worker": 3,
+          "cpu": 3,
+          "tiles": 33,
+          "rays": 3572047,
+          "started_seconds": 0.000180877,
+          "finished_seconds": 0.274599694,
+          "thread_cpu_seconds": 0.274187707,
+          "completed_paths": 540672
+        },
+        {
+          "worker": 4,
+          "cpu": 4,
+          "tiles": 32,
+          "rays": 3550405,
+          "started_seconds": 0.000181538,
+          "finished_seconds": 0.27315157,
+          "thread_cpu_seconds": 0.27277106,
+          "completed_paths": 524288
+        },
+        {
+          "worker": 5,
+          "cpu": 5,
+          "tiles": 34,
+          "rays": 3572646,
+          "started_seconds": 0.000181698,
+          "finished_seconds": 0.274111077,
+          "thread_cpu_seconds": 0.273881886,
+          "completed_paths": 557056
+        },
+        {
+          "worker": 6,
+          "cpu": 6,
+          "tiles": 32,
+          "rays": 3569216,
+          "started_seconds": 0.000131097,
+          "finished_seconds": 0.274408218,
+          "thread_cpu_seconds": 0.273978827,
+          "completed_paths": 524288
+        },
+        {
+          "worker": 7,
+          "cpu": 7,
+          "tiles": 32,
+          "rays": 3558296,
+          "started_seconds": 0.000145519,
+          "finished_seconds": 0.273809257,
+          "thread_cpu_seconds": 0.273400211,
+          "completed_paths": 524288
+        },
+        {
+          "worker": 8,
+          "cpu": 8,
+          "tiles": 32,
+          "rays": 3553337,
+          "started_seconds": 0.000174194,
+          "finished_seconds": 0.273351573,
+          "thread_cpu_seconds": 0.273150109,
+          "completed_paths": 524288
+        },
+        {
+          "worker": 9,
+          "cpu": 9,
+          "tiles": 30,
+          "rays": 3543767,
+          "started_seconds": 0.000194015,
+          "finished_seconds": 0.273457375,
+          "thread_cpu_seconds": 0.272833688,
+          "completed_paths": 491520
+        },
+        {
+          "worker": 10,
+          "cpu": 10,
+          "tiles": 31,
+          "rays": 3564550,
+          "started_seconds": 0.000236777,
+          "finished_seconds": 0.273893685,
+          "thread_cpu_seconds": 0.273579002,
+          "completed_paths": 507904
+        },
+        {
+          "worker": 11,
+          "cpu": 11,
+          "tiles": 36,
+          "rays": 3559857,
+          "started_seconds": 0.000263336,
+          "finished_seconds": 0.273356463,
+          "thread_cpu_seconds": 0.2729892,
+          "completed_paths": 589824
+        },
+        {
+          "worker": 12,
+          "cpu": 12,
+          "tiles": 31,
+          "rays": 3568104,
+          "started_seconds": 0.000283925,
+          "finished_seconds": 0.274341652,
+          "thread_cpu_seconds": 0.273989485,
+          "completed_paths": 507904
+        },
+        {
+          "worker": 13,
+          "cpu": 13,
+          "tiles": 35,
+          "rays": 3566431,
+          "started_seconds": 0.000298536,
+          "finished_seconds": 0.274436408,
+          "thread_cpu_seconds": 0.273425928,
+          "completed_paths": 573440
+        },
+        {
+          "worker": 14,
+          "cpu": 14,
+          "tiles": 32,
+          "rays": 3560203,
+          "started_seconds": 0.000315489,
+          "finished_seconds": 0.273702791,
+          "thread_cpu_seconds": 0.273303688,
+          "completed_paths": 524288
+        },
+        {
+          "worker": 15,
+          "cpu": 15,
+          "tiles": 30,
+          "rays": 3549770,
+          "started_seconds": 0.000347614,
+          "finished_seconds": 0.273393835,
+          "thread_cpu_seconds": 0.272860182,
+          "completed_paths": 491520
+        },
+        {
+          "worker": 16,
+          "cpu": 16,
+          "tiles": 19,
+          "rays": 2070536,
+          "started_seconds": 0.000368976,
+          "finished_seconds": 0.279718162,
+          "thread_cpu_seconds": 0.279313881,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 17,
+          "cpu": 17,
+          "tiles": 20,
+          "rays": 2051331,
+          "started_seconds": 0.000387496,
+          "finished_seconds": 0.277394095,
+          "thread_cpu_seconds": 0.276609473,
+          "completed_paths": 327680
+        },
+        {
+          "worker": 18,
+          "cpu": 18,
+          "tiles": 19,
+          "rays": 2030094,
+          "started_seconds": 0.000420915,
+          "finished_seconds": 0.274607395,
+          "thread_cpu_seconds": 0.274123486,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 19,
+          "cpu": 19,
+          "tiles": 17,
+          "rays": 2022037,
+          "started_seconds": 0.000436936,
+          "finished_seconds": 0.273909802,
+          "thread_cpu_seconds": 0.273348843,
+          "completed_paths": 278528
+        },
+        {
+          "worker": 20,
+          "cpu": 20,
+          "tiles": 17,
+          "rays": 2016326,
+          "started_seconds": 0.000461321,
+          "finished_seconds": 0.273518944,
+          "thread_cpu_seconds": 0.272717816,
+          "completed_paths": 278528
+        },
+        {
+          "worker": 21,
+          "cpu": 21,
+          "tiles": 18,
+          "rays": 2026625,
+          "started_seconds": 0.000477455,
+          "finished_seconds": 0.274302975,
+          "thread_cpu_seconds": 0.273644089,
+          "completed_paths": 294912
+        },
+        {
+          "worker": 22,
+          "cpu": 22,
+          "tiles": 19,
+          "rays": 2020490,
+          "started_seconds": 0.000502372,
+          "finished_seconds": 0.273321675,
+          "thread_cpu_seconds": 0.272700933,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 23,
+          "cpu": 23,
+          "tiles": 19,
+          "rays": 2047607,
+          "started_seconds": 0.000516889,
+          "finished_seconds": 0.276860707,
+          "thread_cpu_seconds": 0.276307051,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 24,
+          "cpu": 24,
+          "tiles": 21,
+          "rays": 2027258,
+          "started_seconds": 0.000536245,
+          "finished_seconds": 0.273955347,
+          "thread_cpu_seconds": 0.273291264,
+          "completed_paths": 344064
+        },
+        {
+          "worker": 25,
+          "cpu": 25,
+          "tiles": 18,
+          "rays": 2011050,
+          "started_seconds": 0.003497386,
+          "finished_seconds": 0.275446061,
+          "thread_cpu_seconds": 0.271757689,
+          "completed_paths": 294912
+        },
+        {
+          "worker": 26,
+          "cpu": 26,
+          "tiles": 17,
+          "rays": 2014685,
+          "started_seconds": 0.003518092,
+          "finished_seconds": 0.276035442,
+          "thread_cpu_seconds": 0.272349104,
+          "completed_paths": 278528
+        },
+        {
+          "worker": 27,
+          "cpu": 27,
+          "tiles": 16,
+          "rays": 2033166,
+          "started_seconds": 0.003553508,
+          "finished_seconds": 0.278343735,
+          "thread_cpu_seconds": 0.274763522,
+          "completed_paths": 262144
+        },
+        {
+          "worker": 28,
+          "cpu": 28,
+          "tiles": 16,
+          "rays": 2026370,
+          "started_seconds": 0.00357369,
+          "finished_seconds": 0.277477957,
+          "thread_cpu_seconds": 0.273893454,
+          "completed_paths": 262144
+        },
+        {
+          "worker": 29,
+          "cpu": 29,
+          "tiles": 17,
+          "rays": 2010966,
+          "started_seconds": 0.00370001,
+          "finished_seconds": 0.276012893,
+          "thread_cpu_seconds": 0.27229082,
+          "completed_paths": 278528
+        },
+        {
+          "worker": 30,
+          "cpu": 30,
+          "tiles": 15,
+          "rays": 1864334,
+          "started_seconds": 0.006514175,
+          "finished_seconds": 0.277760147,
+          "thread_cpu_seconds": 0.261720833,
+          "completed_paths": 245760
+        },
+        {
+          "worker": 31,
+          "cpu": 31,
+          "tiles": 17,
+          "rays": 2006875,
+          "started_seconds": 0.00657296,
+          "finished_seconds": 0.277707149,
+          "thread_cpu_seconds": 0.271121881,
+          "completed_paths": 278528
+        }
+      ]
+    },
+    {
+      "name": "32logical-omp",
+      "perf_seconds": {
+        "duration_time": 0.28182816,
+        "user_time": 8.760883,
+        "system_time": 0.0049960000000000004
+      },
+      "stats": {
+        "kernel": "rays",
+        "layout": "aos",
+        "runtime": "omp",
+        "threads": 32,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 0.278402804,
+        "rays": 88965817,
+        "completed_paths": 13107200,
+        "paths_per_second": 47079985.6,
+        "ray_segments_per_second": 319557906,
+        "ray_slots": 89020640,
+        "batch_calls": 11127580
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "cpu": 0,
+          "tiles": 29,
+          "rays": 3508427,
+          "started_seconds": 0.000635148,
+          "finished_seconds": 0.278285312,
+          "thread_cpu_seconds": 0.268925789,
+          "completed_paths": 475136
+        },
+        {
+          "worker": 1,
+          "cpu": 1,
+          "tiles": 32,
+          "rays": 3559143,
+          "started_seconds": 0.000613504,
+          "finished_seconds": 0.2747024,
+          "thread_cpu_seconds": 0.273812972,
+          "completed_paths": 524288
+        },
+        {
+          "worker": 2,
+          "cpu": 2,
+          "tiles": 34,
+          "rays": 3548946,
+          "started_seconds": 0.000614263,
+          "finished_seconds": 0.274468654,
+          "thread_cpu_seconds": 0.273286103,
+          "completed_paths": 557056
+        },
+        {
+          "worker": 3,
+          "cpu": 3,
+          "tiles": 31,
+          "rays": 3536373,
+          "started_seconds": 0.000768199,
+          "finished_seconds": 0.274809626,
+          "thread_cpu_seconds": 0.272976399,
+          "completed_paths": 507904
+        },
+        {
+          "worker": 4,
+          "cpu": 4,
+          "tiles": 30,
+          "rays": 3546790,
+          "started_seconds": 0.000733067,
+          "finished_seconds": 0.275407041,
+          "thread_cpu_seconds": 0.273860305,
+          "completed_paths": 491520
+        },
+        {
+          "worker": 5,
+          "cpu": 5,
+          "tiles": 33,
+          "rays": 3550013,
+          "started_seconds": 0.00073766,
+          "finished_seconds": 0.275361533,
+          "thread_cpu_seconds": 0.273718088,
+          "completed_paths": 540672
+        },
+        {
+          "worker": 6,
+          "cpu": 6,
+          "tiles": 32,
+          "rays": 3541853,
+          "started_seconds": 0.000730884,
+          "finished_seconds": 0.274924765,
+          "thread_cpu_seconds": 0.273269356,
+          "completed_paths": 524288
+        },
+        {
+          "worker": 7,
+          "cpu": 7,
+          "tiles": 33,
+          "rays": 3545352,
+          "started_seconds": 0.00073696,
+          "finished_seconds": 0.27479253,
+          "thread_cpu_seconds": 0.273451919,
+          "completed_paths": 540672
+        },
+        {
+          "worker": 8,
+          "cpu": 8,
+          "tiles": 30,
+          "rays": 3543531,
+          "started_seconds": 0.000615032,
+          "finished_seconds": 0.275291142,
+          "thread_cpu_seconds": 0.273619217,
+          "completed_paths": 491520
+        },
+        {
+          "worker": 9,
+          "cpu": 9,
+          "tiles": 31,
+          "rays": 3547262,
+          "started_seconds": 0.00076807,
+          "finished_seconds": 0.275535161,
+          "thread_cpu_seconds": 0.273690507,
+          "completed_paths": 507904
+        },
+        {
+          "worker": 10,
+          "cpu": 10,
+          "tiles": 32,
+          "rays": 3550403,
+          "started_seconds": 0.000767267,
+          "finished_seconds": 0.275530513,
+          "thread_cpu_seconds": 0.273881975,
+          "completed_paths": 524288
+        },
+        {
+          "worker": 11,
+          "cpu": 11,
+          "tiles": 34,
+          "rays": 3554732,
+          "started_seconds": 0.000768491,
+          "finished_seconds": 0.275599056,
+          "thread_cpu_seconds": 0.27400477,
+          "completed_paths": 557056
+        },
+        {
+          "worker": 12,
+          "cpu": 12,
+          "tiles": 31,
+          "rays": 3547961,
+          "started_seconds": 0.000767745,
+          "finished_seconds": 0.275246085,
+          "thread_cpu_seconds": 0.273671166,
+          "completed_paths": 507904
+        },
+        {
+          "worker": 13,
+          "cpu": 13,
+          "tiles": 32,
+          "rays": 3562736,
+          "started_seconds": 0.000619366,
+          "finished_seconds": 0.275828451,
+          "thread_cpu_seconds": 0.274279824,
+          "completed_paths": 524288
+        },
+        {
+          "worker": 14,
+          "cpu": 14,
+          "tiles": 29,
+          "rays": 3535523,
+          "started_seconds": 0.000766369,
+          "finished_seconds": 0.27467329,
+          "thread_cpu_seconds": 0.273011617,
+          "completed_paths": 475136
+        },
+        {
+          "worker": 15,
+          "cpu": 15,
+          "tiles": 34,
+          "rays": 3547055,
+          "started_seconds": 0.000618622,
+          "finished_seconds": 0.274301476,
+          "thread_cpu_seconds": 0.273285624,
+          "completed_paths": 557056
+        },
+        {
+          "worker": 16,
+          "cpu": 16,
+          "tiles": 17,
+          "rays": 2012743,
+          "started_seconds": 0.0006199,
+          "finished_seconds": 0.274756836,
+          "thread_cpu_seconds": 0.273574607,
+          "completed_paths": 278528
+        },
+        {
+          "worker": 17,
+          "cpu": 17,
+          "tiles": 18,
+          "rays": 2020443,
+          "started_seconds": 0.000768377,
+          "finished_seconds": 0.276187583,
+          "thread_cpu_seconds": 0.274526566,
+          "completed_paths": 294912
+        },
+        {
+          "worker": 18,
+          "cpu": 18,
+          "tiles": 17,
+          "rays": 2033483,
+          "started_seconds": 0.000728613,
+          "finished_seconds": 0.278003124,
+          "thread_cpu_seconds": 0.276263842,
+          "completed_paths": 278528
+        },
+        {
+          "worker": 19,
+          "cpu": 19,
+          "tiles": 19,
+          "rays": 2036151,
+          "started_seconds": 0.000623125,
+          "finished_seconds": 0.277953288,
+          "thread_cpu_seconds": 0.276297605,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 20,
+          "cpu": 20,
+          "tiles": 19,
+          "rays": 2027727,
+          "started_seconds": 0.000728094,
+          "finished_seconds": 0.276659368,
+          "thread_cpu_seconds": 0.275226067,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 21,
+          "cpu": 21,
+          "tiles": 18,
+          "rays": 2023429,
+          "started_seconds": 0.000768507,
+          "finished_seconds": 0.276511579,
+          "thread_cpu_seconds": 0.274965005,
+          "completed_paths": 294912
+        },
+        {
+          "worker": 22,
+          "cpu": 22,
+          "tiles": 19,
+          "rays": 2010909,
+          "started_seconds": 0.00073291,
+          "finished_seconds": 0.274502799,
+          "thread_cpu_seconds": 0.273109839,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 23,
+          "cpu": 23,
+          "tiles": 21,
+          "rays": 2018047,
+          "started_seconds": 0.000768923,
+          "finished_seconds": 0.275445145,
+          "thread_cpu_seconds": 0.273901003,
+          "completed_paths": 344064
+        },
+        {
+          "worker": 24,
+          "cpu": 24,
+          "tiles": 16,
+          "rays": 1843810,
+          "started_seconds": 0.004399676,
+          "finished_seconds": 0.274537218,
+          "thread_cpu_seconds": 0.260573051,
+          "completed_paths": 262144
+        },
+        {
+          "worker": 25,
+          "cpu": 25,
+          "tiles": 16,
+          "rays": 2017367,
+          "started_seconds": 0.000729589,
+          "finished_seconds": 0.2761909,
+          "thread_cpu_seconds": 0.27441905,
+          "completed_paths": 262144
+        },
+        {
+          "worker": 26,
+          "cpu": 26,
+          "tiles": 17,
+          "rays": 2029346,
+          "started_seconds": 0.00063237,
+          "finished_seconds": 0.276777786,
+          "thread_cpu_seconds": 0.275811056,
+          "completed_paths": 278528
+        },
+        {
+          "worker": 27,
+          "cpu": 27,
+          "tiles": 19,
+          "rays": 2033225,
+          "started_seconds": 0.000632964,
+          "finished_seconds": 0.27689205,
+          "thread_cpu_seconds": 0.275884957,
+          "completed_paths": 311296
+        },
+        {
+          "worker": 28,
+          "cpu": 28,
+          "tiles": 21,
+          "rays": 2021762,
+          "started_seconds": 0.000633455,
+          "finished_seconds": 0.275181024,
+          "thread_cpu_seconds": 0.27425627,
+          "completed_paths": 344064
+        },
+        {
+          "worker": 29,
+          "cpu": 29,
+          "tiles": 20,
+          "rays": 2028247,
+          "started_seconds": 0.000634229,
+          "finished_seconds": 0.276191533,
+          "thread_cpu_seconds": 0.275106126,
+          "completed_paths": 327680
+        },
+        {
+          "worker": 30,
+          "cpu": 30,
+          "tiles": 17,
+          "rays": 2044595,
+          "started_seconds": 0.00063382,
+          "finished_seconds": 0.278233347,
+          "thread_cpu_seconds": 0.277585976,
+          "completed_paths": 278528
+        },
+        {
+          "worker": 31,
+          "cpu": 31,
+          "tiles": 19,
+          "rays": 2038433,
+          "started_seconds": 0.000635589,
+          "finished_seconds": 0.277597863,
+          "thread_cpu_seconds": 0.276539903,
+          "completed_paths": 311296
+        }
+      ]
+    }
+  ],
+  "full_image_checks": [
+    {
+      "binary": "pathtracer_simple",
+      "sha256": "50256920902f11ecb396aa5f5ea4d7c2ed63f20da504858ea7b1958932874d96",
+      "full_float_image_equal": true
+    },
+    {
+      "binary": "pathtracer_simple_strict",
+      "sha256": "7be83a5ed68a5160c31cfedc7ae650250b7d8e9906fa7926988c16de62bb4cab",
+      "full_float_image_equal": true
+    }
+  ]
+}

@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
     } catch (const std::exception& e) {
         std::cerr << e.what() << "\nUsage: " << argv[0]
                   << " [samples] [width] [output.hdr] [--kernel scalar|flat|rays]"
-                  << " [--threads N] [--cpus C0,C1,...] [--batch 1|2|4|8] [--layout aos|soa] [--raw] [--refill]\n";
+                  << " [--threads N] [--runtime std|omp] [--worker-report output.json] [--cpus C0,C1,...] [--batch 1|2|4|8] [--layout aos|soa] [--raw] [--refill]\n";
         return 1;
     }
 }

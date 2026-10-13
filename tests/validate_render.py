@@ -10,10 +10,10 @@ root = pathlib.Path(__file__).resolve().parent.parent
 out = root / 'build' / 'validation'
 out.mkdir(parents=True, exist_ok=True)
 
-def render(binary, kernel, batch=1, threads=1, layout='aos', samples=19, width=40, refill=False):
+def render(binary, kernel, batch=1, threads=1, layout='aos', samples=19, width=40, refill=False, runtime="std"):
     path = out / f'{binary}-{kernel}-{batch}-{threads}-{layout}.f32'
     command = [str(root / 'build' / binary), str(samples), str(width), str(path), '--raw',
-               '--kernel', kernel, '--batch', str(batch), '--threads', str(threads), '--layout', layout]
+               '--kernel', kernel, '--batch', str(batch), '--threads', str(threads), '--layout', layout, '--runtime', runtime]
     if refill: command.append('--refill')
     process = subprocess.run(command, cwd=root, capture_output=True, text=True, check=True)
     return path.read_bytes(), json.loads(process.stderr)
@@ -30,6 +30,10 @@ for kernel in ('scalar', 'flat', 'rays'):
             refilled, _ = render('pathtracer_simple_strict', kernel, batch, 3, layout, refill=True)
             assert refilled == reference, ('refill', kernel, batch, layout)
             checks += 1
+            for refill_mode in (False, True):
+                parallel, _ = render('pathtracer_simple_strict', kernel, batch, 3, layout, refill=refill_mode, runtime='omp')
+                assert parallel == reference, ('OpenMP', kernel, batch, layout, refill_mode)
+                checks += 1
 
 reference, stats = render('pathtracer_simple', 'scalar', samples=64, width=128)
 values = array.array('f', reference)

@@ -7,6 +7,11 @@
 #include <cstdio>
 #include <sstream>
 #include <iomanip>
+#include <fstream>
+#include <ctime>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 #include <thread>
 #include <type_traits>
 #ifdef __linux__
@@ -91,7 +96,7 @@ template<int B> struct PathsSoA {
 
 struct Options {
     int samples = samples_per_pixel, width = image_width, threads = 1, batch = 1;
-    std::string filename = "build/cornell_box.hdr", kernel = "flat", layout = "aos";
+    std::string filename = "build/cornell_box.hdr", kernel = "flat", layout = "aos", runtime = "std", worker_report;
     std::vector<int> cpus;
     bool raw = false, refill = false;
 };
@@ -107,6 +112,8 @@ Options parse_options(int argc, char** argv, std::string default_kernel) {
             return argv[i];
         };
         if (arg == "--threads") options.threads = std::stoi(value());
+        else if (arg == "--runtime") options.runtime = value();
+        else if (arg == "--worker-report") options.worker_report = value();
         else if (arg == "--batch") options.batch = std::stoi(value());
         else if (arg == "--kernel") options.kernel = value();
         else if (arg == "--layout") options.layout = value();
@@ -125,6 +132,10 @@ Options parse_options(int argc, char** argv, std::string default_kernel) {
         throw std::runtime_error("Samples, width and worker count must be positive (workers <= 1024)");
     if (options.batch != 1 && options.batch != 2 && options.batch != 4 && options.batch != 8)
         throw std::runtime_error("Batch must be 1, 2, 4 or 8");
+    if (options.runtime != "std" && options.runtime != "omp") throw std::runtime_error("Runtime must be std or omp");
+#ifndef _OPENMP
+    if (options.runtime == "omp") throw std::runtime_error("Build with -fopenmp to use OpenMP");
+#endif
     if (options.layout != "aos" && options.layout != "soa") throw std::runtime_error("Layout must be aos or soa");
     if (!options.cpus.empty() && int(options.cpus.size()) != options.threads)
         throw std::runtime_error("Provide one CPU for each worker");
@@ -138,7 +149,9 @@ template<class Scene> struct HasBatch<Scene, std::void_t<decltype(
                                                1, std::declval<typename Scene::Scratch&>()))>> : std::true_type {};
 
 struct alignas(64) Statistics {
-    std::uint64_t rays = 0, slots = 0, batches = 0;
+    std::uint64_t rays = 0, slots = 0, batches = 0, tiles = 0;
+    double started = 0, finished = 0, cpu_seconds = 0;
+    int actual_cpu = -1;
 #ifdef COUNT_WORK
     std::uint64_t triangle_tests = 0, box_tests = 0, fallback_queries = 0, vector_divides = 0;
 #endif
@@ -271,7 +284,16 @@ Statistics render_image(const Scene& scene, const Options& options, float* pixel
     std::atomic<int> next{0};
     std::atomic<bool> affinity_failed{false};
     std::vector<Statistics> statistics(options.threads);
+    auto launch = std::chrono::steady_clock::now();
+    bool report = !options.worker_report.empty();
     auto worker = [&](int id) {
+        timespec cpu_start{};
+        if (report) {
+            statistics[id].started = std::chrono::duration<double>(std::chrono::steady_clock::now() - launch).count();
+#ifdef __linux__
+            clock_gettime(CLOCK_THREAD_CPUTIME_ID, &cpu_start);
+#endif
+        }
 #ifdef __linux__
         if (!options.cpus.empty()) {
             cpu_set_t set;
@@ -283,11 +305,21 @@ Statistics render_image(const Scene& scene, const Options& options, float* pixel
         for (;;) {
             int tile = next.fetch_add(1, std::memory_order_relaxed);
             if (tile >= columns * rows) break;
+            if (report) ++statistics[id].tiles;
             int x0 = tile % columns * tile_width, y0 = tile / columns * tile_height;
             int x1 = std::min(x0 + tile_width, options.width), y1 = std::min(y0 + tile_height, options.width);
             if (options.refill) render_tile_refill<Scene, B, Storage>(scene, options, x0, y0, x1, y1, pixels, scratch, statistics[id]);
             else for (int y = y0; y < y1; ++y) for (int x = x0; x < x1; ++x)
                 render_pixel<Scene, B, Storage>(scene, options, x, y, pixels, scratch, statistics[id]);
+        }
+        if (report) {
+            statistics[id].finished = std::chrono::duration<double>(std::chrono::steady_clock::now() - launch).count();
+#ifdef __linux__
+            timespec cpu_end{};
+            clock_gettime(CLOCK_THREAD_CPUTIME_ID, &cpu_end);
+            statistics[id].cpu_seconds = (cpu_end.tv_sec - cpu_start.tv_sec) + (cpu_end.tv_nsec - cpu_start.tv_nsec) * 1e-9;
+            statistics[id].actual_cpu = sched_getcpu();
+#endif
         }
 #ifdef COUNT_WORK
         statistics[id].triangle_tests = scratch.triangle_tests;
@@ -296,13 +328,38 @@ Statistics render_image(const Scene& scene, const Options& options, float* pixel
         statistics[id].vector_divides = scratch.vector_divides;
 #endif
     };
-    if (options.threads == 1) worker(0);
+    if (options.runtime == "omp") {
+#ifdef _OPENMP
+        omp_set_dynamic(0);
+        std::atomic<bool> wrong_team{false};
+#pragma omp parallel num_threads(options.threads)
+        {
+            if (omp_get_num_threads() != options.threads) wrong_team = true;
+            worker(omp_get_thread_num());
+        }
+        if (wrong_team) throw std::runtime_error("OpenMP created fewer workers than requested");
+#endif
+    } else if (options.threads == 1) worker(0);
     else {
         std::vector<std::thread> workers;
         for (int i = 0; i < options.threads; ++i) workers.emplace_back(worker, i);
         for (auto& thread : workers) thread.join();
     }
     if (affinity_failed) throw std::runtime_error("CPU affinity failed");
+    if (report) {
+        std::ofstream output(options.worker_report);
+        if (!output) throw std::runtime_error("Cannot write worker report");
+        output << std::setprecision(9) << "[";
+        for (int id = 0; id < options.threads; ++id) {
+            const auto& r = statistics[id];
+            output << (id ? "," : "") << "{\"worker\":" << id << ",\"cpu\":" << r.actual_cpu
+                   << ",\"tiles\":" << r.tiles << ",\"rays\":" << r.rays
+                   << ",\"started_seconds\":" << r.started << ",\"finished_seconds\":" << r.finished
+                   << ",\"thread_cpu_seconds\":" << r.cpu_seconds << "}";
+        }
+        output << "]\n";
+        if (!output) throw std::runtime_error("Cannot write worker report");
+    }
     Statistics total;
     for (auto stats : statistics) {
         total.rays += stats.rays; total.slots += stats.slots; total.batches += stats.batches;
@@ -342,7 +399,7 @@ template<class Scene> int render_main(const Options& options) {
         throw std::runtime_error("Cannot write " + options.filename);
     auto completed_paths = std::uint64_t(options.width) * options.width * options.samples;
     std::cerr << std::setprecision(9) << "{\"kernel\":\"" << options.kernel << "\",\"layout\":\"" << options.layout
-              << "\",\"threads\":" << options.threads << ",\"batch\":" << options.batch
+              << "\",\"runtime\":\"" << options.runtime << "\",\"threads\":" << options.threads << ",\"batch\":" << options.batch
               << ",\"refill\":" << (options.refill ? "true" : "false") << ",\"render_seconds\":" << seconds << ",\"rays\":" << stats.rays
               << ",\"completed_paths\":" << completed_paths << ",\"paths_per_second\":" << completed_paths / seconds
               << ",\"ray_segments_per_second\":" << stats.rays / seconds

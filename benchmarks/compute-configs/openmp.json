@@ -1,0 +1,202 @@
+[
+  {
+    "name": "1P-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 1,
+    "cpus": "8",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "1P-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 1,
+    "cpus": "8",
+    "runtime": "omp",
+    "layout": "aos"
+  },
+  {
+    "name": "2P-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 2,
+    "cpus": "8,10",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "2P-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 2,
+    "cpus": "8,10",
+    "runtime": "omp",
+    "layout": "aos"
+  },
+  {
+    "name": "4P-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 4,
+    "cpus": "6,8,10,12",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "4P-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 4,
+    "cpus": "6,8,10,12",
+    "runtime": "omp",
+    "layout": "aos"
+  },
+  {
+    "name": "8P-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 8,
+    "cpus": "0,2,4,6,8,10,12,14",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "8P-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 8,
+    "cpus": "0,2,4,6,8,10,12,14",
+    "runtime": "omp",
+    "layout": "aos"
+  },
+  {
+    "name": "1E-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 1,
+    "cpus": "16",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "1E-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 1,
+    "cpus": "16",
+    "runtime": "omp",
+    "layout": "aos"
+  },
+  {
+    "name": "16E-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 16,
+    "cpus": "16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "16E-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 16,
+    "cpus": "16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+    "runtime": "omp",
+    "layout": "aos"
+  },
+  {
+    "name": "12physical-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 12,
+    "cpus": "0,2,4,6,8,10,12,14,16,17,18,19",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "12physical-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 12,
+    "cpus": "0,2,4,6,8,10,12,14,16,17,18,19",
+    "runtime": "omp",
+    "layout": "aos"
+  },
+  {
+    "name": "16physical-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 16,
+    "cpus": "0,2,4,6,8,10,12,14,16,17,18,19,20,21,22,23",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "16physical-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 16,
+    "cpus": "0,2,4,6,8,10,12,14,16,17,18,19,20,21,22,23",
+    "runtime": "omp",
+    "layout": "aos"
+  },
+  {
+    "name": "24physical-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 24,
+    "cpus": "0,2,4,6,8,10,12,14,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "24physical-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 24,
+    "cpus": "0,2,4,6,8,10,12,14,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+    "runtime": "omp",
+    "layout": "aos"
+  },
+  {
+    "name": "32logical-std",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 32,
+    "cpus": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+    "runtime": "std",
+    "layout": "aos"
+  },
+  {
+    "name": "32logical-omp",
+    "kernel": "rays",
+    "batch": 8,
+    "refill": true,
+    "threads": 32,
+    "cpus": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+    "runtime": "omp",
+    "layout": "aos"
+  }
+]

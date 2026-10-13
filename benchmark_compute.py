@@ -24,7 +24,7 @@ results = [[] for _ in configurations]
 def measure(config):
     command = [str(root / 'build' / config.get('binary', 'pathtracer_simple')),
                str(args.samples), str(args.width), str(root / 'build' / 'benchmark-compute.hdr')]
-    for key in ('kernel', 'batch', 'threads', 'layout', 'cpus'):
+    for key in ('kernel', 'batch', 'threads', 'layout', 'cpus', 'runtime'):
         if key in config: command += ['--' + key, str(config[key])]
     if config.get('refill'): command.append('--refill')
     start = time.perf_counter()

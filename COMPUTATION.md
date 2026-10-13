@@ -172,3 +172,6 @@ python3 benchmark_compute.py --matrix benchmarks/compute-configs/advanced.json -
 Use `--cpus` with one CPU ID per worker for exact affinity reproduction; the committed matrices include those mappings. `--batch 1|2|4|8`, `--layout aos|soa`, `--refill`, and `--raw` support the comparisons. Defaults use one worker, one ray and the flat kernel, keeping the simplest layout experiment accessible. The aggressive default is the culled kernel. Both new executables default to writing in `build/`.
 
 Raw measurements, numerical validation, source hashes and software workload counts are in `benchmarks/computation-*.json`. The driver reports render-only rates; `benchmark_compute.py` ranks whole-process wall rates and saves both. Historical benchmarks remain separately reproducible.
+
+The six-proposal source and measurements were committed as `c10b7a2`. The later
+OpenMP comparison and detailed linear-scaling analysis are in [SCALING.md](SCALING.md).

@@ -88,3 +88,9 @@ build verifies exact layout/scheduling equivalence. `--layout aos|soa`,
 `--batch 1|2|4|8`, `--cpus`, and `--raw` support comparisons. See
 [COMPUTATION.md](COMPUTATION.md) for all six proposals, numerical differences,
 whole-process paths/second, core scaling, and dataflow diagrams.
+
+Select `--runtime omp` for the OpenMP team or `--runtime std` for explicit
+threads. Both use the same tile queue and produce identical raw images.
+See [SCALING.md](SCALING.md) for the 1/2/4/8-P, 1/2/4/8/16-E, mixed-core and
+SMT comparisons, worker diagnostics and available perf timing events.
+`OMP_FLAGS` defaults to `-fopenmp`; set it empty for a std-only build.

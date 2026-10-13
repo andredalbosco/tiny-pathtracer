@@ -79,7 +79,8 @@ clean:
 
 # This pass uses one identical PCG stream per pixel/sample, with FMA isolated
 # from the strict builds used to test exact layout/scheduling equivalence.
-COMPUTE_FLAGS ?= -march=native -ffp-contract=fast -pthread
+OMP_FLAGS ?= -fopenmp
+COMPUTE_FLAGS ?= -march=native -ffp-contract=fast -pthread $(OMP_FLAGS)
 COMPUTE_HEADERS = renderer_common.h simple_kernels.h render_driver.h stb_image_write.h
 
 .PHONY: simple advanced render-simple render-advanced test-compute clean-compute
@@ -90,7 +91,7 @@ build/pathtracer_simple: pathtracer_simple.cpp $(COMPUTE_HEADERS) Makefile | bui
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 
 build/pathtracer_simple_strict: pathtracer_simple.cpp $(COMPUTE_HEADERS) Makefile | build
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $< $(LDFLAGS) $(LDLIBS) -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 
 build/pathtracer_advanced: pathtracer_advanced.cpp advanced_kernels.h renderer_common.h render_driver.h stb_image_write.h Makefile | build
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
@@ -99,7 +100,7 @@ build/pathtracer_advanced_work: pathtracer_advanced.cpp advanced_kernels.h rende
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) -DCOUNT_WORK $< $(LDFLAGS) $(LDLIBS) -o $@
 
 build/test_simple: tests/test_simple.cpp $(COMPUTE_HEADERS) Makefile | build
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $< $(LDFLAGS) $(LDLIBS) -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 
 build/test_advanced: tests/test_advanced.cpp advanced_kernels.h renderer_common.h stb_image_write.h Makefile | build
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
