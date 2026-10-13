@@ -1,0 +1,21 @@
+{
+  "source_sha256": "3c1ffa28461f51d66e220c583ed1d94c368f8385786f08604e643e74fcf02d4c",
+  "resolution": [
+    320,
+    320
+  ],
+  "spp": 1024,
+  "triangles": 36,
+  "mitsuba_version": "3.9.1",
+  "mitsuba_variant": "cuda_ad_rgb",
+  "mitsuba_seconds": 0.3252890110015869,
+  "display": "clamp then standard sRGB; no exposure or tone mapping",
+  "stb_commit": "2c980bb59875b0d32144a71867fbdebb2f77cd20",
+  "tracer_source_sha256": "d4528e9ee969ae203b331e01fb1c47f1fee8f99998e89798479cdc4ba7d77769",
+  "tiny_linear_max": 15.0,
+  "pbrt_max_bsdf_bounces": 23,
+  "tiny_max_surface_visits": 24,
+  "mitsuba_max_path_depth": 24,
+  "tiny_sampler": "uniform hemisphere; no NEE; no RR",
+  "references": "standard PBRT spectral path and Mitsuba RGB path (NEE and cosine BSDF sampling); Mitsuba RR disabled"
+}
