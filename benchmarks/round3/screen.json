@@ -1,0 +1,38 @@
+[
+  {
+    "batch": 8,
+    "threads": 1,
+    "cpus": "8",
+    "layout": "aos",
+    "refill": true,
+    "binary": "pass3-baseline",
+    "kernel": "rays"
+  },
+  {
+    "batch": 8,
+    "threads": 1,
+    "cpus": "8",
+    "layout": "aos",
+    "refill": true,
+    "binary": "pass3-buffer",
+    "kernel": "rays"
+  },
+  {
+    "batch": 8,
+    "threads": 1,
+    "cpus": "8",
+    "layout": "aos",
+    "refill": true,
+    "binary": "pass3-columns",
+    "kernel": "rays"
+  },
+  {
+    "batch": 8,
+    "threads": 1,
+    "cpus": "8",
+    "layout": "aos",
+    "refill": true,
+    "binary": "pass3-columns",
+    "kernel": "columns"
+  }
+]

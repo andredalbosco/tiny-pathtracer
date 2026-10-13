@@ -1,0 +1,15 @@
+--- a/render_driver.h
++++ b/render_driver.h
+@@ -40,6 +40,12 @@
+     float z = 2 * random.uniform() - 1;
+     float phi = 2 * M_PI * random.uniform();
+     float r = std::sqrt(std::max(0.0f, 1 - z * z));
++#if defined(ROUND3_SINCOS) && defined(__GLIBC__)
++    float sine, cosine;
++    __builtin_sincosf(phi, &sine, &cosine);
++    Float3 direction{r * cosine, r * sine, z};
++#else
+     Float3 direction{r * std::cos(phi), r * std::sin(phi), z};
++#endif
+     return dot(direction, normal) < 0 ? direction * -1 : direction;
+ }

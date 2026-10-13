@@ -40,7 +40,13 @@ Float3 sample_hemisphere(Float3 normal, Random& random) {
     float z = 2 * random.uniform() - 1;
     float phi = 2 * M_PI * random.uniform();
     float r = std::sqrt(std::max(0.0f, 1 - z * z));
+#if defined(__GLIBC__)
+    float sine, cosine;
+    __builtin_sincosf(phi, &sine, &cosine);
+    Float3 direction{r * cosine, r * sine, z};
+#else
     Float3 direction{r * std::cos(phi), r * std::sin(phi), z};
+#endif
     return dot(direction, normal) < 0 ? direction * -1 : direction;
 }
 
@@ -214,10 +220,10 @@ void render_pixel(const Scene& scene, const Options& options, int x, int y,
 // in the original order; completion order cannot change the image.
 template<class Scene, int B, template<int> class Storage>
 void render_tile_refill(const Scene& scene, const Options& options, int x0, int y0,
-                        int x1, int y1, float* pixels, typename Scene::Scratch& scratch, Statistics& stats) {
+                        int x1, int y1, float* pixels, std::vector<Float3>& results,
+                        typename Scene::Scratch& scratch, Statistics& stats) {
     int tile_width = x1 - x0;
     int jobs = tile_width * (y1 - y0) * options.samples;
-    std::vector<Float3> results(jobs);
     Storage<B> paths;
     std::array<int, B> job{}, depth{};
     int next_job = 0;
@@ -302,13 +308,14 @@ Statistics render_image(const Scene& scene, const Options& options, float* pixel
         }
 #endif
         typename Scene::Scratch scratch(scene.triangles.size());
+        std::vector<Float3> results(options.refill ? std::size_t(std::min(tile_width, options.width)) * std::min(tile_height, options.width) * options.samples : 0);
         for (;;) {
             int tile = next.fetch_add(1, std::memory_order_relaxed);
             if (tile >= columns * rows) break;
             if (report) ++statistics[id].tiles;
             int x0 = tile % columns * tile_width, y0 = tile / columns * tile_height;
             int x1 = std::min(x0 + tile_width, options.width), y1 = std::min(y0 + tile_height, options.width);
-            if (options.refill) render_tile_refill<Scene, B, Storage>(scene, options, x0, y0, x1, y1, pixels, scratch, statistics[id]);
+            if (options.refill) render_tile_refill<Scene, B, Storage>(scene, options, x0, y0, x1, y1, pixels, results, scratch, statistics[id]);
             else for (int y = y0; y < y1; ++y) for (int x = x0; x < x1; ++x)
                 render_pixel<Scene, B, Storage>(scene, options, x, y, pixels, scratch, statistics[id]);
         }

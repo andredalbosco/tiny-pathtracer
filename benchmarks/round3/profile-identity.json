@@ -1,0 +1,14 @@
+{
+  "baseline": {
+    "production_binary_sha256": "b440fea0c66b1af2e66a0601cc6aa49ad379d9e9e6d0ad07ff09b8c358fe0f53",
+    "profile_binary_sha256": "be47e02e87aee2e0a619323f734f7875b5f0ee0bd6fbf2569e68818132d005ea",
+    "text_sha256": "db9fdbc0747070f72764ece395b9ac54fe609be7619f0afaf3e009a6344cb707",
+    "identical": true
+  },
+  "pgo": {
+    "production_binary_sha256": "b3d22b57912b8a35f98fbeb1e6a9bdd132e0663ef2b1690f7d3eb70bababe49c",
+    "profile_binary_sha256": "7ce0bd9ed13af0bf52b4b59dd71d261d3219932159785727f5b18aa450f0704f",
+    "text_sha256": "9e0a58d03dfa1af647cf9fe0a3decff3065dce6fe4b78527c2961eeec752ebbf",
+    "identical": true
+  }
+}

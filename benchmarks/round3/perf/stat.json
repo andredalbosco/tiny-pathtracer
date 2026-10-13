@@ -1,0 +1,1967 @@
+{
+  "scope": "user hardware counts, observer root, renderer blacknoir; includes launcher, startup, tracing and output",
+  "configurations": [
+    {
+      "config": {
+        "binary": "pass3-baseline",
+        "cpu": 8,
+        "pmu": "cpu_core"
+      },
+      "runs": [
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-baseline-cpu_core-0.csv",
+            "-e",
+            "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "8",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-baseline",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "8"
+          ],
+          "wall_seconds": 3.9532517911866307,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 3.89097939,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 3368612.03,
+            "ray_segments_per_second": 22864633.3,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 23062232793.0,
+              "event": "cpu_core/cycles/u",
+              "unit": "",
+              "running_ns": "3904549996",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 58744302675.0,
+              "event": "cpu_core/instructions/u",
+              "unit": "",
+              "running_ns": "3904549996",
+              "running_percent": "99.00",
+              "extra": [
+                "2.55",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 12406830597.0,
+              "event": "cpu_core/ref-cycles/u",
+              "unit": "",
+              "running_ns": "3904549996",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 2501011686.0,
+              "event": "cpu_core/branch-instructions/u",
+              "unit": "",
+              "running_ns": "3904549996",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 103807139.0,
+              "event": "cpu_core/branch-misses/u",
+              "unit": "",
+              "running_ns": "3904549996",
+              "running_percent": "99.00",
+              "extra": [
+                "4.15",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-baseline-cpu_core-1.csv",
+            "-e",
+            "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "8",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-baseline",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "8"
+          ],
+          "wall_seconds": 3.885169706773013,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 3.86769548,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 3388891.42,
+            "ray_segments_per_second": 23002280.7,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 23043375507.0,
+              "event": "cpu_core/cycles/u",
+              "unit": "",
+              "running_ns": "3871005072",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 58721796692.0,
+              "event": "cpu_core/instructions/u",
+              "unit": "",
+              "running_ns": "3871005072",
+              "running_percent": "99.00",
+              "extra": [
+                "2.55",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 12315712773.0,
+              "event": "cpu_core/ref-cycles/u",
+              "unit": "",
+              "running_ns": "3871005072",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 2500053993.0,
+              "event": "cpu_core/branch-instructions/u",
+              "unit": "",
+              "running_ns": "3871005072",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 103769626.0,
+              "event": "cpu_core/branch-misses/u",
+              "unit": "",
+              "running_ns": "3871005072",
+              "running_percent": "99.00",
+              "extra": [
+                "4.15",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-baseline-cpu_core-2.csv",
+            "-e",
+            "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "8",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-baseline",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "8"
+          ],
+          "wall_seconds": 3.9169735619798303,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 3.90000792,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 3360813.69,
+            "ray_segments_per_second": 22811701.6,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 23075467041.0,
+              "event": "cpu_core/cycles/u",
+              "unit": "",
+              "running_ns": "3881539989",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 58721508645.0,
+              "event": "cpu_core/instructions/u",
+              "unit": "",
+              "running_ns": "3881539989",
+              "running_percent": "99.00",
+              "extra": [
+                "2.54",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 12343152922.0,
+              "event": "cpu_core/ref-cycles/u",
+              "unit": "",
+              "running_ns": "3881539989",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 2500042970.0,
+              "event": "cpu_core/branch-instructions/u",
+              "unit": "",
+              "running_ns": "3881539989",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 105126993.0,
+              "event": "cpu_core/branch-misses/u",
+              "unit": "",
+              "running_ns": "3881539989",
+              "running_percent": "99.00",
+              "extra": [
+                "4.21",
+                "of all branches"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "config": {
+        "binary": "pass3-simple",
+        "cpu": 8,
+        "pmu": "cpu_core"
+      },
+      "runs": [
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-simple-cpu_core-0.csv",
+            "-e",
+            "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "8",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-simple",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "8"
+          ],
+          "wall_seconds": 3.634081562049687,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 3.61645216,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 3624325.56,
+            "ray_segments_per_second": 24600302.5,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 21547582076.0,
+              "event": "cpu_core/cycles/u",
+              "unit": "",
+              "running_ns": "3619751779",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 57179890930.0,
+              "event": "cpu_core/instructions/u",
+              "unit": "",
+              "running_ns": "3619751779",
+              "running_percent": "99.00",
+              "extra": [
+                "2.65",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 11515808548.0,
+              "event": "cpu_core/ref-cycles/u",
+              "unit": "",
+              "running_ns": "3619751779",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1955464098.0,
+              "event": "cpu_core/branch-instructions/u",
+              "unit": "",
+              "running_ns": "3619751779",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 74706998.0,
+              "event": "cpu_core/branch-misses/u",
+              "unit": "",
+              "running_ns": "3619751779",
+              "running_percent": "99.00",
+              "extra": [
+                "3.82",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-simple-cpu_core-1.csv",
+            "-e",
+            "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "8",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-simple",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "8"
+          ],
+          "wall_seconds": 3.6369413947686553,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 3.61832308,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 3622451.54,
+            "ray_segments_per_second": 24587582.5,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 21529671559.0,
+              "event": "cpu_core/cycles/u",
+              "unit": "",
+              "running_ns": "3621569445",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 57179385541.0,
+              "event": "cpu_core/instructions/u",
+              "unit": "",
+              "running_ns": "3621569445",
+              "running_percent": "99.00",
+              "extra": [
+                "2.66",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 11521949715.0,
+              "event": "cpu_core/ref-cycles/u",
+              "unit": "",
+              "running_ns": "3621569445",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1955447149.0,
+              "event": "cpu_core/branch-instructions/u",
+              "unit": "",
+              "running_ns": "3621569445",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 74399902.0,
+              "event": "cpu_core/branch-misses/u",
+              "unit": "",
+              "running_ns": "3621569445",
+              "running_percent": "99.00",
+              "extra": [
+                "3.80",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-simple-cpu_core-2.csv",
+            "-e",
+            "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "8",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-simple",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "8"
+          ],
+          "wall_seconds": 3.6288185380399227,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 3.60996998,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 3630833.52,
+            "ray_segments_per_second": 24644475.6,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 21534700460.0,
+              "event": "cpu_core/cycles/u",
+              "unit": "",
+              "running_ns": "3613316246",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 57179658675.0,
+              "event": "cpu_core/instructions/u",
+              "unit": "",
+              "running_ns": "3613316246",
+              "running_percent": "99.00",
+              "extra": [
+                "2.66",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 11495525952.0,
+              "event": "cpu_core/ref-cycles/u",
+              "unit": "",
+              "running_ns": "3613316246",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1955456137.0,
+              "event": "cpu_core/branch-instructions/u",
+              "unit": "",
+              "running_ns": "3613316246",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 74389168.0,
+              "event": "cpu_core/branch-misses/u",
+              "unit": "",
+              "running_ns": "3613316246",
+              "running_percent": "99.00",
+              "extra": [
+                "3.80",
+                "of all branches"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "config": {
+        "binary": "pass3-final-pgo",
+        "cpu": 8,
+        "pmu": "cpu_core"
+      },
+      "runs": [
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-final-pgo-cpu_core-0.csv",
+            "-e",
+            "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "8",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-final-pgo",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "8"
+          ],
+          "wall_seconds": 3.36531630018726,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 3.34696273,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 3916147.58,
+            "ray_segments_per_second": 26581059.9,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 19912627613.0,
+              "event": "cpu_core/cycles/u",
+              "unit": "",
+              "running_ns": "3348950500",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 54533929712.0,
+              "event": "cpu_core/instructions/u",
+              "unit": "",
+              "running_ns": "3348950500",
+              "running_percent": "99.00",
+              "extra": [
+                "2.74",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 10654242673.0,
+              "event": "cpu_core/ref-cycles/u",
+              "unit": "",
+              "running_ns": "3348950500",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1551519657.0,
+              "event": "cpu_core/branch-instructions/u",
+              "unit": "",
+              "running_ns": "3348950500",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 80459569.0,
+              "event": "cpu_core/branch-misses/u",
+              "unit": "",
+              "running_ns": "3348950500",
+              "running_percent": "99.00",
+              "extra": [
+                "5.19",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-final-pgo-cpu_core-1.csv",
+            "-e",
+            "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "8",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-final-pgo",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "8"
+          ],
+          "wall_seconds": 3.3609644500538707,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 3.34237648,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 3921521.13,
+            "ray_segments_per_second": 26617533.2,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 19898050603.0,
+              "event": "cpu_core/cycles/u",
+              "unit": "",
+              "running_ns": "3345845997",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 54533979213.0,
+              "event": "cpu_core/instructions/u",
+              "unit": "",
+              "running_ns": "3345845997",
+              "running_percent": "99.00",
+              "extra": [
+                "2.74",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 10643523540.0,
+              "event": "cpu_core/ref-cycles/u",
+              "unit": "",
+              "running_ns": "3345845997",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1551521139.0,
+              "event": "cpu_core/branch-instructions/u",
+              "unit": "",
+              "running_ns": "3345845997",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 80532325.0,
+              "event": "cpu_core/branch-misses/u",
+              "unit": "",
+              "running_ns": "3345845997",
+              "running_percent": "99.00",
+              "extra": [
+                "5.19",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-final-pgo-cpu_core-2.csv",
+            "-e",
+            "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "8",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-final-pgo",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "8"
+          ],
+          "wall_seconds": 3.362644868902862,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 3.34487216,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 3918595.2,
+            "ray_segments_per_second": 26597673.3,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 19902072367.0,
+              "event": "cpu_core/cycles/u",
+              "unit": "",
+              "running_ns": "3348347839",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 54533917732.0,
+              "event": "cpu_core/instructions/u",
+              "unit": "",
+              "running_ns": "3348347839",
+              "running_percent": "99.00",
+              "extra": [
+                "2.74",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 10650576263.0,
+              "event": "cpu_core/ref-cycles/u",
+              "unit": "",
+              "running_ns": "3348347839",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1551519380.0,
+              "event": "cpu_core/branch-instructions/u",
+              "unit": "",
+              "running_ns": "3348347839",
+              "running_percent": "99.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 80726627.0,
+              "event": "cpu_core/branch-misses/u",
+              "unit": "",
+              "running_ns": "3348347839",
+              "running_percent": "99.00",
+              "extra": [
+                "5.20",
+                "of all branches"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "config": {
+        "binary": "pass3-baseline",
+        "cpu": 16,
+        "pmu": "cpu_atom"
+      },
+      "runs": [
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-baseline-cpu_atom-0.csv",
+            "-e",
+            "cpu_atom/cycles/u,cpu_atom/instructions/u,cpu_atom/ref-cycles/u,cpu_atom/branch-instructions/u,cpu_atom/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "16",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-baseline",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "16"
+          ],
+          "wall_seconds": 11.109094495885074,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 11.0889312,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 1182007.52,
+            "ray_segments_per_second": 8022938.89,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 49589746435.0,
+              "event": "cpu_atom/cycles/u",
+              "unit": "",
+              "running_ns": "11071555952",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 58717032839.0,
+              "event": "cpu_atom/instructions/u",
+              "unit": "",
+              "running_ns": "11071555952",
+              "running_percent": "100.00",
+              "extra": [
+                "1.18",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 35209900693.0,
+              "event": "cpu_atom/ref-cycles/u",
+              "unit": "",
+              "running_ns": "11071555952",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 2499904203.0,
+              "event": "cpu_atom/branch-instructions/u",
+              "unit": "",
+              "running_ns": "11071555952",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 112641953.0,
+              "event": "cpu_atom/branch-misses/u",
+              "unit": "",
+              "running_ns": "11071555952",
+              "running_percent": "100.00",
+              "extra": [
+                "4.51",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-baseline-cpu_atom-1.csv",
+            "-e",
+            "cpu_atom/cycles/u,cpu_atom/instructions/u,cpu_atom/ref-cycles/u,cpu_atom/branch-instructions/u,cpu_atom/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "16",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-baseline",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "16"
+          ],
+          "wall_seconds": 11.116743651218712,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 11.0944679,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 1181417.63,
+            "ray_segments_per_second": 8018935.02,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 49624998886.0,
+              "event": "cpu_atom/cycles/u",
+              "unit": "",
+              "running_ns": "11077039309",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 58717032836.0,
+              "event": "cpu_atom/instructions/u",
+              "unit": "",
+              "running_ns": "11077039309",
+              "running_percent": "100.00",
+              "extra": [
+                "1.18",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 35228615118.0,
+              "event": "cpu_atom/ref-cycles/u",
+              "unit": "",
+              "running_ns": "11077039309",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 2499904082.0,
+              "event": "cpu_atom/branch-instructions/u",
+              "unit": "",
+              "running_ns": "11077039309",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 112676456.0,
+              "event": "cpu_atom/branch-misses/u",
+              "unit": "",
+              "running_ns": "11077039309",
+              "running_percent": "100.00",
+              "extra": [
+                "4.51",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-baseline-cpu_atom-2.csv",
+            "-e",
+            "cpu_atom/cycles/u,cpu_atom/instructions/u,cpu_atom/ref-cycles/u,cpu_atom/branch-instructions/u,cpu_atom/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "16",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-baseline",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "16"
+          ],
+          "wall_seconds": 11.132565254811198,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 11.1113771,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 1179619.76,
+            "ray_segments_per_second": 8006731.85,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 49805345489.0,
+              "event": "cpu_atom/cycles/u",
+              "unit": "",
+              "running_ns": "11116629558",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 58717032408.0,
+              "event": "cpu_atom/instructions/u",
+              "unit": "",
+              "running_ns": "11116629558",
+              "running_percent": "100.00",
+              "extra": [
+                "1.18",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 35363668319.0,
+              "event": "cpu_atom/ref-cycles/u",
+              "unit": "",
+              "running_ns": "11116629558",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 2499903117.0,
+              "event": "cpu_atom/branch-instructions/u",
+              "unit": "",
+              "running_ns": "11116629558",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 112530527.0,
+              "event": "cpu_atom/branch-misses/u",
+              "unit": "",
+              "running_ns": "11116629558",
+              "running_percent": "100.00",
+              "extra": [
+                "4.50",
+                "of all branches"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "config": {
+        "binary": "pass3-simple",
+        "cpu": 16,
+        "pmu": "cpu_atom"
+      },
+      "runs": [
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-simple-cpu_atom-0.csv",
+            "-e",
+            "cpu_atom/cycles/u,cpu_atom/instructions/u,cpu_atom/ref-cycles/u,cpu_atom/branch-instructions/u,cpu_atom/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "16",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-simple",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "16"
+          ],
+          "wall_seconds": 10.908052973914891,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 10.8862781,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 1204011.13,
+            "ray_segments_per_second": 8172289.59,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 48799738659.0,
+              "event": "cpu_atom/cycles/u",
+              "unit": "",
+              "running_ns": "10889970200",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 57174633818.0,
+              "event": "cpu_atom/instructions/u",
+              "unit": "",
+              "running_ns": "10889970200",
+              "running_percent": "100.00",
+              "extra": [
+                "1.17",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 34642752978.0,
+              "event": "cpu_atom/ref-cycles/u",
+              "unit": "",
+              "running_ns": "10889970200",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1955338918.0,
+              "event": "cpu_atom/branch-instructions/u",
+              "unit": "",
+              "running_ns": "10889970200",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 78664576.0,
+              "event": "cpu_atom/branch-misses/u",
+              "unit": "",
+              "running_ns": "10889970200",
+              "running_percent": "100.00",
+              "extra": [
+                "4.02",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-simple-cpu_atom-1.csv",
+            "-e",
+            "cpu_atom/cycles/u,cpu_atom/instructions/u,cpu_atom/ref-cycles/u,cpu_atom/branch-instructions/u,cpu_atom/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "16",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-simple",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "16"
+          ],
+          "wall_seconds": 10.880473786965013,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 10.8595555,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 1206973.89,
+            "ray_segments_per_second": 8192399.48,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 48676541480.0,
+              "event": "cpu_atom/cycles/u",
+              "unit": "",
+              "running_ns": "10862945010",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 57174634570.0,
+              "event": "cpu_atom/instructions/u",
+              "unit": "",
+              "running_ns": "10862945010",
+              "running_percent": "100.00",
+              "extra": [
+                "1.17",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 34555291811.0,
+              "event": "cpu_atom/ref-cycles/u",
+              "unit": "",
+              "running_ns": "10862945010",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1955338958.0,
+              "event": "cpu_atom/branch-instructions/u",
+              "unit": "",
+              "running_ns": "10862945010",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 78356453.0,
+              "event": "cpu_atom/branch-misses/u",
+              "unit": "",
+              "running_ns": "10862945010",
+              "running_percent": "100.00",
+              "extra": [
+                "4.01",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-simple-cpu_atom-2.csv",
+            "-e",
+            "cpu_atom/cycles/u,cpu_atom/instructions/u,cpu_atom/ref-cycles/u,cpu_atom/branch-instructions/u,cpu_atom/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "16",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-simple",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "16"
+          ],
+          "wall_seconds": 10.8815066809766,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 10.8600884,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 1206914.67,
+            "ray_segments_per_second": 8191997.52,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 48688305345.0,
+              "event": "cpu_atom/cycles/u",
+              "unit": "",
+              "running_ns": "10864803478",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 57174634310.0,
+              "event": "cpu_atom/instructions/u",
+              "unit": "",
+              "running_ns": "10864803478",
+              "running_percent": "100.00",
+              "extra": [
+                "1.17",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 34563633892.0,
+              "event": "cpu_atom/ref-cycles/u",
+              "unit": "",
+              "running_ns": "10864803478",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1955338899.0,
+              "event": "cpu_atom/branch-instructions/u",
+              "unit": "",
+              "running_ns": "10864803478",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 78071999.0,
+              "event": "cpu_atom/branch-misses/u",
+              "unit": "",
+              "running_ns": "10864803478",
+              "running_percent": "100.00",
+              "extra": [
+                "3.99",
+                "of all branches"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "config": {
+        "binary": "pass3-final-pgo",
+        "cpu": 16,
+        "pmu": "cpu_atom"
+      },
+      "runs": [
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-final-pgo-cpu_atom-0.csv",
+            "-e",
+            "cpu_atom/cycles/u,cpu_atom/instructions/u,cpu_atom/ref-cycles/u,cpu_atom/branch-instructions/u,cpu_atom/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "16",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-final-pgo",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "16"
+          ],
+          "wall_seconds": 10.317985316738486,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 10.2968723,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 1272930.23,
+            "ray_segments_per_second": 8640081.65,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 46051209847.0,
+              "event": "cpu_atom/cycles/u",
+              "unit": "",
+              "running_ns": "10280061720",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 54528926426.0,
+              "event": "cpu_atom/instructions/u",
+              "unit": "",
+              "running_ns": "10280061720",
+              "running_percent": "100.00",
+              "extra": [
+                "1.18",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 32691593626.0,
+              "event": "cpu_atom/ref-cycles/u",
+              "unit": "",
+              "running_ns": "10280061720",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1551434119.0,
+              "event": "cpu_atom/branch-instructions/u",
+              "unit": "",
+              "running_ns": "10280061720",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 82308635.0,
+              "event": "cpu_atom/branch-misses/u",
+              "unit": "",
+              "running_ns": "10280061720",
+              "running_percent": "100.00",
+              "extra": [
+                "5.31",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-final-pgo-cpu_atom-1.csv",
+            "-e",
+            "cpu_atom/cycles/u,cpu_atom/instructions/u,cpu_atom/ref-cycles/u,cpu_atom/branch-instructions/u,cpu_atom/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "16",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-final-pgo",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "16"
+          ],
+          "wall_seconds": 10.294059405103326,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 10.2721965,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 1275988.06,
+            "ray_segments_per_second": 8660836.78,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 46051576459.0,
+              "event": "cpu_atom/cycles/u",
+              "unit": "",
+              "running_ns": "10277243451",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 54528926405.0,
+              "event": "cpu_atom/instructions/u",
+              "unit": "",
+              "running_ns": "10277243451",
+              "running_percent": "100.00",
+              "extra": [
+                "1.18",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 32691884541.0,
+              "event": "cpu_atom/ref-cycles/u",
+              "unit": "",
+              "running_ns": "10277243451",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1551433016.0,
+              "event": "cpu_atom/branch-instructions/u",
+              "unit": "",
+              "running_ns": "10277243451",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 82302769.0,
+              "event": "cpu_atom/branch-misses/u",
+              "unit": "",
+              "running_ns": "10277243451",
+              "running_percent": "100.00",
+              "extra": [
+                "5.30",
+                "of all branches"
+              ]
+            }
+          ]
+        },
+        {
+          "command": [
+            "sudo",
+            "-n",
+            "perf",
+            "stat",
+            "--no-big-num",
+            "-x,",
+            "-o",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/pass3-final-pgo-cpu_atom-2.csv",
+            "-e",
+            "cpu_atom/cycles/u,cpu_atom/instructions/u,cpu_atom/ref-cycles/u,cpu_atom/branch-instructions/u,cpu_atom/branch-misses/u",
+            "--",
+            "/usr/bin/taskset",
+            "-c",
+            "16",
+            "/usr/sbin/runuser",
+            "-u",
+            "blacknoir",
+            "--",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3-final-pgo",
+            "128",
+            "320",
+            "/home/blacknoir/Projects/tiny-pathtracer/build/pass3/perf/render.hdr",
+            "--kernel",
+            "rays",
+            "--batch",
+            "8",
+            "--refill",
+            "--cpus",
+            "16"
+          ],
+          "wall_seconds": 10.292097483295947,
+          "render": {
+            "kernel": "rays",
+            "layout": "aos",
+            "runtime": "std",
+            "threads": 1,
+            "batch": 8,
+            "refill": true,
+            "render_seconds": 10.2704932,
+            "rays": 88965817,
+            "completed_paths": 13107200,
+            "paths_per_second": 1276199.67,
+            "ray_segments_per_second": 8662273.12,
+            "ray_slots": 89020640,
+            "batch_calls": 11127580
+          },
+          "events": [
+            {
+              "value": 46044491354.0,
+              "event": "cpu_atom/cycles/u",
+              "unit": "",
+              "running_ns": "10275234885",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 54528927179.0,
+              "event": "cpu_atom/instructions/u",
+              "unit": "",
+              "running_ns": "10275234885",
+              "running_percent": "100.00",
+              "extra": [
+                "1.18",
+                "insn per cycle"
+              ]
+            },
+            {
+              "value": 32686803945.0,
+              "event": "cpu_atom/ref-cycles/u",
+              "unit": "",
+              "running_ns": "10275234885",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 1551433140.0,
+              "event": "cpu_atom/branch-instructions/u",
+              "unit": "",
+              "running_ns": "10275234885",
+              "running_percent": "100.00",
+              "extra": [
+                "",
+                ""
+              ]
+            },
+            {
+              "value": 82332515.0,
+              "event": "cpu_atom/branch-misses/u",
+              "unit": "",
+              "running_ns": "10275234885",
+              "running_percent": "100.00",
+              "extra": [
+                "5.31",
+                "of all branches"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

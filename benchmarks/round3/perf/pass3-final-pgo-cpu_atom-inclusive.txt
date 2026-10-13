@@ -1,0 +1,44 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 5K of event 'cpu_atom/cycles/u'
+# Event count (approx.): 45987026863
+#
+# Children      Self  Shared Object            Symbol                                                                                                                                                                                                                              IPC   [IPC Coverage]
+# ........  ........  .......................  ..................................................................................................................................................................................................................................  ....................
+#
+    99.99%     0.00%  libc.so.6                [.] __libc_start_call_main                                                                                                                                                                                                          -      -
+    99.99%     0.00%  pass3-final-pgo-profile  [.] _start                                                                                                                                                                                                                          -      -
+    99.99%     0.00%  pass3-final-pgo-profile  [.] main                                                                                                                                                                                                                            -      -
+    99.98%     0.00%  libc.so.6                [.] __libc_start_main_impl (inlined)                                                                                                                                                                                                -      -
+    99.97%    92.79%  pass3-final-pgo-profile  [.] render_image<RayScene, 8, PathsAoS>(RayScene const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const                                                                                                            -      -
+    99.97%     0.00%  pass3-final-pgo-profile  [.] Statistics dispatch_batch<RayScene, PathsAoS>(RayScene const&, Options const&, float*) (inlined)                                                                                                                                -      -
+    99.97%     0.00%  pass3-final-pgo-profile  [.] Statistics render_image<RayScene, 8, PathsAoS>(RayScene const&, Options const&, float*)                                                                                                                                         -      -
+    99.97%     0.00%  pass3-final-pgo-profile  [.] void render_tile_refill<RayScene, 8, PathsAoS>(RayScene const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, RayScene::Scratch&, Statistics&) (inlined)                           -      -
+    99.95%     0.00%  pass3-final-pgo-profile  [.] int render_main<RayScene>(Options const&) (inlined)                                                                                                                                                                             -      -
+    74.54%     0.00%  pass3-final-pgo-profile  [.] RayScene::intersect_batch(Ray const*, Hit*, int, EmptyScratch&) const (inlined)                                                                                                                                                 -      -
+    20.21%     0.00%  pass3-final-pgo-profile  [.] scatter(SceneData const&, Path&, Hit) (inlined)                                                                                                                                                                                 -      -
+    13.75%     0.00%  pass3-final-pgo-profile  [.] sample_hemisphere(Float3, Random&) (inlined)                                                                                                                                                                                    -      -
+    13.53%     0.00%  pass3-final-pgo-profile  [.] Float3::operator-(Float3) const (inlined)                                                                                                                                                                                       -      -
+     9.25%     0.00%  pass3-final-pgo-profile  [.] dot(Float3, Float3) (inlined)                                                                                                                                                                                                   -      -
+     7.26%     0.00%  pass3-final-pgo-profile  [.] cross(Float3, Float3) (inlined)                                                                                                                                                                                                 -      -
+     7.18%     7.18%  libm.so.6                [.] __sincosf_fma                                                                                                                                                                                                                   -      -
+     5.19%     0.00%  libm.so.6                [.] sincosf_poly (inlined)                                                                                                                                                                                                          -      -
+     3.53%     0.00%  pass3-final-pgo-profile  [.] Float3::operator+(Float3) const (inlined)                                                                                                                                                                                       -      -
+     2.70%     0.00%  pass3-final-pgo-profile  [.] render_tile_refill<RayScene, 8, PathsAoS>(RayScene const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, RayScene::Scratch&, Statistics&)::{lambda(int)#1}::operator()(int) const (inlined)  -      -
+     2.63%     0.00%  libm.so.6                [.] v2df_to_sf (inlined)                                                                                                                                                                                                            -      -
+     2.17%     0.00%  pass3-final-pgo-profile  [.] Float3::operator*(float) const (inlined)                                                                                                                                                                                        -      -
+     1.03%     0.00%  pass3-final-pgo-profile  [.] Random::uniform() (inlined)                                                                                                                                                                                                     -      -
+     0.92%     0.00%  pass3-final-pgo-profile  [.] normalize(Float3) (inlined)                                                                                                                                                                                                     -      -
+     0.64%     0.00%  pass3-final-pgo-profile  [.] std::sqrt(float) (inlined)                                                                                                                                                                                                      -      -
+     0.62%     0.00%  pass3-final-pgo-profile  [.] PathsAoS<8>::get(int) const (inlined)                                                                                                                                                                                           -      -
+     0.57%     0.00%  pass3-final-pgo-profile  [.] Random::next() (inlined)                                                                                                                                                                                                        -      -
+     0.53%     0.00%  pass3-final-pgo-profile  [.] Float3::operator*(Float3) const (inlined)                                                                                                                                                                                       -      -
+     0.51%     0.00%  pass3-final-pgo-profile  [.] Float3::operator*=(Float3) (inlined)                                                                                                                                                                                            -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

@@ -1,0 +1,29 @@
+[
+  {
+    "batch": 8,
+    "threads": 1,
+    "cpus": "8",
+    "layout": "aos",
+    "refill": true,
+    "kernel": "rays",
+    "binary": "pass3-baseline"
+  },
+  {
+    "batch": 8,
+    "threads": 1,
+    "cpus": "8",
+    "layout": "aos",
+    "refill": true,
+    "kernel": "rays",
+    "binary": "pass3-sincos"
+  },
+  {
+    "batch": 8,
+    "threads": 1,
+    "cpus": "8",
+    "layout": "aos",
+    "refill": true,
+    "kernel": "rays",
+    "binary": "pass3-pgo"
+  }
+]

@@ -1,0 +1,31 @@
+--- a/render_driver.h
++++ b/render_driver.h
+@@ -214,10 +214,10 @@
+ // in the original order; completion order cannot change the image.
+ template<class Scene, int B, template<int> class Storage>
+ void render_tile_refill(const Scene& scene, const Options& options, int x0, int y0,
+-                        int x1, int y1, float* pixels, typename Scene::Scratch& scratch, Statistics& stats) {
++                        int x1, int y1, float* pixels, std::vector<Float3>& results,
++                        typename Scene::Scratch& scratch, Statistics& stats) {
+     int tile_width = x1 - x0;
+     int jobs = tile_width * (y1 - y0) * options.samples;
+-    std::vector<Float3> results(jobs);
+     Storage<B> paths;
+     std::array<int, B> job{}, depth{};
+     int next_job = 0;
+@@ -302,13 +302,14 @@
+         }
+ #endif
+         typename Scene::Scratch scratch(scene.triangles.size());
++        std::vector<Float3> results(options.refill ? std::size_t(tile_width) * tile_height * options.samples : 0);
+         for (;;) {
+             int tile = next.fetch_add(1, std::memory_order_relaxed);
+             if (tile >= columns * rows) break;
+             if (report) ++statistics[id].tiles;
+             int x0 = tile % columns * tile_width, y0 = tile / columns * tile_height;
+             int x1 = std::min(x0 + tile_width, options.width), y1 = std::min(y0 + tile_height, options.width);
+-            if (options.refill) render_tile_refill<Scene, B, Storage>(scene, options, x0, y0, x1, y1, pixels, scratch, statistics[id]);
++            if (options.refill) render_tile_refill<Scene, B, Storage>(scene, options, x0, y0, x1, y1, pixels, results, scratch, statistics[id]);
+             else for (int y = y0; y < y1; ++y) for (int x = x0; x < x1; ++x)
+                 render_pixel<Scene, B, Storage>(scene, options, x, y, pixels, scratch, statistics[id]);
+         }

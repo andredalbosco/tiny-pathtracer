@@ -31,6 +31,7 @@ def measure(config):
     run = subprocess.run(command, cwd=root, capture_output=True, text=True, check=True)
     stats = json.loads(run.stderr)
     stats['wall_seconds'] = time.perf_counter() - start
+    stats['output_sha256'] = hashlib.sha256((root / 'build' / 'benchmark-compute.hdr').read_bytes()).hexdigest()
     return stats
 
 for config in configurations:
@@ -45,6 +46,7 @@ for repetition in range(args.runs):
 report = dict(width=args.width, samples=args.samples, runs=args.runs, timing_scope='render includes worker creation and tile/sample buffers; excludes scene preparation, image allocation, HDR writing', machine=platform.platform(), source_sha256=sources, configurations=[])
 for config, runs in zip(configurations, results):
     report['configurations'].append(dict(config=config, runs=runs,
+        binary_sha256=hashlib.sha256((root / 'build' / config.get('binary','pathtracer_simple')).read_bytes()).hexdigest(),
         median_render_seconds=statistics.median(r['render_seconds'] for r in runs),
         median_wall_seconds=statistics.median(r['wall_seconds'] for r in runs),
         median_paths_per_second=args.width**2 * args.samples / statistics.median(r['wall_seconds'] for r in runs),

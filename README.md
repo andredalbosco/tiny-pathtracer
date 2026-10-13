@@ -98,3 +98,16 @@ SMT comparisons, worker diagnostics and available perf timing events.
 Hardware counters, cycle samples, memory-controller traffic, and frequency evidence
 are in [PERF.md](PERF.md). [TALKS.md](TALKS.md) connects twelve additional
 transcript-backed talks to three simple and three more aggressive next experiments.
+
+The next optimization round reuses one result buffer per worker and combines
+sine/cosine evaluation on GNU libc, retaining the original intersection loop.
+`make pgo` builds `build/pathtracer_simple_pgo` with GCC profile feedback:
+
+```sh
+make pgo
+./build/pathtracer_simple_pgo 128 320 build/pgo.hdr --kernel rays --batch 8 --refill --threads 32
+```
+
+See [ROUND3.md](ROUND3.md) for the new comparisons, strict numerical parity,
+fresh perf interpretation, and the rejected column-interface experiment.
+`make test-sincos` checks all possible sampler angles on GNU libc.

@@ -83,9 +83,19 @@ OMP_FLAGS ?= -fopenmp
 COMPUTE_FLAGS ?= -march=native -ffp-contract=fast -pthread $(OMP_FLAGS)
 COMPUTE_HEADERS = renderer_common.h simple_kernels.h render_driver.h stb_image_write.h
 
-.PHONY: simple advanced render-simple render-advanced test-compute clean-compute
+.PHONY: simple advanced pgo render-simple render-advanced test-compute test-sincos clean-compute
 simple: build/pathtracer_simple
 advanced: build/pathtracer_advanced
+pgo: build/pathtracer_simple_pgo
+
+build/pathtracer_simple_pgo: pathtracer_simple.cpp $(COMPUTE_HEADERS) Makefile benchmarks/build_pgo.py | build
+	python3 benchmarks/build_pgo.py --cxx "$(CXX)" --flags "$(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS)"
+
+build/test_sincos: tests/test_sincos.cpp Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(ARCH_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+test-sincos: build/test_sincos
+	./build/test_sincos
 
 build/pathtracer_simple: pathtracer_simple.cpp $(COMPUTE_HEADERS) Makefile | build
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
@@ -118,3 +128,4 @@ test-compute: build/test_simple build/test_advanced build/pathtracer_simple buil
 
 clean-compute:
 	rm -f build/pathtracer_simple build/pathtracer_simple_strict build/pathtracer_advanced build/pathtracer_advanced_work build/test_simple build/test_advanced
+	rm -f build/pathtracer_simple_pgo build/test_sincos
