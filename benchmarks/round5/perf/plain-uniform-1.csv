@@ -1,0 +1,7 @@
+# started on Wed Oct 14 00:25:10 2026
+
+23280793597,,cpu_core/cycles/u,3921534586,99.00,,
+60727167404,,cpu_core/instructions/u,3921534586,99.00,2.61,insn per cycle
+12476565855,,cpu_core/ref-cycles/u,3921534586,99.00,,
+1709043074,,cpu_core/branch-instructions/u,3921534586,99.00,,
+70933126,,cpu_core/branch-misses/u,3921534586,99.00,4.15,of all branches

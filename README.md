@@ -1,5 +1,16 @@
 # Tiny path tracer
 
+For the STL-free implementation, use `pathtracer_plain.cpp`. It uses C arrays,
+C allocation/I/O and OpenMP, with the same sampling computation. The new
+[general Astra analysis and plain-buffer comparison](ROUND5.md) covers CPU
+throughput, sampling quality, six proposals and measured performance.
+
+```sh
+make plain
+./build/pathtracer_plain 128 320 build/plain.hdr --threads 32
+```
+
+
 The latest sampling experiment adds cosine continuation, direct light sampling
 (NEE), and optional MIS, while retaining the Cornell scene and 24 surface visits.
 NEE gives about 10× better full-image error per second in the measured case.

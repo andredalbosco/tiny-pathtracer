@@ -1,0 +1,15 @@
+{
+  "source_sha256": "a7ffbbc2790f2cb847ee96224f3cdf6f8b5fdf18b8123b7678d040a95dc382ef",
+  "measured_source_sha256": "eb6ab6ffdc40b1bf3ffb4d3b3690cf8f8a6443a3c366e674dc66277ee0b20ef8",
+  "measured_text_sha256": "09920f14790dd55ceddff94781affd6c1f259d1b94042ea6c2d49d7169e723d0",
+  "delivery_text_sha256": "09920f14790dd55ceddff94781affd6c1f259d1b94042ea6c2d49d7169e723d0",
+  "binary_sha256": "eb91a325059140c8be118cd2c14585b9963a641ccd6bbe7d051458f1e563b8cb",
+  "strict_binary_sha256": "141d246cc96a195bd51f08bfd50094f14d48149bc7bbf5d5a68c79b61b7d76e9",
+  "checks": [
+    "60 strict image and work-count comparisons",
+    "full320x320x128 NEE strict image equality",
+    "NEE and MIS ASan/UBSan with4workers andpartialtiles",
+    "production text equals measured text",
+    "ldd:libc/libm/libgomp;no libstdc++"
+  ]
+}
