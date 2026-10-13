@@ -1,0 +1,7 @@
+# started on Tue Oct 13 23:47:11 2026
+
+46109915148,,cpu_atom/cycles/u,10289866727,100.00,,
+54528925757,,cpu_atom/instructions/u,10289866727,100.00,1.18,insn per cycle
+32733255061,,cpu_atom/ref-cycles/u,10289866727,100.00,,
+1551432854,,cpu_atom/branch-instructions/u,10289866727,100.00,,
+82297240,,cpu_atom/branch-misses/u,10289866727,100.00,5.30,of all branches

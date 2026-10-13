@@ -1,0 +1,25 @@
+{
+  "binaries": {
+    "pathtracer_quality": "2cbb26df11fc29cc8480c7dc04830f95ea9961291981715191a69efae2e268a2",
+    "pathtracer_quality_xoroshiro_pp": "7848c383f32cfb707de6df8b0eec312514bd9795b66b2d86c3a38c148862cb6a",
+    "pathtracer_quality_xoroshiro_ss": "0f6bfe5d0ab71f4dfcf7c781afe97bb962aa6debe185df17e04a2b53d0302a08",
+    "pathtracer_explore": "6e262b620123a1dde1ddd7721d22a073b227883cb9fc0d059402daa6f73440d0",
+    "pathtracer_simple": "0e6399010f805d97c9e22a9c2102a89fe771141f40f18822399656c8e844af40"
+  },
+  "checks": [
+    "make test-quality test-rng test-compute passed",
+    "make test-explore passed before RNG extension; standalone corpus also passed",
+    "20 strict sampling schedule comparisons passed",
+    "2 strict any/nearest visibility comparisons passed",
+    "12 generator runtime/layout comparisons passed"
+  ],
+  "source_sha256": {
+    "render_driver.h": "9e2d50e10ef1c97882acd87a0d78110f361e2e653b51709ea14d22ca00cb510b",
+    "quality_sampling.h": "c538a49a058a6af8f639892988bb343c76361d62b43c1b2f14c10a3c1a6a3280",
+    "experimental_kernels.h": "7aa6d165b92ab59ee0b7f32eec9a8b25deab1f248e76b253b6fcb6286026303b",
+    "pathtracer_quality.cpp": "fb676bb2e40f7095b1d60551f77404fdfb5c8a2ac241314e1985a6c0d10d5822",
+    "pathtracer_explore.cpp": "7056b8ab1450aa233f7be8d9cf5bf965fc1c3b97296734b4e21798c1363cecb0",
+    "renderer_common.h": "670941f48d733267162ccf530b3f889ef4b9c056f14085014636c39c8e487c34",
+    "simple_kernels.h": "beea7815451bacea2b359a41fb624ec26235c2762b78464f988f7de7feefcecc"
+  }
+}

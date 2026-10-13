@@ -1,0 +1,154 @@
+{
+  "compiler": "c++ (Ubuntu 15.2.0-4ubuntu4) 15.2.0",
+  "generate": [
+    "c++",
+    "-isystem",
+    ".",
+    "-O3",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-march=native",
+    "-ffp-contract=fast",
+    "-pthread",
+    "-fopenmp",
+    "pathtracer_explore.cpp",
+    "-o",
+    "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-numerator-pgo",
+    "-fprofile-generate=/home/blacknoir/Projects/tiny-pathtracer/build/pass4-numerator-pgo-profile-125egl42",
+    "-fprofile-update=atomic"
+  ],
+  "use": [
+    "c++",
+    "-isystem",
+    ".",
+    "-O3",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-march=native",
+    "-ffp-contract=fast",
+    "-pthread",
+    "-fopenmp",
+    "pathtracer_explore.cpp",
+    "-o",
+    "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-numerator-pgo",
+    "-fprofile-use=/home/blacknoir/Projects/tiny-pathtracer/build/pass4-numerator-pgo-profile-125egl42",
+    "-Werror=missing-profile",
+    "-Werror=coverage-mismatch"
+  ],
+  "training": [
+    {
+      "command": [
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-numerator-pgo",
+        "128",
+        "320",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pgo-training.hdr",
+        "--kernel",
+        "numerator",
+        "--batch",
+        "8",
+        "--refill",
+        "--threads",
+        "1",
+        "--runtime",
+        "std",
+        "--cpus",
+        "8"
+      ],
+      "statistics": {
+        "kernel": "numerator",
+        "layout": "aos",
+        "runtime": "std",
+        "threads": 1,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 19.3399011,
+        "rays": 88965769,
+        "completed_paths": 13107200,
+        "paths_per_second": 677728.387,
+        "ray_segments_per_second": 4600114.98,
+        "ray_slots": 89020576,
+        "batch_calls": 11127572
+      }
+    },
+    {
+      "command": [
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-numerator-pgo",
+        "8",
+        "32",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pgo-training.hdr",
+        "--kernel",
+        "numerator",
+        "--batch",
+        "8",
+        "--refill",
+        "--threads",
+        "32",
+        "--runtime",
+        "std"
+      ],
+      "statistics": {
+        "kernel": "numerator",
+        "layout": "aos",
+        "runtime": "std",
+        "threads": 32,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 0.030236932,
+        "rays": 55346,
+        "completed_paths": 8192,
+        "paths_per_second": 270926.958,
+        "ray_segments_per_second": 1830410.57,
+        "ray_slots": 56040,
+        "batch_calls": 7005
+      }
+    },
+    {
+      "command": [
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-numerator-pgo",
+        "8",
+        "32",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pgo-training.hdr",
+        "--kernel",
+        "numerator",
+        "--batch",
+        "8",
+        "--refill",
+        "--threads",
+        "32",
+        "--runtime",
+        "omp"
+      ],
+      "statistics": {
+        "kernel": "numerator",
+        "layout": "aos",
+        "runtime": "omp",
+        "threads": 32,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 0.024589893,
+        "rays": 55346,
+        "completed_paths": 8192,
+        "paths_per_second": 333145.004,
+        "ray_segments_per_second": 2250762.13,
+        "ray_slots": 56040,
+        "batch_calls": 7005
+      }
+    }
+  ],
+  "diagnostics": "",
+  "source_sha256": {
+    "experimental_kernels.h": "7aa6d165b92ab59ee0b7f32eec9a8b25deab1f248e76b253b6fcb6286026303b",
+    "pathtracer_explore.cpp": "7056b8ab1450aa233f7be8d9cf5bf965fc1c3b97296734b4e21798c1363cecb0",
+    "renderer_common.h": "670941f48d733267162ccf530b3f889ef4b9c056f14085014636c39c8e487c34",
+    "simple_kernels.h": "beea7815451bacea2b359a41fb624ec26235c2762b78464f988f7de7feefcecc",
+    "render_driver.h": "09b3035388fa3c45e628ae8fb31c7abdc1c4f1fd0d97cc0e96534ecb062aa7f9"
+  },
+  "binary_sha256": "d14fb3fef3734c8692ce3f61c9142d6905a878680877d2b2a10ab7195c0d81fd",
+  "profiles": {
+    "pass4-numerator-pgo-profile-125egl42/home/blacknoir/Projects/tiny-pathtracer/build/pass4-numerator-pgo-pathtracer_explore.gcda": "4b6e6fa347480504205a653f5a2a0bbefb2a484b47ea73e5189a8f58ce01b485"
+  }
+}

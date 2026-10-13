@@ -22,16 +22,62 @@
 // See licenses/PCG-NOTICE and licenses/Apache-2.0.txt.
 struct Random {
     std::uint64_t state = 0, increment = 1;
+    static constexpr const char* name() {
+#if defined(RNG_XOROSHIRO128PP)
+        return "xoroshiro128++";
+#elif defined(RNG_XOROSHIRO128SS)
+        return "xoroshiro128**";
+#else
+        return "pcg32";
+#endif
+    }
+#if defined(RNG_XOROSHIRO128PP) || defined(RNG_XOROSHIRO128SS)
+    // Blackman/Vigna xoroshiro128++ 1.0 and SplitMix64; public domain.
+    // increment is the second state word in this optional build, retaining
+    // the existing 16-byte AoS/SoA storage interface. See licenses/XOROSHIRO-NOTICE.
+    static std::uint64_t rotate(std::uint64_t x, int k) { return (x<<k)|(x>>(64-k)); }
+    static std::uint64_t mix(std::uint64_t x) {
+        x=(x^(x>>30))*0xbf58476d1ce4e5b9ULL;
+        x=(x^(x>>27))*0x94d049bb133111ebULL;
+        return x^(x>>31);
+    }
+    static std::uint64_t seed_key(std::uint64_t seed) { return mix(seed^0xd1b54a32d192ed03ULL); }
+#else
+    static std::uint64_t seed_key(std::uint64_t seed) { return seed; }
+#endif
     std::uint32_t next() {
+#if defined(RNG_XOROSHIRO128PP) || defined(RNG_XOROSHIRO128SS)
+        auto first=state, second=increment;
+#ifdef RNG_XOROSHIRO128PP
+        auto result=rotate(first+second,17)+first;
+        second^=first;
+        state=rotate(first,49)^second^(second<<21);
+        increment=rotate(second,28);
+#else
+        auto result=rotate(first*5,7)*9;
+        second^=first;
+        state=rotate(first,24)^second^(second<<16);
+        increment=rotate(second,37);
+#endif
+        return std::uint32_t(result>>32);
+#else
         auto previous = state;
         state = previous * 6364136223846793005ULL + increment;
         auto bits = std::uint32_t(((previous >> 18) ^ previous) >> 27);
         auto rotation = std::uint32_t(previous >> 59);
         return (bits >> rotation) | (bits << ((-rotation) & 31));
+#endif
     }
     void seed(std::uint64_t value, std::uint64_t stream) {
+#if defined(RNG_XOROSHIRO128PP) || defined(RNG_XOROSHIRO128SS)
+        auto key=value^stream;
+        state=mix(key+0x9e3779b97f4a7c15ULL);
+        increment=mix(key+2*0x9e3779b97f4a7c15ULL);
+        // Consecutive SplitMix inputs are distinct; their pair cannot be zero.
+#else
         state = 0; increment = (stream << 1) | 1;
         next(); state += value; next();
+#endif
     }
     float uniform() { return float(next() >> 8) * 0x1p-24f; }
 };
@@ -101,10 +147,12 @@ template<int B> struct PathsSoA {
 };
 
 struct Options {
+    std::uint64_t seed = 42;
+    std::uint64_t random_seed = Random::seed_key(42);
     int samples = samples_per_pixel, width = image_width, threads = 1, batch = 1;
     std::string filename = "build/cornell_box.hdr", kernel = "flat", layout = "aos", runtime = "std", worker_report;
     std::vector<int> cpus;
-    bool raw = false, refill = false;
+    bool raw = false, refill = false, any_hit = true;
 };
 
 Options parse_options(int argc, char** argv, std::string default_kernel) {
@@ -118,6 +166,12 @@ Options parse_options(int argc, char** argv, std::string default_kernel) {
             return argv[i];
         };
         if (arg == "--threads") options.threads = std::stoi(value());
+        else if (arg == "--seed") options.seed = std::stoull(value());
+        else if (arg == "--visibility") {
+            std::string mode=value();
+            if (mode != "any" && mode != "nearest") throw std::runtime_error("Visibility must be any or nearest");
+            options.any_hit=mode=="any";
+        }
         else if (arg == "--runtime") options.runtime = value();
         else if (arg == "--worker-report") options.worker_report = value();
         else if (arg == "--batch") options.batch = std::stoi(value());
@@ -146,6 +200,7 @@ Options parse_options(int argc, char** argv, std::string default_kernel) {
     if (!options.cpus.empty() && int(options.cpus.size()) != options.threads)
         throw std::runtime_error("Provide one CPU for each worker");
     for (int cpu : options.cpus) if (cpu < 0 || cpu >= 1024) throw std::runtime_error("Invalid CPU");
+    options.random_seed=Random::seed_key(options.seed);
     return options;
 }
 
@@ -153,6 +208,18 @@ template<class Scene, class = void> struct HasBatch : std::false_type {};
 template<class Scene> struct HasBatch<Scene, std::void_t<decltype(
     std::declval<const Scene&>().intersect_batch((const Ray*)nullptr, (Hit*)nullptr,
                                                1, std::declval<typename Scene::Scratch&>()))>> : std::true_type {};
+
+template<class Scene, class = void> struct HasSampling : std::false_type {};
+template<class Scene> struct HasSampling<Scene, std::void_t<decltype(
+    std::declval<const Scene&>().scatter(std::declval<Path&>(), Hit{}, 0, 0,
+                                       std::declval<typename Scene::Scratch&>()))>> : std::true_type {};
+
+template<class Scene>
+void scatter_path(const Scene& scene, Path& path, Hit hit, int depth, int lane,
+                  typename Scene::Scratch& scratch) {
+    if constexpr (HasSampling<Scene>::value) scene.scatter(path, hit, depth, lane, scratch);
+    else scatter(scene, path, hit);
+}
 
 struct alignas(64) Statistics {
     std::uint64_t rays = 0, slots = 0, batches = 0, tiles = 0;
@@ -178,7 +245,7 @@ void render_pixel(const Scene& scene, const Options& options, int x, int y,
             p.active = r < count;
             if (p.active) {
                 auto pixel = std::uint64_t(y) * options.width + x;
-                p.random.seed(42, (pixel << 32) | std::uint32_t(first + r));
+                p.random.seed(options.random_seed, (pixel << 32) | std::uint32_t(first + r));
                 Float2 uv = (Float2{float(x), float(y)} + Float2{p.random.uniform(), p.random.uniform()} * 0.5f)
                           * Float2{1.0f / options.width, 1.0f / options.width};
                 p.ray = {camera.position, normalize(camera.u * (2 * uv.x - 1) * camera.aspect
@@ -207,7 +274,7 @@ void render_pixel(const Scene& scene, const Options& options, int x, int y,
             }
             for (int r = 0; r < count; ++r) {
                 Path p = paths.get(r);
-                if (p.active) { scatter(scene, p, hits[r]); paths.set(r, p); }
+                if (p.active) { scatter_path(scene, p, hits[r], depth, r, scratch); paths.set(r, p); }
             }
         }
         for (int r = 0; r < count; ++r) color += paths.get(r).result;
@@ -227,6 +294,7 @@ void render_tile_refill(const Scene& scene, const Options& options, int x0, int 
     Storage<B> paths;
     std::array<int, B> job{}, depth{};
     int next_job = 0;
+    int sample = 0, x = x0, y = y0;
     const Camera& camera = scene.camera;
     float focal = 1 / std::tan(camera.fovy * 0.5f * M_PI / 180);
     auto refill = [&](int r) {
@@ -235,14 +303,16 @@ void render_tile_refill(const Scene& scene, const Options& options, int x0, int 
         if (p.active) {
             job[r] = next_job++;
             depth[r] = 0;
-            int pixel = job[r] / options.samples;
-            int x = x0 + pixel % tile_width, y = y0 + pixel / tile_width;
-            p.random.seed(42, ((std::uint64_t(y) * options.width + x) << 32)
-                               | std::uint32_t(job[r] % options.samples));
+            p.random.seed(options.random_seed, ((std::uint64_t(y) * options.width + x) << 32)
+                                        | std::uint32_t(sample));
             Float2 uv = (Float2{float(x), float(y)} + Float2{p.random.uniform(), p.random.uniform()} * 0.5f)
                       * Float2{1.0f / options.width, 1.0f / options.width};
             p.ray = {camera.position, normalize(camera.u * (2 * uv.x - 1) * camera.aspect
                      + camera.v * (-2 * uv.y + 1) + camera.w * focal)};
+            if (++sample == options.samples) {
+                sample = 0;
+                if (++x == x1) { x = x0; ++y; }
+            }
         }
         paths.set(r, p);
     };
@@ -267,7 +337,7 @@ void render_tile_refill(const Scene& scene, const Options& options, int x0, int 
         for (int r = 0; r < B; ++r) {
             Path p = paths.get(r);
             if (!p.active) continue;
-            scatter(scene, p, hits[r]);
+            scatter_path(scene, p, hits[r], depth[r], r, scratch);
             if (++depth[r] == max_depth) p.active = false;
             if (!p.active) { results[job[r]] = p.result; refill(r); }
             else paths.set(r, p);
@@ -319,6 +389,7 @@ Statistics render_image(const Scene& scene, const Options& options, float* pixel
             else for (int y = y0; y < y1; ++y) for (int x = x0; x < x1; ++x)
                 render_pixel<Scene, B, Storage>(scene, options, x, y, pixels, scratch, statistics[id]);
         }
+        if constexpr (HasSampling<Scene>::value) scene.finish_worker(scratch);
         if (report) {
             statistics[id].finished = std::chrono::duration<double>(std::chrono::steady_clock::now() - launch).count();
 #ifdef __linux__
@@ -391,6 +462,7 @@ Statistics dispatch_batch(const Scene& scene, const Options& options, float* pix
 template<class Scene> int render_main(const Options& options) {
     Scene scene(cornell_box());
     scene.prepare();
+    if constexpr (HasSampling<Scene>::value) scene.any_hit=options.any_hit;
     std::vector<float> pixels(std::size_t(options.width) * options.width * 3);
     auto start = std::chrono::steady_clock::now();
     auto stats = options.layout == "aos" ? dispatch_batch<Scene, PathsAoS>(scene, options, pixels.data())
@@ -405,7 +477,8 @@ template<class Scene> int render_main(const Options& options) {
     } else if (!stbi_write_hdr(options.filename.c_str(), options.width, options.width, 3, pixels.data()))
         throw std::runtime_error("Cannot write " + options.filename);
     auto completed_paths = std::uint64_t(options.width) * options.width * options.samples;
-    std::cerr << std::setprecision(9) << "{\"kernel\":\"" << options.kernel << "\",\"layout\":\"" << options.layout
+    std::cerr << std::setprecision(9) << "{\"rng\":\"" << Random::name() << "\",\"seed\":" << options.seed
+              << ",\"kernel\":\"" << options.kernel << "\",\"layout\":\"" << options.layout
               << "\",\"runtime\":\"" << options.runtime << "\",\"threads\":" << options.threads << ",\"batch\":" << options.batch
               << ",\"refill\":" << (options.refill ? "true" : "false") << ",\"render_seconds\":" << seconds << ",\"rays\":" << stats.rays
               << ",\"completed_paths\":" << completed_paths << ",\"paths_per_second\":" << completed_paths / seconds
@@ -415,6 +488,9 @@ template<class Scene> int render_main(const Options& options) {
     std::cerr << ",\"triangle_tests\":" << stats.triangle_tests << ",\"box_tests\":" << stats.box_tests
               << ",\"fallback_queries\":" << stats.fallback_queries << ",\"vector_divides\":" << stats.vector_divides;
 #endif
+    if constexpr (HasSampling<Scene>::value)
+        std::cerr << ",\"sampling\":\"" << Scene::sampling_name() << "\",\"shadow_rays\":" << scene.shadow_rays.load()
+                  << ",\"visibility\":\"" << (options.any_hit ? "any" : "nearest") << "\"";
     std::cerr << "}\n";
     return 0;
 }

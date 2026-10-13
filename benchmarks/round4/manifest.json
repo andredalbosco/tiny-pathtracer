@@ -1,0 +1,15 @@
+{
+  "commit": "840ccd470a2be7f9e62714765dd87c520b32708e",
+  "source_sha256": {
+    "render_driver.h": "a55cadccd4cf6b3ff56ec57c50af3dcd9380ca0616b9dae7df52e9a6cfe32c56",
+    "renderer_common.h": "670941f48d733267162ccf530b3f889ef4b9c056f14085014636c39c8e487c34",
+    "simple_kernels.h": "beea7815451bacea2b359a41fb624ec26235c2762b78464f988f7de7feefcecc",
+    "pathtracer_simple.cpp": "b38881311be19bb4e0718a2facb35ec9d9eafb5cb57be7b647824d472e51e80e"
+  },
+  "binaries": {
+    "pass4-baseline": "7199e47035d53c69a60de00b31fc36f06315e046d0909dd3ab99812d560f7a68",
+    "pass4-baseline-strict": "ad582fb4f636d0785b38be7ba85b4fd27127545b6e8c69ce3e69383bd6b42f56",
+    "pass4-baseline-pgo": "b3d22b57912b8a35f98fbeb1e6a9bdd132e0663ef2b1690f7d3eb70bababe49c",
+    "pass4-baseline-pgo-strict": "d3de1fa38f9f5462e01bdd2bd1370ce6d4d153dcb440cdf93e4b5f05852fa976"
+  }
+}

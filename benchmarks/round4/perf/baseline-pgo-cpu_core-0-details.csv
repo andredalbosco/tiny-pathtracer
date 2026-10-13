@@ -1,0 +1,7 @@
+# started on Tue Oct 13 23:47:32 2026
+
+19907997550,,cpu_core/cycles/u,3369576520,99.00,,
+54534449174,,cpu_core/instructions/u,3369576520,99.00,2.74,insn per cycle
+2852564858,,cpu_core/arith.fpdiv_active/u,3369576520,99.00,,
+81811,,cpu_core/mem_load_retired.l1_miss/u,3369576520,99.00,,
+18041433690,,cpu_core/mem_inst_retired.all_loads/u,3369576520,99.00,,

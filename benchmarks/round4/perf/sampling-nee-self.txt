@@ -1,0 +1,576 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2K of event 'cpu_core/cycles/u'
+# Event count (approx.): 31636115942
+#
+# Overhead  Symbol                                                                                                                                                                                                                                              IPC   [IPC Coverage]
+# ........  ..................................................................................................................................................................................................................................................  ....................
+#
+    65.61%  [.] QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const [clone .isra.0]                                                                                                                             -      -
+            |
+            |--21.17%--Triangle::intersect(Ray, Hit&) const (inlined)
+            |          QualityScene<(Sampling)1>::visible(Ray, float, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--7.53%--cross(Float3, Float3) (inlined)
+            |          Triangle::intersect(Ray, Hit&) const (inlined)
+            |          QualityScene<(Sampling)1>::visible(Ray, float, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--7.47%--Float3::operator-(Float3) const (inlined)
+            |          |
+            |           --7.33%--Triangle::intersect(Ray, Hit&) const (inlined)
+            |                     QualityScene<(Sampling)1>::visible(Ray, float, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |                     void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |                     render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--7.26%--QualityScene<(Sampling)1>::visible(Ray, float, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--7.02%--dot(Float3, Float3) (inlined)
+            |          |
+            |          |--4.16%--Triangle::intersect(Ray, Hit&) const (inlined)
+            |          |          QualityScene<(Sampling)1>::visible(Ray, float, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |
+            |          |--1.82%--QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |
+            |           --1.04%--QualityScene<(Sampling)1>::visible(Ray, float, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |                     void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |                     render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--2.23%--QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--2.08%--Float3::operator*(float) const (inlined)
+            |          |
+            |          |--1.52%--QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |
+            |           --0.56%--QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |                     QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |                     void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |                     render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--1.86%--std::vector<Triangle, std::allocator<Triangle> >::size() const (inlined)
+            |          QualityScene<(Sampling)1>::visible(Ray, float, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--1.71%--Float3::operator+(Float3) const (inlined)
+            |          |
+            |          |--0.93%--QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |          |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |
+            |          |--0.30%--QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |
+            |           --0.29%--QualityScene<(Sampling)1>::sample_light(Random&) const (inlined)
+            |                     QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |                     void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |                     render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--1.67%--Random::next() (inlined)
+            |          Random::uniform() (inlined)
+            |          |
+            |          |--0.85%--QualityScene<(Sampling)1>::sample_light(Random&) const (inlined)
+            |          |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |
+            |           --0.82%--QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |                     QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |                     void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |                     render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--1.27%--Random::uniform() (inlined)
+            |          |
+            |          |--0.78%--QualityScene<(Sampling)1>::sample_light(Random&) const (inlined)
+            |          |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |
+            |           --0.49%--QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |                     QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |                     void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |                     render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--1.19%--Float3::operator*(Float3) const (inlined)
+            |          |
+            |           --1.00%--Float3::operator*=(Float3) (inlined)
+            |                     QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |                     void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |                     render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--1.18%--std::sqrt(float) (inlined)
+            |          |
+            |          |--0.52%--QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |          |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |
+            |           --0.48%--QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |                     void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |                     void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |                     render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--1.14%--QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--0.30%--QualityScene<(Sampling)1>::sample_light(Random&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+             --0.22%--__gnu_cxx::__normal_iterator<QualityScene<(Sampling)1>::Light const*, std::vector<QualityScene<(Sampling)1>::Light, std::allocator<QualityScene<(Sampling)1>::Light> > >::__normal_iterator(QualityScene<(Sampling)1>::Light const* const&) (inlined)
+                       std::vector<QualityScene<(Sampling)1>::Light, std::allocator<QualityScene<(Sampling)1>::Light> >::begin() const (inlined)
+                       QualityScene<(Sampling)1>::sample_light(Random&) const (inlined)
+                       QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+                       void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+                       void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+                       render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+                       Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+                       Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+                       int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+                       main
+                       __libc_start_call_main
+                       __libc_start_main_impl (inlined)
+                       _start
+
+    26.12%  [.] void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)  -      -
+            |
+            |--16.29%--RayScene::intersect_batch(Ray const*, Hit*, int, EmptyScratch&) const (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--2.72%--cross(Float3, Float3) (inlined)
+            |          RayScene::intersect_batch(Ray const*, Hit*, int, EmptyScratch&) const (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--2.33%--PathsAoS<8>::set(int, Path const&) (inlined)
+            |          |
+            |           --2.29%--void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |                     render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--1.44%--render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)::{lambda(int)#1}::operator()(int) const (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--0.94%--void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          |
+            |           --0.90%--render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |                     Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |                     Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |                     int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |
+            |--0.59%--dot(Float3, Float3) (inlined)
+            |          RayScene::intersect_batch(Ray const*, Hit*, int, EmptyScratch&) const (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--0.56%--Float3::operator-(Float3) const (inlined)
+            |          RayScene::intersect_batch(Ray const*, Hit*, int, EmptyScratch&) const (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--0.49%--PathsAoS<8>::get(int) const (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--0.25%--void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+             --0.22%--Float3::operator+(Float3) const (inlined)
+
+     6.77%  [.] __sincosf_fma                                                                                                                                                                                                                                   -      -
+            |
+            |--2.38%--sincosf_poly (inlined)
+            |          __sincosf_fma
+            |          QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--1.82%--__sincosf_fma
+            |          QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--1.64%--v2df_to_sf (inlined)
+            |          sincosf_poly (inlined)
+            |          __sincosf_fma
+            |          QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+            |--0.71%--reduce_fast (inlined)
+            |          __sincosf_fma
+            |          QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+            |          QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+            |          void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+             --0.22%--abstop12 (inlined)
+                       __sincosf_fma
+                       QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+                       QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+                       void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+                       void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+                       render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+                       Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+                       Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+                       int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+                       main
+                       __libc_start_call_main
+                       __libc_start_main_impl (inlined)
+                       _start
+
+     1.26%  [.] normalize(Float3)                                                                                                                                                                                                                               -      -
+            |
+            |--0.94%--normalize(Float3)
+            |          render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)::{lambda(int)#1}::operator()(int) const (inlined)
+            |          void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+            |          render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+            |          Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+            |          Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+            |          int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |
+             --0.28%--Float3::operator*(float) const (inlined)
+                       normalize(Float3)
+                       render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)::{lambda(int)#1}::operator()(int) const (inlined)
+                       void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+                       render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+                       Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+                       Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+                       int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+                       main
+                       __libc_start_call_main
+                       __libc_start_main_impl (inlined)
+                       _start
+
+     0.22%  [.] sincosf@plt                                                                                                                                                                                                                                     -      -
+            |
+            ---QualityScene<(Sampling)1>::cosine_direction(int, Random&) const (inlined)
+               QualityScene<(Sampling)1>::scatter(Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) const (inlined)
+               void scatter_path<QualityScene<(Sampling)1> >(QualityScene<(Sampling)1> const&, Path&, Hit, int, int, QualityScene<(Sampling)1>::Scratch&) (inlined)
+               void render_tile_refill<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, int, int, int, int, float*, std::vector<Float3, std::allocator<Float3> >&, QualityScene<(Sampling)1>::Scratch&, Statistics&)
+               render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)::{lambda(int)#1}::operator()(int) const
+               Statistics render_image<QualityScene<(Sampling)1>, 8, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*)
+               Statistics dispatch_batch<QualityScene<(Sampling)1>, PathsAoS>(QualityScene<(Sampling)1> const&, Options const&, float*) (inlined)
+               int render_main<QualityScene<(Sampling)1> >(Options const&) (inlined)
+               main
+               __libc_start_call_main
+               __libc_start_main_impl (inlined)
+               _start
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

@@ -1,5 +1,27 @@
 # Tiny path tracer
 
+The latest sampling experiment adds cosine continuation, direct light sampling
+(NEE), and optional MIS, while retaining the Cornell scene and 24 surface visits.
+NEE gives about 10× better full-image error per second in the measured case.
+See [sampling, arithmetic and RNG results](ROUND4.md) for tables, images, data
+flow, perf and core scaling. PCG and the original ray-parallel intersection remain
+defaults; the other intersection formulas and RNGs are explicit experiments.
+
+```sh
+make quality
+./build/pathtracer_quality 128 320 build/nee.hdr --batch 8 --refill --threads 32
+./build/pathtracer_quality 128 320 build/cosine.hdr --sampling cosine --batch 8 --refill --threads 32
+make quality-rng explore
+make test-quality test-explore test-rng
+```
+
+Quality sampling modes are `uniform`, `cosine`, `nee` (default), and `mis`.
+`--seed N` controls the master seed; each pixel/sample keeps its own stream.
+Std/OpenMP, AoS/SoA, fixed/refill execution and explicit CPU affinity remain
+available. Optional RNG executables are `build/pathtracer_quality_xoroshiro_pp`
+and `build/pathtracer_quality_xoroshiro_ss`; they change the random sequence.
+`make quality-pgo` trains a GCC profile for NEE; that target is not scored here.
+
 A small Cornell box path tracer with 36 triangles, uniform hemisphere
 sampling, a maximum of 24 surface visits, and unclamped linear HDR output.
 

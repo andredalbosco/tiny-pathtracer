@@ -83,6 +83,56 @@ OMP_FLAGS ?= -fopenmp
 COMPUTE_FLAGS ?= -march=native -ffp-contract=fast -pthread $(OMP_FLAGS)
 COMPUTE_HEADERS = renderer_common.h simple_kernels.h render_driver.h stb_image_write.h
 
+.PHONY: explore quality quality-rng quality-pgo test-quality test-explore test-rng
+explore: build/pathtracer_explore
+quality: build/pathtracer_quality
+quality-rng: build/pathtracer_quality_xoroshiro_pp build/pathtracer_quality_xoroshiro_ss
+quality-pgo: build/pathtracer_quality_pgo
+
+build/pathtracer_explore: pathtracer_explore.cpp experimental_kernels.h $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_quality: pathtracer_quality.cpp quality_sampling.h $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_quality_xoroshiro_pp: pathtracer_quality.cpp quality_sampling.h $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) -DRNG_XOROSHIRO128PP $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_quality_xoroshiro_ss: pathtracer_quality.cpp quality_sampling.h $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) -DRNG_XOROSHIRO128SS $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_quality_strict: pathtracer_quality.cpp quality_sampling.h $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_quality_pgo: pathtracer_quality.cpp quality_sampling.h $(COMPUTE_HEADERS) benchmarks/build_pgo.py Makefile | build
+	python3 benchmarks/build_pgo.py --source pathtracer_quality.cpp --sampling nee --binary pathtracer_quality_pgo --cxx "$(CXX)" --flags "$(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS)"
+
+build/test_quality: tests/test_quality.cpp quality_sampling.h $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/test_experimental: tests/test_experimental.cpp experimental_kernels.h $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+test-quality: build/test_quality
+	./build/test_quality
+
+test-explore: build/test_experimental
+	./build/test_experimental
+
+build/test_rng_pcg: tests/test_rng.cpp $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -pthread $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/test_rng_pp: tests/test_rng.cpp $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -pthread $(OMP_FLAGS) -DRNG_XOROSHIRO128PP $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/test_rng_ss: tests/test_rng.cpp $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -pthread $(OMP_FLAGS) -DRNG_XOROSHIRO128SS $< $(LDFLAGS) $(LDLIBS) -o $@
+
+test-rng: build/test_rng_pcg build/test_rng_pp build/test_rng_ss
+	./build/test_rng_pcg
+	./build/test_rng_pp
+	./build/test_rng_ss
+
 .PHONY: simple advanced pgo render-simple render-advanced test-compute test-sincos clean-compute
 simple: build/pathtracer_simple
 advanced: build/pathtracer_advanced
@@ -129,3 +179,5 @@ test-compute: build/test_simple build/test_advanced build/pathtracer_simple buil
 clean-compute:
 	rm -f build/pathtracer_simple build/pathtracer_simple_strict build/pathtracer_advanced build/pathtracer_advanced_work build/test_simple build/test_advanced
 	rm -f build/pathtracer_simple_pgo build/test_sincos
+	rm -f build/pathtracer_explore build/pathtracer_quality build/pathtracer_quality_strict build/pathtracer_quality_pgo build/pathtracer_quality_xoroshiro_pp build/pathtracer_quality_xoroshiro_ss
+	rm -f build/test_quality build/test_experimental build/test_rng_pcg build/test_rng_pp build/test_rng_ss

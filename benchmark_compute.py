@@ -18,13 +18,13 @@ parser.add_argument('--runs', type=int, default=5)
 args = parser.parse_args()
 root = pathlib.Path(__file__).resolve().parent
 configurations = json.loads(pathlib.Path(args.matrix).read_text())
-sources = {name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in ('renderer_common.h','render_driver.h','simple_kernels.h','advanced_kernels.h','pathtracer_simple.cpp','pathtracer_advanced.cpp')}
+sources = {name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in ('renderer_common.h','render_driver.h','simple_kernels.h','advanced_kernels.h','pathtracer_simple.cpp','pathtracer_advanced.cpp','pathtracer_explore.cpp','experimental_kernels.h','pathtracer_quality.cpp','quality_sampling.h') if (root / name).exists()}
 results = [[] for _ in configurations]
 
 def measure(config):
     command = [str(root / 'build' / config.get('binary', 'pathtracer_simple')),
                str(args.samples), str(args.width), str(root / 'build' / 'benchmark-compute.hdr')]
-    for key in ('kernel', 'batch', 'threads', 'layout', 'cpus', 'runtime'):
+    for key in ('kernel', 'batch', 'threads', 'layout', 'cpus', 'runtime', 'sampling', 'seed', 'visibility'):
         if key in config: command += ['--' + key, str(config[key])]
     if config.get('refill'): command.append('--refill')
     start = time.perf_counter()

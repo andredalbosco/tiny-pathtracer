@@ -1,0 +1,16 @@
+{
+  "text_sha256": "6632665dee382482299aa4beec7841c59934b3441e66217947957db642c484d4",
+  "debug_text_sha256": "6632665dee382482299aa4beec7841c59934b3441e66217947957db642c484d4",
+  "production_binary_sha256": "2cbb26df11fc29cc8480c7dc04830f95ea9961291981715191a69efae2e268a2",
+  "debug_binary_sha256": "659abb74a82c1f6716b60eb0eda6a2d3500f8ade8895994ab6e380f1b110972f",
+  "frequency_hz": 499,
+  "event": "cpu_core/cycles/u",
+  "cpu": 8,
+  "source_sha256": {
+    "render_driver.h": "9e2d50e10ef1c97882acd87a0d78110f361e2e653b51709ea14d22ca00cb510b",
+    "quality_sampling.h": "c538a49a058a6af8f639892988bb343c76361d62b43c1b2f14c10a3c1a6a3280",
+    "simple_kernels.h": "beea7815451bacea2b359a41fb624ec26235c2762b78464f988f7de7feefcecc",
+    "renderer_common.h": "670941f48d733267162ccf530b3f889ef4b9c056f14085014636c39c8e487c34",
+    "pathtracer_quality.cpp": "fb676bb2e40f7095b1d60551f77404fdfb5c8a2ac241314e1985a6c0d10d5822"
+  }
+}

@@ -1,0 +1,3 @@
+{"rng":"pcg32","known_vectors_pass":true,"mean":0.50017,"variance":0.083259,"lag1_correlation":4.52319e-05,"bins_chi2":251.942,"neighbor_seed_stream_correlation":0.00212163}
+{"rng":"xoroshiro128++","known_vectors_pass":true,"mean":0.500261,"variance":0.0833118,"lag1_correlation":0.00107327,"bins_chi2":261.093,"neighbor_seed_stream_correlation":-0.00145032}
+{"rng":"xoroshiro128**","known_vectors_pass":true,"mean":0.499464,"variance":0.0834682,"lag1_correlation":-0.00089014,"bins_chi2":264.788,"neighbor_seed_stream_correlation":-9.33996e-05}

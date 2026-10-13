@@ -1,0 +1,153 @@
+{
+  "compiler": "c++ (Ubuntu 15.2.0-4ubuntu4) 15.2.0",
+  "generate": [
+    "c++",
+    "-isystem",
+    ".",
+    "-O3",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-march=native",
+    "-ffp-contract=fast",
+    "-pthread",
+    "-fopenmp",
+    "pathtracer_simple.cpp",
+    "-o",
+    "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-cursor-pgo",
+    "-fprofile-generate=/home/blacknoir/Projects/tiny-pathtracer/build/pass4-cursor-pgo-profile-_buypsb7",
+    "-fprofile-update=atomic"
+  ],
+  "use": [
+    "c++",
+    "-isystem",
+    ".",
+    "-O3",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-march=native",
+    "-ffp-contract=fast",
+    "-pthread",
+    "-fopenmp",
+    "pathtracer_simple.cpp",
+    "-o",
+    "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-cursor-pgo",
+    "-fprofile-use=/home/blacknoir/Projects/tiny-pathtracer/build/pass4-cursor-pgo-profile-_buypsb7",
+    "-Werror=missing-profile",
+    "-Werror=coverage-mismatch"
+  ],
+  "training": [
+    {
+      "command": [
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-cursor-pgo",
+        "128",
+        "320",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pgo-training.hdr",
+        "--kernel",
+        "rays",
+        "--batch",
+        "8",
+        "--refill",
+        "--threads",
+        "1",
+        "--runtime",
+        "std",
+        "--cpus",
+        "8"
+      ],
+      "statistics": {
+        "kernel": "rays",
+        "layout": "aos",
+        "runtime": "std",
+        "threads": 1,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 20.3341577,
+        "rays": 88965776,
+        "completed_paths": 13107200,
+        "paths_per_second": 644590.26,
+        "ray_segments_per_second": 4375188.65,
+        "ray_slots": 89020576,
+        "batch_calls": 11127572
+      }
+    },
+    {
+      "command": [
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-cursor-pgo",
+        "8",
+        "32",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pgo-training.hdr",
+        "--kernel",
+        "rays",
+        "--batch",
+        "8",
+        "--refill",
+        "--threads",
+        "32",
+        "--runtime",
+        "std"
+      ],
+      "statistics": {
+        "kernel": "rays",
+        "layout": "aos",
+        "runtime": "std",
+        "threads": 32,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 0.029069019,
+        "rays": 55346,
+        "completed_paths": 8192,
+        "paths_per_second": 281812.056,
+        "ray_segments_per_second": 1903951.42,
+        "ray_slots": 56040,
+        "batch_calls": 7005
+      }
+    },
+    {
+      "command": [
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pass4-cursor-pgo",
+        "8",
+        "32",
+        "/home/blacknoir/Projects/tiny-pathtracer/build/pgo-training.hdr",
+        "--kernel",
+        "rays",
+        "--batch",
+        "8",
+        "--refill",
+        "--threads",
+        "32",
+        "--runtime",
+        "omp"
+      ],
+      "statistics": {
+        "kernel": "rays",
+        "layout": "aos",
+        "runtime": "omp",
+        "threads": 32,
+        "batch": 8,
+        "refill": true,
+        "render_seconds": 0.027852435,
+        "rays": 55346,
+        "completed_paths": 8192,
+        "paths_per_second": 294121.501,
+        "ray_segments_per_second": 1987115.31,
+        "ray_slots": 56040,
+        "batch_calls": 7005
+      }
+    }
+  ],
+  "diagnostics": "",
+  "source_sha256": {
+    "pathtracer_simple.cpp": "b38881311be19bb4e0718a2facb35ec9d9eafb5cb57be7b647824d472e51e80e",
+    "renderer_common.h": "670941f48d733267162ccf530b3f889ef4b9c056f14085014636c39c8e487c34",
+    "simple_kernels.h": "beea7815451bacea2b359a41fb624ec26235c2762b78464f988f7de7feefcecc",
+    "render_driver.h": "09b3035388fa3c45e628ae8fb31c7abdc1c4f1fd0d97cc0e96534ecb062aa7f9"
+  },
+  "binary_sha256": "1f77912446cf181f8b5d4584c9af145a04b84f57f106d9f19c0874439a16b02c",
+  "profiles": {
+    "pass4-cursor-pgo-profile-_buypsb7/home/blacknoir/Projects/tiny-pathtracer/build/pass4-cursor-pgo-pathtracer_simple.gcda": "d04ae8a37e3de9810fb6586ee0421531144f21824bc6a7b7ac535b05c8c9bc33"
+  }
+}
