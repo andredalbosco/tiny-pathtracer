@@ -76,3 +76,44 @@ benchmark: build/pathtracer build/pathtracer_o3 build/pathtracer_optim build/pat
 clean:
 	rm -f build/pathtracer build/pathtracer_o3 build/pathtracer_simd build/pathtracer_optim build/pathtracer_optim_o3
 	rm -f build/test_simd build/test_optim build/test_optim_o3 build/raw_scalar build/raw_simd build/raw_optim build/raw_optim_o3
+
+# This pass uses one identical PCG stream per pixel/sample, with FMA isolated
+# from the strict builds used to test exact layout/scheduling equivalence.
+COMPUTE_FLAGS ?= -march=native -ffp-contract=fast -pthread
+COMPUTE_HEADERS = renderer_common.h simple_kernels.h render_driver.h stb_image_write.h
+
+.PHONY: simple advanced render-simple render-advanced test-compute clean-compute
+simple: build/pathtracer_simple
+advanced: build/pathtracer_advanced
+
+build/pathtracer_simple: pathtracer_simple.cpp $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_simple_strict: pathtracer_simple.cpp $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_advanced: pathtracer_advanced.cpp advanced_kernels.h renderer_common.h render_driver.h stb_image_write.h Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_advanced_work: pathtracer_advanced.cpp advanced_kernels.h renderer_common.h render_driver.h stb_image_write.h Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) -DCOUNT_WORK $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/test_simple: tests/test_simple.cpp $(COMPUTE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/test_advanced: tests/test_advanced.cpp advanced_kernels.h renderer_common.h stb_image_write.h Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+render-simple: build/pathtracer_simple
+	./build/pathtracer_simple $(RENDER_ARGS)
+
+render-advanced: build/pathtracer_advanced
+	./build/pathtracer_advanced $(RENDER_ARGS)
+
+test-compute: build/test_simple build/test_advanced build/pathtracer_simple build/pathtracer_simple_strict build/pathtracer_advanced
+	./build/test_simple
+	./build/test_advanced
+	python3 tests/validate_render.py
+
+clean-compute:
+	rm -f build/pathtracer_simple build/pathtracer_simple_strict build/pathtracer_advanced build/pathtracer_advanced_work build/test_simple build/test_advanced

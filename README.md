@@ -1,6 +1,6 @@
 # Tiny path tracer
 
-A single-threaded Cornell box path tracer with 36 triangles, uniform hemisphere
+A small Cornell box path tracer with 36 triangles, uniform hemisphere
 sampling, a maximum of 24 surface visits, and unclamped linear HDR output.
 
 ```sh
@@ -38,7 +38,7 @@ controls without `-march=native`.
 This scene also needs `pack_triangles()` after geometry edits.
 
 The SIMD build requires an x86 CPU with AVX2 and adds `-mavx2`.
-All native builds disable floating-point contraction to keep arithmetic
+The original three builds disable floating-point contraction to keep arithmetic
 consistent and avoid fused operations changing hit decisions. No approximate reciprocal,
 fast math, parallel paths, or alternative sampler is used. The camera sampling
 expression's missing `Float` was repaired as `Float2{float(x), float(y)}` in both
@@ -68,3 +68,23 @@ checked outside the timed region. Results are saved under `build/`.
 See [BENCHMARK.md](BENCHMARK.md) for the measured results. Existing PBRT and
 Mitsuba comparison assets and their provenance are in
 [references/cornell_box](references/cornell_box/README.md).
+
+## Computation experiments
+
+`make simple advanced` builds the new layout, threading and refill experiments.
+All new backends use the same reproducible per-pixel/sample PCG streams; these
+are deliberately separate from the historical global MT sequence above.
+
+```sh
+./build/pathtracer_simple 128 320 build/flat.hdr --kernel flat
+./build/pathtracer_simple 128 320 build/refill.hdr --kernel rays --batch 8 --refill --threads 32
+./build/pathtracer_advanced 128 320 build/culled.hdr --kernel culled --threads 32
+make test-compute
+```
+
+The simple intersection loops use ordinary C++; the advanced kernels use AVX2
+and FMA. Performance builds permit floating-point contraction; a separate strict
+build verifies exact layout/scheduling equivalence. `--layout aos|soa`,
+`--batch 1|2|4|8`, `--cpus`, and `--raw` support comparisons. See
+[COMPUTATION.md](COMPUTATION.md) for all six proposals, numerical differences,
+whole-process paths/second, core scaling, and dataflow diagrams.

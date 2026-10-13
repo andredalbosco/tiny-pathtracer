@@ -1,0 +1,628 @@
+{
+  "width": 320,
+  "samples": 64,
+  "runs": 3,
+  "configurations": [
+    {
+      "config": {
+        "name": "1P-flat",
+        "kernel": "flat",
+        "batch": 1,
+        "refill": false,
+        "threads": 1,
+        "cpus": "8",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 1,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 3.06823906,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 2135948.3,
+          "ray_segments_per_second": 14494447.8,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 3.0713744391687214
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 1,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 3.0640345,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 2138879.31,
+          "ray_segments_per_second": 14514337.6,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 3.0670219738967717
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 1,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 3.05357293,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 2146207.13,
+          "ray_segments_per_second": 14564063.8,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 3.056828899309039
+        }
+      ],
+      "median_render_seconds": 3.0640345,
+      "median_wall_seconds": 3.0670219738967717,
+      "median_paths_per_second": 2136795.906836427,
+      "median_render_paths_per_second": 2138879.310921597
+    },
+    {
+      "config": {
+        "name": "1P-rays",
+        "kernel": "rays",
+        "batch": 8,
+        "refill": true,
+        "threads": 1,
+        "cpus": "8",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 1,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 1.94638318,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 3367065.67,
+          "ray_segments_per_second": 22848760.9,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 1.9496249640360475
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 1,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 1.91474204,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 3422706.48,
+          "ray_segments_per_second": 23226337,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 1.917740604840219
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 1,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 1.91702481,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 3418630.77,
+          "ray_segments_per_second": 23198679.4,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 1.9200040469877422
+        }
+      ],
+      "median_render_seconds": 1.91702481,
+      "median_wall_seconds": 1.9200040469877422,
+      "median_paths_per_second": 3413326.1387036233,
+      "median_render_paths_per_second": 3418630.7687901026
+    },
+    {
+      "config": {
+        "name": "8P-flat",
+        "kernel": "flat",
+        "batch": 1,
+        "refill": false,
+        "threads": 8,
+        "cpus": "0,2,4,6,8,10,12,14",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 8,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.403108017,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 16257677.2,
+          "ray_segments_per_second": 110323856,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.4062796290963888
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 8,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.402961319,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 16263595.8,
+          "ray_segments_per_second": 110364020,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.40613915771245956
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 8,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.403021325,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 16261174.3,
+          "ray_segments_per_second": 110347588,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.4058182220906019
+        }
+      ],
+      "median_render_seconds": 0.403021325,
+      "median_wall_seconds": 0.40613915771245956,
+      "median_paths_per_second": 16136341.142067002,
+      "median_render_paths_per_second": 16261174.269128315
+    },
+    {
+      "config": {
+        "name": "8P-rays",
+        "kernel": "rays",
+        "batch": 8,
+        "refill": true,
+        "threads": 8,
+        "cpus": "0,2,4,6,8,10,12,14",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 8,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.252526675,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 25952109.8,
+          "ray_segments_per_second": 176109886,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.25615109084174037
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 8,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.251344675,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 26074154.9,
+          "ray_segments_per_second": 176938079,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.2547843656502664
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 8,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.251802148,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 26026783.5,
+          "ray_segments_per_second": 176616619,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.2554660667665303
+        }
+      ],
+      "median_render_seconds": 0.251802148,
+      "median_wall_seconds": 0.2554660667665303,
+      "median_paths_per_second": 25653504.917305972,
+      "median_render_paths_per_second": 26026783.536413677
+    },
+    {
+      "config": {
+        "name": "16P-SMT-flat",
+        "kernel": "flat",
+        "batch": 1,
+        "refill": false,
+        "threads": 16,
+        "cpus": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 16,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.287313018,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 22809965.4,
+          "ray_segments_per_second": 154787386,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.2903209999203682
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 16,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.279273302,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 23466618.4,
+          "ray_segments_per_second": 159243403,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.2821520692668855
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 16,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.280452879,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 23367918.4,
+          "ray_segments_per_second": 158573630,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.28279743203893304
+        }
+      ],
+      "median_render_seconds": 0.280452879,
+      "median_wall_seconds": 0.28279743203893304,
+      "median_paths_per_second": 23174184.97314275,
+      "median_render_paths_per_second": 23367918.430247243
+    },
+    {
+      "config": {
+        "name": "16P-SMT-rays",
+        "kernel": "rays",
+        "batch": 8,
+        "refill": true,
+        "threads": 16,
+        "cpus": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 16,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.192363094,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 34068905.1,
+          "ray_segments_per_second": 231190106,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.19566568173468113
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 16,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.195287881,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 33558662,
+          "ray_segments_per_second": 227727618,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.19846264505758882
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 16,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.192549654,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 34035896,
+          "ray_segments_per_second": 230966107,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.19590583117678761
+        }
+      ],
+      "median_render_seconds": 0.192549654,
+      "median_wall_seconds": 0.19590583117678761,
+      "median_paths_per_second": 33452807.201465882,
+      "median_render_paths_per_second": 34035896.0084135
+    },
+    {
+      "config": {
+        "name": "24physical-flat",
+        "kernel": "flat",
+        "batch": 1,
+        "refill": false,
+        "threads": 24,
+        "cpus": "0,2,4,6,8,10,12,14,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 24,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.241376623,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 27150930.9,
+          "ray_segments_per_second": 184244980,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.2452454618178308
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 24,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.229760045,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 28523671.3,
+          "ray_segments_per_second": 193560334,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.23261965811252594
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 24,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.235736346,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 27800549.7,
+          "ray_segments_per_second": 188653264,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.23964680032804608
+        }
+      ],
+      "median_render_seconds": 0.235736346,
+      "median_wall_seconds": 0.23964680032804608,
+      "median_paths_per_second": 27346912.168361742,
+      "median_render_paths_per_second": 27800549.686979536
+    },
+    {
+      "config": {
+        "name": "24physical-rays",
+        "kernel": "rays",
+        "batch": 8,
+        "refill": true,
+        "threads": 24,
+        "cpus": "0,2,4,6,8,10,12,14,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 24,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.161257774,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 40640521.3,
+          "ray_segments_per_second": 275784807,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.16504790913313627
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 24,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.162920035,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 40225869.1,
+          "ray_segments_per_second": 272970995,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.16601560777053237
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 24,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.163028746,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 40199045.6,
+          "ray_segments_per_second": 272788972,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.16623517591506243
+        }
+      ],
+      "median_render_seconds": 0.162920035,
+      "median_wall_seconds": 0.16601560777053237,
+      "median_paths_per_second": 39475806.44982742,
+      "median_render_paths_per_second": 40225869.08970404
+    },
+    {
+      "config": {
+        "name": "32logical-flat",
+        "kernel": "flat",
+        "batch": 1,
+        "refill": false,
+        "threads": 32,
+        "cpus": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 32,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.184024959,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 35612560.6,
+          "ray_segments_per_second": 241665213,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.187858026009053
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 32,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.199008799,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 32931207.2,
+          "ray_segments_per_second": 223469672,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.20190100278705359
+        },
+        {
+          "kernel": "flat",
+          "layout": "aos",
+          "threads": 32,
+          "batch": 1,
+          "refill": false,
+          "render_seconds": 0.188334648,
+          "rays": 44472431,
+          "completed_paths": 6553600,
+          "paths_per_second": 34797633.2,
+          "ray_segments_per_second": 236135153,
+          "ray_slots": 44472431,
+          "batch_calls": 0,
+          "wall_seconds": 0.19142136396840215
+        }
+      ],
+      "median_render_seconds": 0.188334648,
+      "median_wall_seconds": 0.19142136396840215,
+      "median_paths_per_second": 34236512.91650915,
+      "median_render_paths_per_second": 34797633.20023833
+    },
+    {
+      "config": {
+        "name": "32logical-rays",
+        "kernel": "rays",
+        "batch": 8,
+        "refill": true,
+        "threads": 32,
+        "cpus": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+        "layout": "aos"
+      },
+      "runs": [
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 32,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.13959937,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 46945770.6,
+          "ray_segments_per_second": 318571953,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.14274706691503525
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 32,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.140812485,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 46541327.6,
+          "ray_segments_per_second": 315827421,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.14469177601858974
+        },
+        {
+          "kernel": "rays",
+          "layout": "aos",
+          "threads": 32,
+          "batch": 8,
+          "refill": true,
+          "render_seconds": 0.139433092,
+          "rays": 44472444,
+          "completed_paths": 6553600,
+          "paths_per_second": 47001754.8,
+          "ray_segments_per_second": 318951860,
+          "ray_slots": 44527216,
+          "batch_calls": 5565902,
+          "wall_seconds": 0.14324872381985188
+        }
+      ],
+      "median_render_seconds": 0.13959937,
+      "median_wall_seconds": 0.14324872381985188,
+      "median_paths_per_second": 45749796.75380383,
+      "median_render_paths_per_second": 46945770.600540675
+    }
+  ],
+  "median_rate_definition": "completed paths / whole executable wall seconds"
+}

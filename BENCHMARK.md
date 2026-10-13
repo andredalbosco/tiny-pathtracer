@@ -88,3 +88,9 @@ g++ -isystem . -O3 -march=native -ffp-contract=off -std=c++17 \
 
 Raw trial timings and source hashes are saved in
 [benchmarks/2026-10-13.json](benchmarks/2026-10-13.json).
+
+## Later computation pass
+
+The new matched-RNG, threading, flat SoA, refill and aggressive experiments are
+in [COMPUTATION.md](COMPUTATION.md). Their random-stream assignment differs from
+this historical benchmark; use their matched scalar reference for comparisons.
