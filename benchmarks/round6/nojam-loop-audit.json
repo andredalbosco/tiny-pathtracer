@@ -1,0 +1,164 @@
+{
+  "nojam": {
+    "sha256": "3b2c190153c8bf696440e806babacb33fc4ac32357a3c398d0ef9b18ceb219d8",
+    "functions": [
+      {
+        "symbol": "00000000000025c0 <intersect_batch(SceneData const&, Ray const*, Hit*)>:",
+        "frame": [
+          "and    rsp,0xffffffffffffffe0",
+          "sub    rsp,0x240"
+        ],
+        "loops": [
+          {
+            "start": "0x29d0",
+            "end": "0x2bbe",
+            "instructions": 84,
+            "stack_refs": 17,
+            "stack_stores_ymm": 5,
+            "stack_loads_ymm": 12,
+            "ymm_divides": 1,
+            "non_ymm_stack_refs": [],
+            "increment": [
+              "add    ecx,0x1",
+              "add    rdi,0x48"
+            ]
+          }
+        ],
+        "hot_calls": []
+      },
+      {
+        "symbol": "00000000000080b0 <int render<2>(SceneData const&, Options const&, float*, Statistics&) [clone ._omp_fn.0]>:",
+        "frame": [
+          "and    rsp,0xffffffffffffffe0",
+          "sub    rsp,0x5e8"
+        ],
+        "loops": [],
+        "hot_calls": [
+          "0x8b78 call   25c0 <intersect_batch(SceneData const&, Ray const*, Hit*)>",
+          "0x8f96 call   5530 <cosine_direction(SceneData const&, int, Random&)>",
+          "0x9a08 call   2da0 <visible(SceneData const&, Ray, float, int, Scratch&)>"
+        ]
+      },
+      {
+        "symbol": "0000000000016cc0 <int render<0>(SceneData const&, Options const&, float*, Statistics&) [clone ._omp_fn.0]>:",
+        "frame": [
+          "and    rsp,0xffffffffffffffe0",
+          "sub    rsp,0x568"
+        ],
+        "loops": [],
+        "hot_calls": [
+          "0x176fd call   25c0 <intersect_batch(SceneData const&, Ray const*, Hit*)>"
+        ]
+      }
+    ]
+  },
+  "inline_nojam": {
+    "sha256": "5350d8ef4870aa61a76331f78844bf49096facffea8853bca0039244b518d5ca",
+    "functions": [
+      {
+        "symbol": "0000000000008d30 <int render<2>(SceneData const&, Options const&, float*, Statistics&) [clone ._omp_fn.0]>:",
+        "frame": [
+          "and    rsp,0xffffffffffffffe0",
+          "sub    rsp,0x5a8"
+        ],
+        "loops": [
+          {
+            "start": "0x99b0",
+            "end": "0x9b8f",
+            "instructions": 84,
+            "stack_refs": 17,
+            "stack_stores_ymm": 5,
+            "stack_loads_ymm": 12,
+            "ymm_divides": 1,
+            "non_ymm_stack_refs": [],
+            "increment": [
+              "add    edx,0x1",
+              "add    rax,0x48"
+            ]
+          }
+        ],
+        "hot_calls": [
+          "0xa267 call   1230 <sincosf@plt>",
+          "0xb517 call   1230 <sincosf@plt>"
+        ]
+      },
+      {
+        "symbol": "00000000000189c0 <int render<0>(SceneData const&, Options const&, float*, Statistics&) [clone ._omp_fn.0]>:",
+        "frame": [
+          "and    rsp,0xffffffffffffffe0",
+          "sub    rsp,0x5c8"
+        ],
+        "loops": [
+          {
+            "start": "0x196e0",
+            "end": "0x198be",
+            "instructions": 84,
+            "stack_refs": 17,
+            "stack_stores_ymm": 5,
+            "stack_loads_ymm": 12,
+            "ymm_divides": 1,
+            "non_ymm_stack_refs": [],
+            "increment": [
+              "add    ecx,0x1",
+              "add    rdx,0x48"
+            ]
+          }
+        ],
+        "hot_calls": []
+      }
+    ]
+  },
+  "batch_nojam": {
+    "sha256": "4372d06be8c879183447ae25b847fe24dee15c99b3711b9f9810aacdd6e756c7",
+    "functions": [
+      {
+        "symbol": "00000000000025c0 <intersect_batch(SceneData const&, Ray const*, Hit*)>:",
+        "frame": [
+          "and    rsp,0xffffffffffffffe0",
+          "sub    rsp,0x240"
+        ],
+        "loops": [
+          {
+            "start": "0x29d0",
+            "end": "0x2bbe",
+            "instructions": 84,
+            "stack_refs": 17,
+            "stack_stores_ymm": 5,
+            "stack_loads_ymm": 12,
+            "ymm_divides": 1,
+            "non_ymm_stack_refs": [],
+            "increment": [
+              "add    ecx,0x1",
+              "add    rdi,0x48"
+            ]
+          }
+        ],
+        "hot_calls": []
+      },
+      {
+        "symbol": "00000000000080b0 <int render<2>(SceneData const&, Options const&, float*, Statistics&) [clone ._omp_fn.0]>:",
+        "frame": [
+          "and    rsp,0xffffffffffffffe0",
+          "sub    rsp,0x5e8"
+        ],
+        "loops": [],
+        "hot_calls": [
+          "0x8b78 call   25c0 <intersect_batch(SceneData const&, Ray const*, Hit*)>",
+          "0x8f96 call   5530 <cosine_direction(SceneData const&, int, Random&)>",
+          "0x9a08 call   2da0 <visible(SceneData const&, Ray, float, int, Scratch&)>"
+        ]
+      },
+      {
+        "symbol": "0000000000016cc0 <int render<0>(SceneData const&, Options const&, float*, Statistics&) [clone ._omp_fn.0]>:",
+        "frame": [
+          "and    rsp,0xffffffffffffffe0",
+          "sub    rsp,0x568"
+        ],
+        "loops": [],
+        "hot_calls": [
+          "0x176fd call   25c0 <intersect_batch(SceneData const&, Ray const*, Hit*)>"
+        ]
+      }
+    ]
+  }
+}

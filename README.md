@@ -1,14 +1,20 @@
 # Tiny path tracer
 
 For the STL-free implementation, use `pathtracer_plain.cpp`. It uses C arrays,
-C allocation/I/O and OpenMP, with the same sampling computation. The new
-[general Astra analysis and plain-buffer comparison](ROUND5.md) covers CPU
-throughput, sampling quality, six proposals and measured performance.
+C allocation/I/O and OpenMP, with the same sampling computation.
+[The compiler audit and speed recovery](ROUND6.md) explain how a small inlining
+and GCC loop-pass change restores the original speed. The
+[general Astra analysis](ROUND5.md) covers sampling quality and six proposals.
 
 ```sh
 make plain
 ./build/pathtracer_plain 128 320 build/plain.hdr --threads 32
 ```
+
+The plain targets use GCC's `-fno-loop-unroll-and-jam` to avoid extra vector
+temporaries in the eight-ray loop. `PLAIN_FLAGS` is overridable; use
+`make plain PLAIN_FLAGS=` with a compiler that lacks that option. Other targets
+retain their existing flags. The loop still uses compiler-generated SIMD.
 
 
 The latest sampling experiment adds cosine continuation, direct light sampling

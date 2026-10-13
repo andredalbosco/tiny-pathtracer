@@ -269,7 +269,7 @@ static void prepare(SceneData& scene) {
         }
     }
 }
-static void intersect_batch(const SceneData& scene,const Ray* rays,Hit* hits) {
+static inline void intersect_batch(const SceneData& scene,const Ray* rays,Hit* hits) {
     float ox[8]{},oy[8]{},oz[8]{},dx[8]{},dy[8]{},dz[8]{},ts[8],us[8]{},vs[8]{};
     int ids[8];
     for(int r=0;r<8;++r) {
@@ -295,7 +295,7 @@ static void intersect_batch(const SceneData& scene,const Ray* rays,Hit* hits) {
     for(int r=0;r<8;++r)hits[r]={ts[r],us[r],vs[r],ids[r]};
 }
 struct Scratch { float previous_pdf[8]{};uint64_t shadows=0; };
-static bool visible(const SceneData& scene,Ray ray,float distance,int light_id,Scratch& scratch) {
+static inline bool visible(const SceneData& scene,Ray ray,float distance,int light_id,Scratch& scratch) {
     ++scratch.shadows;Hit hit;hit.t=distance;const Triangle& light=scene.triangles[light_id];
     for(int i=0;i<scene.count;++i) {
         const Triangle& t=scene.triangles[i];
@@ -306,11 +306,11 @@ static bool visible(const SceneData& scene,Ray ray,float distance,int light_id,S
     }
     return true;
 }
-static float power_weight(float a,float b) {
+static inline float power_weight(float a,float b) {
     if(!(a>0))return 0;
     float ratio=b/a;return 1/(1+ratio*ratio);
 }
-static Float3 cosine_direction(const SceneData& scene,int id,Random& random) {
+static inline Float3 cosine_direction(const SceneData& scene,int id,Random& random) {
     float u=random.uniform(),phi=2*M_PI*random.uniform(),radius=sqrtf(u),sine,cosine;
 #ifdef __GLIBC__
     __builtin_sincosf(phi,&sine,&cosine);
@@ -321,7 +321,7 @@ static Float3 cosine_direction(const SceneData& scene,int id,Random& random) {
            +scene.triangles[id].normal*sqrtf(1-u);
 }
 // 0 uniform, 1 cosine, 2 NEE, 3 MIS. Compile-time mode removes unused work.
-template<int Mode> static void scatter(const SceneData& scene,Path& path,Hit hit,int depth,int lane,Scratch& scratch) {
+template<int Mode> static inline void scatter(const SceneData& scene,Path& path,Hit hit,int depth,int lane,Scratch& scratch) {
     if(hit.triangle<0){path.active=false;return;}
     const Triangle& triangle=scene.triangles[hit.triangle];
     if(dot(triangle.emission,triangle.emission)>0) {

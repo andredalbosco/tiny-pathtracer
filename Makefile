@@ -80,6 +80,9 @@ clean:
 # This pass uses one identical PCG stream per pixel/sample, with FMA isolated
 # from the strict builds used to test exact layout/scheduling equivalence.
 OMP_FLAGS ?= -fopenmp
+# GCC's outer-loop unroll-and-jam adds spills in the eight-ray intersection
+# loop. Override with PLAIN_FLAGS= when using a compiler without this option.
+PLAIN_FLAGS ?= -fno-loop-unroll-and-jam
 COMPUTE_FLAGS ?= -march=native -ffp-contract=fast -pthread $(OMP_FLAGS)
 COMPUTE_HEADERS = renderer_common.h simple_kernels.h render_driver.h stb_image_write.h
 
@@ -88,10 +91,10 @@ plain: build/pathtracer_plain
 
 .PHONY: plain
 build/pathtracer_plain: pathtracer_plain.cpp stb_image_write.h Makefile | build
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=fast $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=fast $(OMP_FLAGS) $(PLAIN_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 
 build/pathtracer_plain_strict: pathtracer_plain.cpp stb_image_write.h Makefile | build
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off $(OMP_FLAGS) $(PLAIN_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 explore: build/pathtracer_explore
 quality: build/pathtracer_quality
 quality-rng: build/pathtracer_quality_xoroshiro_pp build/pathtracer_quality_xoroshiro_ss

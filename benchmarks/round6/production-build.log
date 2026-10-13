@@ -1,0 +1,2 @@
+g++ -isystem . -O3 -std=c++17 -Wall -Wextra -Wpedantic -march=native -ffp-contract=fast -fopenmp -fno-loop-unroll-and-jam pathtracer_plain.cpp   -o build/pathtracer_plain
+g++ -isystem . -O3 -std=c++17 -Wall -Wextra -Wpedantic -march=native -ffp-contract=off -fopenmp -fno-loop-unroll-and-jam pathtracer_plain.cpp   -o build/pathtracer_plain_strict

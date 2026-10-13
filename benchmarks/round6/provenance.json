@@ -1,0 +1,16 @@
+{
+  "parent_commit": "7659a2880884383613fd3dc47f5f0f576809bc5b",
+  "compiler": "g++ (Ubuntu 15.2.0-4ubuntu4) 15.2.0",
+  "kernel": "Linux 6.17.0-41-generic",
+  "cpu": "Intel(R) Core(TM) i9-14900K",
+  "sources": {
+    "Makefile": "2a6d246afba68745ec219bf78fea62db44e651ffc130f047426335dc0ba9eced",
+    "pathtracer_plain.cpp": "dbf02d4d889d76189459df6c29eb5c53a861672771d457da91865581def58dfc",
+    "pathtracer_quality.cpp": "fb676bb2e40f7095b1d60551f77404fdfb5c8a2ac241314e1985a6c0d10d5822",
+    "renderer_common.h": "670941f48d733267162ccf530b3f889ef4b9c056f14085014636c39c8e487c34",
+    "simple_kernels.h": "beea7815451bacea2b359a41fb624ec26235c2762b78464f988f7de7feefcecc",
+    "render_driver.h": "9e2d50e10ef1c97882acd87a0d78110f361e2e653b51709ea14d22ca00cb510b",
+    "quality_sampling.h": "c538a49a058a6af8f639892988bb343c76361d62b43c1b2f14c10a3c1a6a3280"
+  },
+  "ldd": "\tlinux-vdso.so.1 (0x0000743b2ef86000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000743b2ee3a000)\n\tlibgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x0000743b2ede1000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000743b2ea00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x0000743b2ef88000)\n"
+}

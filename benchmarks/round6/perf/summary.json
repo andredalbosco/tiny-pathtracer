@@ -1,0 +1,71 @@
+{
+  "rows": [
+    {
+      "cycles": 1631.1957487106324,
+      "instructions": 4387.589817466736,
+      "ref-cycles": 875.0595417785644,
+      "mem_inst_retired.all_loads": 1461.4052379608156,
+      "mem_inst_retired.all_stores": 447.6372317123413,
+      "mode": "uniform",
+      "name": "stl",
+      "ipc": 2.6897996889305755,
+      "active_reference": 1.8640968652204124
+    },
+    {
+      "cycles": 1780.2784914779663,
+      "instructions": 4631.979186172485,
+      "ref-cycles": 954.3175134658813,
+      "mem_inst_retired.all_loads": 1651.8841233062744,
+      "mem_inst_retired.all_stores": 657.525341796875,
+      "mode": "uniform",
+      "name": "plain-old",
+      "ipc": 2.601828426476731,
+      "active_reference": 1.8654991303810067
+    },
+    {
+      "cycles": 1631.9169760131836,
+      "instructions": 4384.506028366089,
+      "ref-cycles": 872.2929413604736,
+      "mem_inst_retired.all_loads": 1423.6126576995848,
+      "mem_inst_retired.all_stores": 441.6182368850708,
+      "mode": "uniform",
+      "name": "plain-fixed",
+      "ipc": 2.686721256541833,
+      "active_reference": 1.8708359298058295
+    },
+    {
+      "cycles": 3771.4096341323852,
+      "instructions": 10741.528001899718,
+      "ref-cycles": 2016.4716481018067,
+      "mem_inst_retired.all_loads": 3566.1599101257325,
+      "mem_inst_retired.all_stores": 650.7576603317261,
+      "mode": "nee",
+      "name": "stl",
+      "ipc": 2.8481467260107936,
+      "active_reference": 1.8703013442725955
+    },
+    {
+      "cycles": 4017.3110219955443,
+      "instructions": 10824.765437278747,
+      "ref-cycles": 2142.167113761902,
+      "mem_inst_retired.all_loads": 3447.975487174988,
+      "mem_inst_retired.all_stores": 773.638459892273,
+      "mode": "nee",
+      "name": "plain-old",
+      "ipc": 2.694530091897563,
+      "active_reference": 1.8753490314491221
+    },
+    {
+      "cycles": 3707.709488067627,
+      "instructions": 10349.880126838683,
+      "ref-cycles": 1984.3019730758665,
+      "mem_inst_retired.all_loads": 3277.3359439086917,
+      "mem_inst_retired.all_stores": 442.4583611679077,
+      "mode": "nee",
+      "name": "plain-fixed",
+      "ipc": 2.791448510231799,
+      "active_reference": 1.868520788859725
+    }
+  ],
+  "minimum_running_percent": 99.0
+}

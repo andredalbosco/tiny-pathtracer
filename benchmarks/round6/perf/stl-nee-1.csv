@@ -1,0 +1,9 @@
+# started on Wed Oct 14 01:46:44 2026
+
+49432124836,,cpu_core/cycles/u,8315007004,99.00,,
+140791235181,,cpu_core/instructions/u,8315007004,99.00,2.85,insn per cycle
+26461814579,,cpu_core/ref-cycles/u,8315007004,99.00,,
+11586541221,,cpu_core/branch-instructions/u,8315007004,99.00,,
+249699635,,cpu_core/branch-misses/u,8315007004,99.00,2.16,of all branches
+46742331178,,cpu_core/mem_inst_retired.all_loads/u,8315007004,99.00,,
+8529603550,,cpu_core/mem_inst_retired.all_stores/u,8315007004,99.00,,

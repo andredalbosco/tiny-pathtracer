@@ -1,0 +1,38 @@
+[
+  {
+    "label": "quality-nee",
+    "start": "0x68fd8",
+    "end": "0x691b6",
+    "triangles_per_iteration": 1,
+    "instructions": 83,
+    "stack_mem_ops": 17,
+    "stack_store_ops": 5,
+    "stack_load_ops": 12,
+    "other_width_stack_ops": [],
+    "vector_divides": 1
+  },
+  {
+    "label": "quality-uniform",
+    "start": "0x2371f",
+    "end": "0x238f6",
+    "triangles_per_iteration": 1,
+    "instructions": 83,
+    "stack_mem_ops": 17,
+    "stack_store_ops": 4,
+    "stack_load_ops": 13,
+    "other_width_stack_ops": [],
+    "vector_divides": 1
+  },
+  {
+    "label": "plain",
+    "start": "0x2a80",
+    "end": "0x2f1a",
+    "triangles_per_iteration": 2,
+    "instructions": 179,
+    "stack_mem_ops": 71,
+    "stack_store_ops": 22,
+    "stack_load_ops": 49,
+    "other_width_stack_ops": [],
+    "vector_divides": 2
+  }
+]

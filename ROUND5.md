@@ -1,5 +1,9 @@
 # General analysis and a renderer without STL containers
 
+**Follow-up:** [Round six](ROUND6.md) isolates the compiler-code-generation
+regression and recovers the original speed without reintroducing STL. The
+measurements below describe the earlier plain implementation.
+
 Astra at xhigh completed a general analysis of the renderer, sampling, CPU data flow, memory, and parallel scaling. STL removal is one comparison within that analysis. The next priorities are **camera stratification**, **dedicated finite shadow tests**, and **trig-free cosine sampling**. The aggressive tier is **shadow batching**, **scrambled low-discrepancy sampling**, and **shallow shadow culling**. These are proposals with falsifiable gates, not measured future speedups.
 
 Read the [full general pass](benchmarks/round5/astra-general-pass5.md) for the computation diagram, current CPU topology, numerical requirements, benchmarks, and all six proposals. The [source review](benchmarks/round5/astra-plain-plan.md) audits the standalone renderer. Their inputs came from the completed [round-four evidence](ROUND4.md); references to local quality-final inputs in the reports are mirrored in `benchmarks/round4/quality/`.
