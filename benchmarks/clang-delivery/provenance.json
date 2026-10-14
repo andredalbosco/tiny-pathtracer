@@ -1,0 +1,15 @@
+{
+  "parent_commit": "99200d0c143c0581fc299b861ec7a1ff5a7602c0",
+  "clang": "Ubuntu clang version 20.1.8 (0ubuntu4)",
+  "sources": {
+    "pathtracer_clang.cpp": "5756f7220f54d1e97b685ac6ec196f22abaf3157da1dd676027b85d2b3fc2ab9",
+    "Makefile": "82fff17c1092d850ec85282535b662f7b5464d51476ce1d2faee39db5d7294e2",
+    "tests/validate_clang.py": "57c7e21af6858d7cc127bbca47946ba8768afaf29f9b3c6d03ee9202070e54dc"
+  },
+  "binaries": {
+    "pathtracer_clang": "9cd4030c911edb58ea74577781dd170f602eda5cdbe84b505955be9c2d04b1ac",
+    "pathtracer_clang_strict": "b06144bc7a9b77f76cb74f9f46a051fabe26f8b107f572572ba6c4be2b53536b",
+    "pathtracer_triangles_clang_fields": "2e0d036334f6f461abd0edb724f72146a5f62fe81cebb2758b37607ed8b5b15c",
+    "pathtracer_triangles_clang_soa": "eea97b025a320e8e41c31d98c4efb79191f6cc97e58782e89fa87ca46226b7b5"
+  }
+}

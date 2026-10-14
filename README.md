@@ -1,5 +1,24 @@
 # Tiny path tracer
 
+The standalone Clang implementation is `pathtracer_clang.cpp`. It uses fixed
+C arrays and OpenMP, selecting scalar geometry columns for uniform sampling
+and `Float3` field arrays for cosine/NEE/MIS. The selection is compiled into
+each sampling mode; no layout branch is added to the triangle loop. These
+choices follow the uniform and NEE results in [round eight](ROUND8.md).
+Cosine and MIS use the field representation without a separate layout benchmark.
+
+```sh
+make build/pathtracer_clang
+./build/pathtracer_clang 128 320 build/clang-nee.hdr --threads 32
+./build/pathtracer_clang 128 320 build/clang-uniform.hdr --sampling uniform --threads 32
+make test-clang
+```
+
+The default sampling mode is NEE and default output is `build/clang.hdr`.
+`make clang` also builds this executable; `make render-clang` accepts
+`RENDER_ARGS`. [Consolidation checks and timings](CLANG.md) compare it with the
+measured round-eight candidates.
+
 For the STL-free implementation, use `pathtracer_plain.cpp`. It uses C arrays,
 C allocation/I/O and OpenMP, with the same sampling computation.
 [Triangle storage experiments](ROUND8.md) compare an AoS wrapper, separate
@@ -33,7 +52,7 @@ Clang 20 is also available with separate executables:
 
 ```sh
 make clang
-./build/pathtracer_plain_clang 128 320 build/plain-clang.hdr --threads 32
+./build/pathtracer_clang 128 320 build/clang.hdr --threads 32
 ```
 
 `CLANGXX` defaults to `clang++-20`. Clang's plain build uses ordinary O3/native
