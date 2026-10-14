@@ -90,6 +90,34 @@ COMPUTE_HEADERS = renderer_common.h simple_kernels.h render_driver.h stb_image_w
 plain: build/pathtracer_plain
 
 .PHONY: plain
+# Triangle storage experiments use the identical STL-free computation.
+# Separate filenames make comparisons reproducible when changing layouts.
+TRIANGLE_VARIANTS = aos split fields soa
+TRIANGLE_LAYOUT_aos = 0
+TRIANGLE_LAYOUT_split = 1
+TRIANGLE_LAYOUT_fields = 2
+TRIANGLE_LAYOUT_soa = 3
+TRIANGLE_TARGETS = $(addprefix build/pathtracer_triangles_,$(TRIANGLE_VARIANTS))
+TRIANGLE_CLANG_TARGETS = $(addprefix build/pathtracer_triangles_clang_,$(TRIANGLE_VARIANTS))
+TRIANGLE_STRICT_TARGETS = $(addprefix build/pathtracer_triangles_strict_,$(TRIANGLE_VARIANTS))
+TRIANGLE_CLANG_STRICT_TARGETS = $(addprefix build/pathtracer_triangles_clang_strict_,$(TRIANGLE_VARIANTS))
+TRIANGLE_HEADERS = triangle_storage.h stb_image_write.h
+.PHONY: triangles triangles-clang
+triangles: build/pathtracer_triangles_soa
+triangles-clang: build/pathtracer_triangles_clang_soa
+
+$(TRIANGLE_TARGETS): build/pathtracer_triangles_%: pathtracer_triangles.cpp $(TRIANGLE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=fast $(OMP_FLAGS) $(PLAIN_FLAGS) -DTRIANGLE_LAYOUT=$(TRIANGLE_LAYOUT_$*) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+$(TRIANGLE_CLANG_TARGETS): build/pathtracer_triangles_clang_%: pathtracer_triangles.cpp $(TRIANGLE_HEADERS) Makefile | build
+	$(CLANGXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=fast $(OMP_FLAGS) -DTRIANGLE_LAYOUT=$(TRIANGLE_LAYOUT_$*) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+$(TRIANGLE_STRICT_TARGETS): build/pathtracer_triangles_strict_%: pathtracer_triangles.cpp $(TRIANGLE_HEADERS) Makefile | build
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off $(OMP_FLAGS) $(PLAIN_FLAGS) -DTRIANGLE_LAYOUT=$(TRIANGLE_LAYOUT_$*) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+$(TRIANGLE_CLANG_STRICT_TARGETS): build/pathtracer_triangles_clang_strict_%: pathtracer_triangles.cpp $(TRIANGLE_HEADERS) Makefile | build
+	$(CLANGXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off $(OMP_FLAGS) -DTRIANGLE_LAYOUT=$(TRIANGLE_LAYOUT_$*) $< $(LDFLAGS) $(LDLIBS) -o $@
+
 # Keep Clang outputs separate so compiler comparisons use frozen binaries.
 CLANGXX ?= clang++-20
 .PHONY: clang
@@ -205,6 +233,7 @@ test-compute: build/test_simple build/test_advanced build/pathtracer_simple buil
 	python3 tests/validate_render.py
 
 clean-compute:
+	rm -f $(TRIANGLE_TARGETS) $(TRIANGLE_CLANG_TARGETS) $(TRIANGLE_STRICT_TARGETS) $(TRIANGLE_CLANG_STRICT_TARGETS)
 	rm -f build/pathtracer_simple build/pathtracer_simple_strict build/pathtracer_advanced build/pathtracer_advanced_work build/test_simple build/test_advanced
 	rm -f build/pathtracer_simple_pgo build/test_sincos
 	rm -f build/pathtracer_explore build/pathtracer_quality build/pathtracer_quality_strict build/pathtracer_quality_pgo build/pathtracer_quality_xoroshiro_pp build/pathtracer_quality_xoroshiro_ss

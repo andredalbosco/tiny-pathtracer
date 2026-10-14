@@ -1,0 +1,38 @@
+[
+  {
+    "delivered": "pathtracer_triangles_soa",
+    "scored": "gcc-soa",
+    "sha256": "1cc180f6fff2c1f06f86e87c44b4086ceecf6f49970c7fd6d8a1298a8116b3db",
+    "identical": true
+  },
+  {
+    "delivered": "pathtracer_triangles_fields",
+    "scored": "gcc-fields",
+    "sha256": "7f500b814c6a364dc2577984d8b5133b3f43fd7707b3cc330df07dfd1622c286",
+    "identical": true
+  },
+  {
+    "delivered": "pathtracer_triangles_clang_soa",
+    "scored": "clang-soa",
+    "sha256": "eea97b025a320e8e41c31d98c4efb79191f6cc97e58782e89fa87ca46226b7b5",
+    "identical": true
+  },
+  {
+    "delivered": "pathtracer_triangles_clang_fields",
+    "scored": "clang-fields",
+    "sha256": "2e0d036334f6f461abd0edb724f72146a5f62fe81cebb2758b37607ed8b5b15c",
+    "identical": true
+  },
+  {
+    "delivered": "pathtracer_triangles_strict_soa",
+    "scored": "gcc-soa-strict",
+    "sha256": "d57470d2e6b032c802558eef7d448a13a5e6223c460331cc56f80b16d4b92ee2",
+    "identical": true
+  },
+  {
+    "delivered": "pathtracer_triangles_clang_strict_fields",
+    "scored": "clang-fields-strict",
+    "sha256": "237bae48bae131d2ac119414f463c5315e37941df7e73a859e11063a75dba3e6",
+    "identical": true
+  }
+]

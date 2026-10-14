@@ -2,6 +2,22 @@
 
 For the STL-free implementation, use `pathtracer_plain.cpp`. It uses C arrays,
 C allocation/I/O and OpenMP, with the same sampling computation.
+[Triangle storage experiments](ROUND8.md) compare an AoS wrapper, separate
+geometry/surface records, `Float3` field arrays and scalar geometry arrays in
+`struct Triangles`. They retain the same eight-ray intersection and sampling.
+Clang gains modestly with different layouts for uniform and NEE; GCC gains
+no throughput in these measurements. The original plain target remains the
+reference. To build the scalar-array experiment or the NEE field-array candidate:
+
+```sh
+make triangles-clang build/pathtracer_triangles_clang_fields
+./build/pathtracer_triangles_clang_soa 128 320 build/triangles-uniform.hdr --sampling uniform --threads 32
+./build/pathtracer_triangles_clang_fields 128 320 build/triangles-nee.hdr --sampling nee --threads 32
+```
+
+`make triangles` builds the GCC scalar-array experiment. Layout suffixes are
+`aos`, `split`, `fields` and `soa`; strict targets put `strict_` before the suffix.
+
 [Clang versus GCC and the isolated array-loop trigger](ROUND7.md) compare both
 compilers and explain the effect of the vector size guard on GCC's loop passes.
 [The compiler audit and speed recovery](ROUND6.md) explain how a small inlining

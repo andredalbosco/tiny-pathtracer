@@ -1,0 +1,66 @@
+[
+  {
+    "name": "gcc-fields",
+    "reference": "gcc-original",
+    "mode": "uniform",
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "different_channels": 0
+  },
+  {
+    "name": "gcc-soa",
+    "reference": "gcc-original",
+    "mode": "uniform",
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "different_channels": 0
+  },
+  {
+    "name": "clang-fields",
+    "reference": "clang-original",
+    "mode": "uniform",
+    "rmse": 6.137670019052802e-10,
+    "max_absolute": 5.960464477539063e-08,
+    "different_channels": 3974
+  },
+  {
+    "name": "clang-soa",
+    "reference": "clang-original",
+    "mode": "uniform",
+    "rmse": 3.3907219514117755e-09,
+    "max_absolute": 1.4901161193847656e-07,
+    "different_channels": 20845
+  },
+  {
+    "name": "gcc-fields",
+    "reference": "gcc-original",
+    "mode": "nee",
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "different_channels": 0
+  },
+  {
+    "name": "gcc-soa",
+    "reference": "gcc-original",
+    "mode": "nee",
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "different_channels": 0
+  },
+  {
+    "name": "clang-fields",
+    "reference": "clang-original",
+    "mode": "nee",
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "different_channels": 0
+  },
+  {
+    "name": "clang-soa",
+    "reference": "clang-original",
+    "mode": "nee",
+    "rmse": 2.6109540503832363e-06,
+    "max_absolute": 0.0008914172649383545,
+    "different_channels": 41239
+  }
+]

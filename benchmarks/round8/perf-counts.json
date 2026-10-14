@@ -1,0 +1,1010 @@
+[
+  {
+    "name": "clang-original",
+    "mode": "uniform",
+    "repeat": 0,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-original-uniform-0.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_plain_clang",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "uniform",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 21057228435.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 55002773270.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 11253160539.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 1670540640.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 76797861.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 14031164928.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5452017729.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "uniform",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 3.53122826,
+      "completed_paths": 13107200,
+      "rays": 88965776,
+      "ray_slots": 89020576,
+      "batch_calls": 11127572,
+      "shadow_rays": 0
+    }
+  },
+  {
+    "name": "clang-fields",
+    "mode": "uniform",
+    "repeat": 0,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-fields-uniform-0.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/clang-fields",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "uniform",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 20803265447.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 54945227365.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 11123337275.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 1669827665.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 76395449.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 13876453339.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5602537152.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "uniform",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 3.49410685,
+      "completed_paths": 13107200,
+      "rays": 88965776,
+      "ray_slots": 89020576,
+      "batch_calls": 11127572,
+      "shadow_rays": 0
+    }
+  },
+  {
+    "name": "clang-soa",
+    "mode": "uniform",
+    "repeat": 0,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-soa-uniform-0.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/clang-soa",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "uniform",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 20543132572.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 53134246804.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 11031422259.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 1669831131.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 78821374.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 15044963158.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5190781426.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "uniform",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 3.46600009,
+      "completed_paths": 13107200,
+      "rays": 88965776,
+      "ray_slots": 89020576,
+      "batch_calls": 11127572,
+      "shadow_rays": 0
+    }
+  },
+  {
+    "name": "clang-original",
+    "mode": "nee",
+    "repeat": 0,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-original-nee-0.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_plain_clang",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "nee",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 48655325571.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 131467617821.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 26015621809.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 11498129323.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 267255585.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 33774224157.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5455224163.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "nee",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 8.1749634,
+      "completed_paths": 13107200,
+      "rays": 83034242,
+      "ray_slots": 83087832,
+      "batch_calls": 10385979,
+      "shadow_rays": 50030401
+    }
+  },
+  {
+    "name": "clang-fields",
+    "mode": "nee",
+    "repeat": 0,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-fields-nee-0.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/clang-fields",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "nee",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 47665814151.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 138622954506.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 25458951104.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 11378126274.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 242001878.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 37944010419.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5803500652.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "nee",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 8.0229898,
+      "completed_paths": 13107200,
+      "rays": 83034242,
+      "ray_slots": 83087832,
+      "batch_calls": 10385979,
+      "shadow_rays": 50030401
+    }
+  },
+  {
+    "name": "clang-soa",
+    "mode": "nee",
+    "repeat": 0,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-soa-nee-0.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/clang-soa",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "nee",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 49530315896.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 141570096416.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 26440396445.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 11478190676.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 248722529.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 48667331504.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5738114525.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "nee",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 8.30875415,
+      "completed_paths": 13107200,
+      "rays": 83034248,
+      "ray_slots": 83087848,
+      "batch_calls": 10385981,
+      "shadow_rays": 50030402
+    }
+  },
+  {
+    "name": "clang-soa",
+    "mode": "uniform",
+    "repeat": 1,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-soa-uniform-1.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/clang-soa",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "uniform",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 20522573744.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 53134809376.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 10984877936.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 1669847205.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 78674148.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 15045122931.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5190836214.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "uniform",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 3.4511586,
+      "completed_paths": 13107200,
+      "rays": 88965776,
+      "ray_slots": 89020576,
+      "batch_calls": 11127572,
+      "shadow_rays": 0
+    }
+  },
+  {
+    "name": "clang-fields",
+    "mode": "uniform",
+    "repeat": 1,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-fields-uniform-1.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/clang-fields",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "uniform",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 20787280430.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 54945596666.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 11094474789.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 1669825879.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 76704729.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 13876550172.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5602573494.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "uniform",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 3.48500087,
+      "completed_paths": 13107200,
+      "rays": 88965776,
+      "ray_slots": 89020576,
+      "batch_calls": 11127572,
+      "shadow_rays": 0
+    }
+  },
+  {
+    "name": "clang-original",
+    "mode": "uniform",
+    "repeat": 1,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-original-uniform-1.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_plain_clang",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "uniform",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 21055004218.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 54979546861.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 11237570319.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 1669835933.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 77001734.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 14025241190.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5449715388.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "uniform",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 3.5542532,
+      "completed_paths": 13107200,
+      "rays": 88965776,
+      "ray_slots": 89020576,
+      "batch_calls": 11127572,
+      "shadow_rays": 0
+    }
+  },
+  {
+    "name": "clang-soa",
+    "mode": "nee",
+    "repeat": 1,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-soa-nee-1.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/clang-soa",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "nee",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 49492351439.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 141570268978.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 26375156455.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 11478202153.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 248239505.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 48667392501.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5738120818.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "nee",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 8.28578312,
+      "completed_paths": 13107200,
+      "rays": 83034248,
+      "ray_slots": 83087848,
+      "batch_calls": 10385981,
+      "shadow_rays": 50030402
+    }
+  },
+  {
+    "name": "clang-fields",
+    "mode": "nee",
+    "repeat": 1,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-fields-nee-1.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/clang-fields",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "nee",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 47422269431.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 138623100562.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 25282011717.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 11378136573.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 241206751.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 37944049346.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5803506664.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "nee",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 7.94411807,
+      "completed_paths": 13107200,
+      "rays": 83034242,
+      "ray_slots": 83087832,
+      "batch_calls": 10385979,
+      "shadow_rays": 50030401
+    }
+  },
+  {
+    "name": "clang-original",
+    "mode": "nee",
+    "repeat": 1,
+    "command": [
+      "sudo",
+      "-n",
+      "perf",
+      "stat",
+      "--no-big-num",
+      "-x,",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/clang-original-nee-1.csv",
+      "-e",
+      "cpu_core/cycles/u,cpu_core/instructions/u,cpu_core/ref-cycles/u,cpu_core/branch-instructions/u,cpu_core/branch-misses/u,cpu_core/mem_inst_retired.all_loads/u,cpu_core/mem_inst_retired.all_stores/u",
+      "--",
+      "taskset",
+      "-c",
+      "8",
+      "/usr/sbin/runuser",
+      "-u",
+      "blacknoir",
+      "--",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pathtracer_plain_clang",
+      "128",
+      "320",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass8/perf/render.f32",
+      "--sampling",
+      "nee",
+      "--threads",
+      "1",
+      "--runtime",
+      "omp",
+      "--batch",
+      "8",
+      "--refill",
+      "--cpus",
+      "8",
+      "--raw"
+    ],
+    "counts": {
+      "cpu_core/cycles/u": {
+        "count": 48641912428.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/instructions/u": {
+        "count": 131467168882.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/ref-cycles/u": {
+        "count": 25945038136.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-instructions/u": {
+        "count": 11498091648.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/branch-misses/u": {
+        "count": 267149257.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_loads/u": {
+        "count": 33774109444.0,
+        "running_percent": 99.0
+      },
+      "cpu_core/mem_inst_retired.all_stores/u": {
+        "count": 5455205542.0,
+        "running_percent": 99.0
+      }
+    },
+    "render": {
+      "rng": "pcg32",
+      "seed": 42,
+      "sampling": "nee",
+      "runtime": "omp",
+      "threads": 1,
+      "render_seconds": 8.17629687,
+      "completed_paths": 13107200,
+      "rays": 83034242,
+      "ray_slots": 83087832,
+      "batch_calls": 10385979,
+      "shadow_rays": 50030401
+    }
+  }
+]

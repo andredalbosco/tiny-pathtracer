@@ -1,0 +1,22 @@
+{"rng":"pcg32","seed":42,"sampling":"uniform","runtime":"omp","threads":1,"render_seconds":0.0130507438,"completed_paths":3757,"rays":25273,"ray_slots":25688,"batch_calls":3211,"shadow_rays":0}
+
+=================================================================
+==507383==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 224 byte(s) in 1 object(s) allocated from:
+    #0 0x5652af910f58 in malloc (/home/blacknoir/Projects/tiny-pathtracer/build/pass8/sanitize-original-clang+0xe1f58) (BuildId: bf042a9aafbf77840cc85881cfb4e2547bbffa0d)
+    #1 0x7c79057e1b6b  (/lib/x86_64-linux-gnu/libomp.so.5+0x21b6b) (BuildId: 597017da07b7fbe219d04036e9ca30d46654951b)
+    #2 0x7c79057e0641 in ___kmp_allocate (/lib/x86_64-linux-gnu/libomp.so.5+0x20641) (BuildId: 597017da07b7fbe219d04036e9ca30d46654951b)
+    #3 0x7c79058532be  (/lib/x86_64-linux-gnu/libomp.so.5+0x932be) (BuildId: 597017da07b7fbe219d04036e9ca30d46654951b)
+    #4 0x7c790584afdc  (/lib/x86_64-linux-gnu/libomp.so.5+0x8afdc) (BuildId: 597017da07b7fbe219d04036e9ca30d46654951b)
+    #5 0x7c7905809c9f  (/lib/x86_64-linux-gnu/libomp.so.5+0x49c9f) (BuildId: 597017da07b7fbe219d04036e9ca30d46654951b)
+    #6 0x7c79057fc777  (/lib/x86_64-linux-gnu/libomp.so.5+0x3c777) (BuildId: 597017da07b7fbe219d04036e9ca30d46654951b)
+    #7 0x7c79057fe90b in __kmp_fork_call (/lib/x86_64-linux-gnu/libomp.so.5+0x3e90b) (BuildId: 597017da07b7fbe219d04036e9ca30d46654951b)
+    #8 0x7c79057ed3a0 in __kmpc_fork_call (/lib/x86_64-linux-gnu/libomp.so.5+0x2d3a0) (BuildId: 597017da07b7fbe219d04036e9ca30d46654951b)
+    #9 0x5652af976035 in int render<0>(SceneData const&, Options const&, float*, Statistics&) /home/blacknoir/Projects/tiny-pathtracer/pathtracer_plain.cpp:423:1
+    #10 0x5652af976035 in main /home/blacknoir/Projects/tiny-pathtracer/pathtracer_plain.cpp:495:19
+    #11 0x7c790542a574 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #12 0x7c790542a627 in __libc_start_main csu/../csu/libc-start.c:360:3
+    #13 0x5652af86d444 in _start (/home/blacknoir/Projects/tiny-pathtracer/build/pass8/sanitize-original-clang+0x3e444) (BuildId: bf042a9aafbf77840cc85881cfb4e2547bbffa0d)
+
+SUMMARY: AddressSanitizer: 224 byte(s) leaked in 1 allocation(s).
