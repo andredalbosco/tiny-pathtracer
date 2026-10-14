@@ -1,0 +1,11 @@
+import subprocess,pathlib,time,json,random,hashlib,statistics
+root=pathlib.Path(__file__).resolve().parents[2];out=root/'build/pass7';rows=[]
+phases=[('clang-unroll',['clang-plain','clang-plain-nounroll','clang-stl','clang-stl-nounroll'],['uniform','nee']),('trigger',['gcc-plain-default','gcc-plain-size-guard','gcc-stl-cached-count','gcc-stl-distance','gcc-stl-ch'],['uniform'])]
+for phase,names,modes in phases:
+ for mode in modes:
+  for repeat in range(3):
+   order=names.copy();random.Random(758+repeat).shuffle(order)
+   for name in order:
+    binary=out/name;image=out/(name+'-'+mode+'-probe.f32');cmd=[str(binary),'128','160',str(image),'--sampling',mode,'--threads','1','--runtime','omp','--batch','8','--refill','--cpus','8','--raw'];start=time.perf_counter();p=subprocess.run(cmd,capture_output=True,text=True,check=True);wall=time.perf_counter()-start;r=json.loads(p.stderr);r.update(phase=phase,name=name,mode=mode,repeat=repeat,wall_seconds=wall,sha256=hashlib.sha256(image.read_bytes()).hexdigest(),command=cmd);rows.append(r);(out/'probe-screen.json').write_text(json.dumps(rows,indent=2));print(name,mode,repeat,round(wall,4),flush=True)
+for phase,names,modes in phases:
+ for mode in modes:print(phase,mode,{name:statistics.median(r['wall_seconds'] for r in rows if r['phase']==phase and r['name']==name and r['mode']==mode and r['repeat']>0) for name in names},flush=True)

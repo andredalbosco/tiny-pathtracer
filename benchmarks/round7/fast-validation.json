@@ -1,0 +1,66 @@
+[
+  {
+    "mode": "uniform",
+    "name": "gcc-stl",
+    "reference": "gcc-plain",
+    "identical": false,
+    "rmse": 1.1312670892762526e-09,
+    "maximum_absolute": 5.960464477539063e-08
+  },
+  {
+    "mode": "uniform",
+    "name": "clang-plain",
+    "reference": "gcc-plain",
+    "identical": false,
+    "rmse": 5.887102596028545e-09,
+    "maximum_absolute": 2.652406692504883e-06
+  },
+  {
+    "mode": "uniform",
+    "name": "clang-stl",
+    "reference": "gcc-plain",
+    "identical": false,
+    "rmse": 4.862025836825964e-09,
+    "maximum_absolute": 2.652406692504883e-06
+  },
+  {
+    "mode": "uniform",
+    "name": "gcc-plain-libomp",
+    "reference": "gcc-plain",
+    "identical": true,
+    "rmse": 0.0,
+    "maximum_absolute": 0.0
+  },
+  {
+    "mode": "nee",
+    "name": "gcc-stl",
+    "reference": "gcc-plain",
+    "identical": false,
+    "rmse": 2.951778947659875e-08,
+    "maximum_absolute": 1.6197562217712402e-05
+  },
+  {
+    "mode": "nee",
+    "name": "clang-plain",
+    "reference": "gcc-plain",
+    "identical": false,
+    "rmse": 8.37832256516503e-06,
+    "maximum_absolute": 0.0026158690452575684
+  },
+  {
+    "mode": "nee",
+    "name": "clang-stl",
+    "reference": "gcc-plain",
+    "identical": false,
+    "rmse": 8.77421671270767e-06,
+    "maximum_absolute": 0.0026158690452575684
+  },
+  {
+    "mode": "nee",
+    "name": "gcc-plain-libomp",
+    "reference": "gcc-plain",
+    "identical": true,
+    "rmse": 0.0,
+    "maximum_absolute": 0.0
+  }
+]

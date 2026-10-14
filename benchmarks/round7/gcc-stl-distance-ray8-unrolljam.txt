@@ -1,0 +1,730 @@
+;; Function RayScene::intersect_batch.constprop (_ZNK8RayScene15intersect_batchEPK3RayP3HitiR12EmptyScratch.constprop.3, funcdef_no=9970, decl_uid=293901, cgraph_uid=13638, symbol_order=2471)
+
+Analyzing # of iterations of loop 3
+  exit condition [1, + , 1](no_overflow) != 8
+  bounds on difference of bases: 7 ... 7
+
+[Selected diagnostic; complete dump remains in build/pass7.]
+
+  direction_vector:     =    =
+  direction_vector:     +    =
+)
+Analyzing # of iterations of loop 2
+  exit condition [1, + , 1](no_overflow) < (int) _164
+  bounds on difference of bases: 0 ... 2147483646
+  result:
+    # of iterations (unsigned int) _164 + 4294967295, bounded by 2147483646
+/home/blacknoir/Projects/tiny-pathtracer/build/pass7/stl-distance/simple_kernels.h:69:27: optimized: applying unroll and jam with factor 2
+
+Updating SSA:
+Registering new PHI nodes in block #28
+Registering new PHI nodes in block #19
+Registering new PHI nodes in block #29
+Registering new PHI nodes in block #5
+Updating SSA information for statement _14 = (long unsigned int) i_171;
+Updating SSA information for statement _15 = _14 * 72;
+
+[Final GIMPLE function body follows.]
+
+void RayScene::intersect_batch.constprop (const struct RayScene * const this, const struct Ray * rays, struct Hit * hits)
+{
+  float ox[8];
+  float oy[8];
+  float oz[8];
+  float dx[8];
+  float dy[8];
+  float dz[8];
+  float ts[8];
+  float us[8];
+  float vs[8];
+  int ids[8];
+  int r;
+  int i;
+  int r;
+  float inverse;
+  float u;
+  float v;
+  float t;
+  int r;
+  float b$x;
+  float b$y;
+  float b$z;
+  float a$x;
+  float a$y;
+  float a$z;
+  float b$x;
+  float b$y;
+  float b$z;
+  long unsigned int _2;
+  long unsigned int _3;
+  const struct Ray * _5;
+  float _6;
+  float _7;
+  float _8;
+  float _9;
+  float _10;
+  float _11;
+  long unsigned int _14;
+  long unsigned int _15;
+  const struct value_type & _17;
+  float _19;
+  float _20;
+  float _21;
+  float _25;
+  float _26;
+  float _27;
+  float _28;
+  float _29;
+  float _30;
+  float _31;
+  float _32;
+  float _33;
+  float _37;
+  float _38;
+  float _39;
+  float _40;
+  float _41;
+  bool _42;
+  float _43;
+  float _45;
+  float _46;
+  float _47;
+  float _51;
+  float _52;
+  float _53;
+  float _54;
+  float _55;
+  float _56;
+  float _57;
+  float _58;
+  float _60;
+  float _61;
+  float _62;
+  float _63;
+  float _64;
+  float _65;
+  float _66;
+  float _67;
+  float _68;
+  float _69;
+  float _70;
+  float _71;
+  float _72;
+  float _73;
+  float _75;
+  float _76;
+  float _77;
+  float _78;
+  float _79;
+  bool _81;
+  bool _82;
+  bool _84;
+  bool _86;
+  float _88;
+  bool _89;
+  bool _91;
+  float _93;
+  bool _94;
+  bool _95;
+  float iftmp.363_96;
+  long int _97;
+  int iftmp.365_98;
+  int iftmp.365_99;
+  bool _103;
+  bool _104;
+  bool _105;
+  bool _106;
+  long unsigned int _108;
+  long unsigned int _109;
+  struct Hit * _111;
+  float _112;
+  float _113;
+  float _114;
+  int _115;
+  const struct Triangle * _118;
+  const struct Triangle * _141;
+  float cstore_158;
+  long int _164;
+  int _165;
+  bool _172;
+  int ivtmp_210;
+  int ivtmp_211;
+  float cstore_217;
+  int iftmp.365_219;
+  bool _224;
+  bool _225;
+  bool _226;
+  float _227;
+  bool _228;
+  bool _229;
+  bool _230;
+  float _231;
+  bool _232;
+  bool _233;
+  bool _234;
+  bool _235;
+  bool _236;
+  bool _237;
+  bool _238;
+  float _240;
+  float _241;
+  float _242;
+  float _243;
+  float _244;
+  float _246;
+  float _247;
+  float _248;
+  float _249;
+  float _250;
+  float _251;
+  float _252;
+  float _253;
+  float _254;
+  float _255;
+  float _256;
+  float _257;
+  float _258;
+  float _259;
+  float _261;
+  float _262;
+  float _263;
+  float _264;
+  float _265;
+  float _266;
+  float _267;
+  float _268;
+  float _273;
+  bool _274;
+  float _275;
+  float _276;
+  float _277;
+  float _278;
+  float _279;
+  float _280;
+  float _281;
+  float _282;
+  float _283;
+  float _284;
+  float _285;
+  float _286;
+  float _287;
+  float _288;
+  const struct value_type & _303;
+  long unsigned int _304;
+  long unsigned int _305;
+  float cstore_315;
+  int iftmp.365_317;
+  int iftmp.365_320;
+  float iftmp.363_321;
+  bool _322;
+  bool _323;
+  bool _324;
+  float _325;
+  bool _326;
+  bool _327;
+  bool _328;
+  float _329;
+  bool _330;
+  bool _331;
+  bool _332;
+  bool _333;
+  bool _334;
+  bool _335;
+  bool _336;
+  float _338;
+  float _339;
+  float _340;
+  float _341;
+  float _342;
+  float _344;
+  float _345;
+  float _346;
+  float _347;
+  float _348;
+  float _349;
+  float _350;
+  float _351;
+  float _352;
+  float _353;
+  float _354;
+  float _355;
+  float _356;
+  float _357;
+  float _359;
+  float _360;
+  float _361;
+  float _362;
+  float _363;
+  float _364;
+  float _365;
+  float _366;
+  float _367;
+  float _368;
+  float _369;
+  float _371;
+  bool _372;
+  float _373;
+  float _374;
+  float _375;
+  float _376;
+  float _377;
+  float _378;
+  float _379;
+  float _380;
+  float _381;
+  float _382;
+  float _383;
+  float _384;
+  float _385;
+  float _386;
+  float _387;
+  float _388;
+  float _389;
+  const struct value_type & _401;
+  long unsigned int _402;
+  long unsigned int _403;
+  int _406;
+  int _407;
+  int _408;
+
+  <bb 2> [local count: 14598063]:
+  ox = {};
+  oy = {};
+  oz = {};
+  dx = {};
+  dy = {};
+  dz = {};
+  us = {};
+  vs = {};
+
+  <bb 3> [local count: 118111600]:
+  # r_170 = PHI <r_12(18), 0(2)>
+  _2 = (long unsigned int) r_170;
+  _3 = _2 * 24;
+  _5 = rays_4(D) + _3;
+  _6 = _5->origin.x;
+  ox[r_170] = _6;
+  _7 = _5->origin.y;
+  oy[r_170] = _7;
+  _8 = _5->origin.z;
+  oz[r_170] = _8;
+  _9 = _5->direction.x;
+  dx[r_170] = _9;
+  _10 = _5->direction.y;
+  dy[r_170] = _10;
+  _11 = _5->direction.z;
+  dz[r_170] = _11;
+  ts[r_170] =  Inf;
+  ids[r_170] = -1;
+  r_12 = r_170 + 1;
+  if (r_12 != 8)
+    goto <bb 18>; [87.64%]
+  else
+    goto <bb 4>; [12.36%]
+
+  <bb 18> [local count: 103513537]:
+  goto <bb 3>; [100.00%]
+
+  <bb 4> [local count: 14598063]:
+  _141 = MEM[(const struct Triangle * const &)this_102(D)];
+  _118 = MEM[(const struct Triangle * const &)this_102(D) + 8];
+  _97 = _118 - _141;
+  _164 = _97 /[ex] 72;
+  _165 = (int) _164;
+  if (_165 > 0)
+    goto <bb 14>; [89.00%]
+  else
+    goto <bb 11>; [11.00%]
+
+  <bb 14> [local count: 12992276]:
+  _408 = (int) _164;
+  _407 = (int) _164;
+  _406 = _407 + -1;
+  if (_408 > 2)
+    goto <bb 29>; [90.00%]
+  else
+    goto <bb 30>; [10.00%]
+
+  <bb 29> [local count: 11693048]:
+
+  <bb 5> [local count: 106300440]:
+  # i_171 = PHI <0(29), i_212(41)>
+  # ivtmp_211 = PHI <1(29), ivtmp_210(41)>
+  _14 = (long unsigned int) i_171;
+  _15 = _14 * 72;
+  _17 = _141 + _15;
+  b$x_22 = MEM[(const struct Triangle &)_17].e2.x;
+  b$y_23 = MEM[(const struct Triangle &)_17].e2.y;
+  b$z_24 = MEM[(const struct Triangle &)_17].e2.z;
+  a$x_34 = MEM[(const struct Triangle &)_17].e1.x;
+  a$y_35 = MEM[(const struct Triangle &)_17].e1.y;
+  a$z_36 = MEM[(const struct Triangle &)_17].e1.z;
+  b$x_48 = MEM[(const struct Triangle &)_17].p.x;
+  b$y_49 = MEM[(const struct Triangle &)_17].p.y;
+  b$z_50 = MEM[(const struct Triangle &)_17].p.z;
+
+  <bb 6> [local count: 860067200]:
+  # r_173 = PHI <0(5), r_214(38)>
+  _19 = dx[r_173];
+  _20 = dy[r_173];
+  _21 = dz[r_173];
+  _25 = _20 * b$z_24;
+  _26 = _21 * b$y_23;
+  _27 = _25 - _26;
+  _28 = _21 * b$x_22;
+  _29 = _19 * b$z_24;
+  _30 = _28 - _29;
+  _31 = _19 * b$y_23;
+  _32 = _20 * b$x_22;
+  _33 = _31 - _32;
+  _37 = _27 * a$x_34;
+  _38 = _30 * a$y_35;
+  _39 = _37 + _38;
+  _40 = _33 * a$z_36;
+  _41 = _39 + _40;
+  _42 = _41 < 1.00000001335143196001808973960578441619873046875e-10;
+  _43 = _42 ? 1.00000001335143196001808973960578441619873046875e-10 : _41;
+  inverse_44 = 1.0e+0 / _43;
+  _45 = ox[r_173];
+  _46 = oy[r_173];
+  _47 = oz[r_173];
+  _51 = _45 - b$x_48;
+  _52 = _46 - b$y_49;
+  _53 = _47 - b$z_50;
+  _54 = _27 * _51;
+  _55 = _30 * _52;
+  _56 = _54 + _55;
+  _57 = _33 * _53;
+  _58 = _56 + _57;
+  u_59 = inverse_44 * _58;
+  _60 = a$z_36 * _52;
+  _61 = a$y_35 * _53;
+  _62 = _60 - _61;
+  _63 = a$x_34 * _53;
+  _64 = a$z_36 * _51;
+  _65 = _63 - _64;
+  _66 = a$y_35 * _51;
+  _67 = a$x_34 * _52;
+  _68 = _66 - _67;
+  _69 = _19 * _62;
+  _70 = _20 * _65;
+  _71 = _69 + _70;
+  _72 = _21 * _68;
+  _73 = _71 + _72;
+  v_74 = inverse_44 * _73;
+  _75 = b$x_22 * _62;
+  _76 = b$y_23 * _65;
+  _77 = _75 + _76;
+  _78 = b$z_24 * _68;
+  _79 = _77 + _78;
+  t_80 = inverse_44 * _79;
+  _81 = _41 >= 1.00000001335143196001808973960578441619873046875e-10;
+  _82 = u_59 >= 0.0;
+  _84 = u_59 <= 1.0e+0;
+  _172 = _82 & _84;
+  _106 = _81 & _172;
+  _86 = v_74 >= 0.0;
+  _105 = _86 & _106;
+  _88 = u_59 + v_74;
+  _89 = _88 <= 1.0e+0;
+  _91 = t_80 > 9.99999974737875163555145263671875e-5;
+  _104 = _91 & _105;
+  _93 = ts[r_173];
+  _94 = t_80 < _93;
+  _103 = _94 & _104;
+  _95 = _89 & _103;
+  if (_95 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 430033600]:
+  ts[r_173] = t_80;
+  vs[r_173] = v_74;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 430033600]:
+  iftmp.363_96 = us[r_173];
+  iftmp.365_98 = ids[r_173];
+
+  <bb 9> [local count: 860067200]:
+  # iftmp.365_99 = PHI <i_171(7), iftmp.365_98(8)>
+  # cstore_158 = PHI <u_59(7), iftmp.363_96(8)>
+  us[r_173] = cstore_158;
+  ids[r_173] = iftmp.365_99;
+  r_100 = r_173 + 1;
+  i_101 = i_171 + 1;
+  _305 = (long unsigned int) i_101;
+  _304 = _305 * 72;
+  _303 = _141 + _304;
+  b$x_302 = MEM[(const struct Triangle &)_303].e2.x;
+  b$y_301 = MEM[(const struct Triangle &)_303].e2.y;
+  b$z_300 = MEM[(const struct Triangle &)_303].e2.z;
+  a$x_299 = MEM[(const struct Triangle &)_303].e1.x;
+  a$y_298 = MEM[(const struct Triangle &)_303].e1.y;
+  a$z_297 = MEM[(const struct Triangle &)_303].e1.z;
+  b$x_296 = MEM[(const struct Triangle &)_303].p.x;
+  b$y_295 = MEM[(const struct Triangle &)_303].p.y;
+  b$z_294 = MEM[(const struct Triangle &)_303].p.z;
+  _288 = _20 * b$z_300;
+  _287 = _21 * b$y_301;
+  _286 = _288 - _287;
+  _285 = _21 * b$x_302;
+  _284 = _19 * b$z_300;
+  _283 = _285 - _284;
+  _282 = _19 * b$y_301;
+  _281 = _20 * b$x_302;
+  _280 = _282 - _281;
+  _279 = _286 * a$x_299;
+  _278 = _283 * a$y_298;
+  _277 = _279 + _278;
+  _276 = _280 * a$z_297;
+  _275 = _277 + _276;
+  _274 = _275 < 1.00000001335143196001808973960578441619873046875e-10;
+  _273 = _274 ? 1.00000001335143196001808973960578441619873046875e-10 : _275;
+  inverse_272 = 1.0e+0 / _273;
+  _268 = _45 - b$x_296;
+  _267 = _46 - b$y_295;
+  _266 = _47 - b$z_294;
+  _265 = _286 * _268;
+  _264 = _283 * _267;
+  _263 = _265 + _264;
+  _262 = _280 * _266;
+  _261 = _263 + _262;
+  u_260 = inverse_272 * _261;
+  _259 = a$z_297 * _267;
+  _258 = a$y_298 * _266;
+  _257 = _259 - _258;
+  _256 = a$x_299 * _266;
+  _255 = a$z_297 * _268;
+  _254 = _256 - _255;
+  _253 = a$y_298 * _268;
+  _252 = a$x_299 * _267;
+  _251 = _253 - _252;
+  _250 = _19 * _257;
+  _249 = _20 * _254;
+  _248 = _250 + _249;
+  _247 = _21 * _251;
+  _246 = _248 + _247;
+  v_245 = inverse_272 * _246;
+  _244 = b$x_302 * _257;
+  _243 = b$y_301 * _254;
+  _242 = _244 + _243;
+  _241 = b$z_300 * _251;
+  _240 = _242 + _241;
+  t_239 = inverse_272 * _240;
+  _238 = _275 >= 1.00000001335143196001808973960578441619873046875e-10;
+  _237 = u_260 >= 0.0;
+  _236 = u_260 <= 1.0e+0;
+  _235 = _237 & _236;
+  _234 = _238 & _235;
+  _233 = v_245 >= 0.0;
+  _232 = _233 & _234;
+  _231 = u_260 + v_245;
+  _230 = _231 <= 1.0e+0;
+  _229 = t_239 > 9.99999974737875163555145263671875e-5;
+  _228 = _229 & _232;
+  _227 = ts[r_173];
+  _226 = t_239 < _227;
+  _225 = _226 & _228;
+  _224 = _230 & _225;
+  if (_224 != 0)
+    goto <bb 36>; [50.00%]
+  else
+    goto <bb 37>; [50.00%]
+
+  <bb 36> [local count: 430033597]:
+  ts[r_173] = t_239;
+  vs[r_173] = v_245;
+
+  <bb 37> [local count: 860067194]:
+  # iftmp.365_219 = PHI <iftmp.365_99(9), i_101(36)>
+  # cstore_217 = PHI <cstore_158(9), u_260(36)>
+  us[r_173] = cstore_217;
+  ids[r_173] = iftmp.365_219;
+  r_214 = r_173 + 1;
+  if (r_214 != 8)
+    goto <bb 38>; [87.64%]
+  else
+    goto <bb 39>; [12.36%]
+
+  <bb 38> [local count: 753766753]:
+  goto <bb 6>; [100.00%]
+
+  <bb 39> [local count: 106300439]:
+  i_212 = i_171 + 2;
+  ivtmp_210 = ivtmp_211 + 2;
+  if (ivtmp_210 < _406)
+    goto <bb 41>; [89.00%]
+  else
+    goto <bb 30>; [11.00%]
+
+  <bb 41> [local count: 94607390]:
+  goto <bb 5>; [100.00%]
+
+  <bb 30> [local count: 12992276]:
+  # i_309 = PHI <0(14), i_212(39)>
+
+  <bb 20> [local count: 25984552]:
+  # i_405 = PHI <i_309(30), i_310(27)>
+  _403 = (long unsigned int) i_405;
+  _402 = _403 * 72;
+  _401 = _141 + _402;
+  b$x_400 = MEM[(const struct Triangle &)_401].e2.x;
+  b$y_399 = MEM[(const struct Triangle &)_401].e2.y;
+  b$z_398 = MEM[(const struct Triangle &)_401].e2.z;
+  a$x_397 = MEM[(const struct Triangle &)_401].e1.x;
+  a$y_396 = MEM[(const struct Triangle &)_401].e1.y;
+  a$z_395 = MEM[(const struct Triangle &)_401].e1.z;
+  b$x_394 = MEM[(const struct Triangle &)_401].p.x;
+  b$y_393 = MEM[(const struct Triangle &)_401].p.y;
+  b$z_392 = MEM[(const struct Triangle &)_401].p.z;
+
+  <bb 21> [local count: 210238648]:
+  # r_391 = PHI <0(20), r_312(25)>
+  _389 = dx[r_391];
+  _388 = dy[r_391];
+  _387 = dz[r_391];
+  _386 = _388 * b$z_398;
+  _385 = _387 * b$y_399;
+  _384 = _386 - _385;
+  _383 = _387 * b$x_400;
+  _382 = _389 * b$z_398;
+  _381 = _383 - _382;
+  _380 = _389 * b$y_399;
+  _379 = _388 * b$x_400;
+  _378 = _380 - _379;
+  _377 = _384 * a$x_397;
+  _376 = _381 * a$y_396;
+  _375 = _377 + _376;
+  _374 = _378 * a$z_395;
+  _373 = _375 + _374;
+  _372 = _373 < 1.00000001335143196001808973960578441619873046875e-10;
+  _371 = _372 ? 1.00000001335143196001808973960578441619873046875e-10 : _373;
+  inverse_370 = 1.0e+0 / _371;
+  _369 = ox[r_391];
+  _368 = oy[r_391];
+  _367 = oz[r_391];
+  _366 = _369 - b$x_394;
+  _365 = _368 - b$y_393;
+  _364 = _367 - b$z_392;
+  _363 = _384 * _366;
+  _362 = _381 * _365;
+  _361 = _363 + _362;
+  _360 = _378 * _364;
+  _359 = _361 + _360;
+  u_358 = inverse_370 * _359;
+  _357 = a$z_395 * _365;
+  _356 = a$y_396 * _364;
+  _355 = _357 - _356;
+  _354 = a$x_397 * _364;
+  _353 = a$z_395 * _366;
+  _352 = _354 - _353;
+  _351 = a$y_396 * _366;
+  _350 = a$x_397 * _365;
+  _349 = _351 - _350;
+  _348 = _389 * _355;
+  _347 = _388 * _352;
+  _346 = _348 + _347;
+  _345 = _387 * _349;
+  _344 = _346 + _345;
+  v_343 = inverse_370 * _344;
+  _342 = b$x_400 * _355;
+  _341 = b$y_399 * _352;
+  _340 = _342 + _341;
+  _339 = b$z_398 * _349;
+  _338 = _340 + _339;
+  t_337 = inverse_370 * _338;
+  _336 = _373 >= 1.00000001335143196001808973960578441619873046875e-10;
+  _335 = u_358 >= 0.0;
+  _334 = u_358 <= 1.0e+0;
+  _333 = _335 & _334;
+  _332 = _336 & _333;
+  _331 = v_343 >= 0.0;
+  _330 = _331 & _332;
+  _329 = u_358 + v_343;
+  _328 = _329 <= 1.0e+0;
+  _327 = t_337 > 9.99999974737875163555145263671875e-5;
+  _326 = _327 & _330;
+  _325 = ts[r_391];
+  _324 = t_337 < _325;
+  _323 = _324 & _326;
+  _322 = _328 & _323;
+  if (_322 != 0)
+    goto <bb 23>; [50.00%]
+  else
+    goto <bb 22>; [50.00%]
+
+  <bb 23> [local count: 105119324]:
+  ts[r_391] = t_337;
+  vs[r_391] = v_343;
+  goto <bb 24>; [100.00%]
+
+  <bb 22> [local count: 105119324]:
+  iftmp.363_321 = us[r_391];
+  iftmp.365_320 = ids[r_391];
+
+  <bb 24> [local count: 210238648]:
+  # iftmp.365_317 = PHI <iftmp.365_320(22), i_405(23)>
+  # cstore_315 = PHI <iftmp.363_321(22), u_358(23)>
+  us[r_391] = cstore_315;
+  ids[r_391] = iftmp.365_317;
+  r_312 = r_391 + 1;
+  if (r_312 != 8)
+    goto <bb 25>; [87.64%]
+  else
+    goto <bb 26>; [12.36%]
+
+  <bb 25> [local count: 184254096]:
+  goto <bb 21>; [100.00%]
+
+  <bb 26> [local count: 25984552]:
+  i_310 = i_405 + 1;
+  if (i_310 < _165)
+    goto <bb 27>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 27> [local count: 12992276]:
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 12992276]:
+
+  <bb 11> [local count: 14598063]:
+
+  <bb 12> [local count: 118111600]:
+  # r_174 = PHI <r_116(15), 0(11)>
+  _108 = (long unsigned int) r_174;
+  _109 = _108 * 16;
+  _111 = hits_110(D) + _109;
+  _112 = ts[r_174];
+  _113 = us[r_174];
+  _114 = vs[r_174];
+  _115 = ids[r_174];
+  _111->t = _112;
+  _111->u = _113;
+  _111->v = _114;
+  _111->triangle = _115;
+  r_116 = r_174 + 1;
+  if (r_116 != 8)
+    goto <bb 15>; [87.64%]
+  else
+    goto <bb 13>; [12.36%]
+
+  <bb 15> [local count: 103513537]:
+  goto <bb 12>; [100.00%]
+
+  <bb 13> [local count: 14598063]:
+  ox ={v} {CLOBBER(eos)};
+  oy ={v} {CLOBBER(eos)};
+  oz ={v} {CLOBBER(eos)};
+  dx ={v} {CLOBBER(eos)};
+  dy ={v} {CLOBBER(eos)};
+  dz ={v} {CLOBBER(eos)};
+  ts ={v} {CLOBBER(eos)};
+  us ={v} {CLOBBER(eos)};
+  vs ={v} {CLOBBER(eos)};
+  ids ={v} {CLOBBER(eos)};
+  return;
+
+}

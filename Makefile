@@ -90,6 +90,23 @@ COMPUTE_HEADERS = renderer_common.h simple_kernels.h render_driver.h stb_image_w
 plain: build/pathtracer_plain
 
 .PHONY: plain
+# Keep Clang outputs separate so compiler comparisons use frozen binaries.
+CLANGXX ?= clang++-20
+.PHONY: clang
+clang: build/pathtracer_plain_clang build/pathtracer_quality_clang
+
+build/pathtracer_plain_clang: pathtracer_plain.cpp stb_image_write.h Makefile | build
+	$(CLANGXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=fast $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_plain_clang_strict: pathtracer_plain.cpp stb_image_write.h Makefile | build
+	$(CLANGXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_quality_clang: pathtracer_quality.cpp quality_sampling.h $(COMPUTE_HEADERS) Makefile | build
+	$(CLANGXX) $(CPPFLAGS) $(CXXFLAGS) $(COMPUTE_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/pathtracer_quality_clang_strict: pathtracer_quality.cpp quality_sampling.h $(COMPUTE_HEADERS) Makefile | build
+	$(CLANGXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off -pthread $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
 build/pathtracer_plain: pathtracer_plain.cpp stb_image_write.h Makefile | build
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=fast $(OMP_FLAGS) $(PLAIN_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 
@@ -193,3 +210,4 @@ clean-compute:
 	rm -f build/pathtracer_explore build/pathtracer_quality build/pathtracer_quality_strict build/pathtracer_quality_pgo build/pathtracer_quality_xoroshiro_pp build/pathtracer_quality_xoroshiro_ss
 	rm -f build/test_quality build/test_experimental build/test_rng_pcg build/test_rng_pp build/test_rng_ss
 	rm -f build/pathtracer_plain build/pathtracer_plain_strict
+	rm -f build/pathtracer_plain_clang build/pathtracer_plain_clang_strict build/pathtracer_quality_clang build/pathtracer_quality_clang_strict

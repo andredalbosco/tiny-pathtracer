@@ -1,0 +1,151 @@
+[
+  {
+    "name": "gcc-plain-default",
+    "command": [
+      "g++",
+      "-iquote",
+      "/home/blacknoir/Projects/tiny-pathtracer",
+      "-isystem",
+      "/home/blacknoir/Projects/tiny-pathtracer",
+      "-O3",
+      "-std=c++17",
+      "-march=native",
+      "-ffp-contract=fast",
+      "-fopenmp",
+      "-fdump-tree-unrolljam-details",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-default.cpp",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/gcc-plain-default"
+    ],
+    "source_sha256": "dbf02d4d889d76189459df6c29eb5c53a861672771d457da91865581def58dfc",
+    "binary_sha256": "762e5b880ec6c099f10e894ec7ac75dc8fe82301e20c6fba9b22430b082f4ec4"
+  },
+  {
+    "name": "gcc-plain-pointer",
+    "command": [
+      "g++",
+      "-iquote",
+      "/home/blacknoir/Projects/tiny-pathtracer",
+      "-isystem",
+      "/home/blacknoir/Projects/tiny-pathtracer",
+      "-O3",
+      "-std=c++17",
+      "-march=native",
+      "-ffp-contract=fast",
+      "-fopenmp",
+      "-fdump-tree-unrolljam-details",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-pointer.cpp",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/gcc-plain-pointer"
+    ],
+    "source_sha256": "cf296008b6ace9ab355d62d078947f200b3de6f78d31c59362feefc71a41c2d8",
+    "binary_sha256": "92fa284f8eefd641d5d32483ca5c5716368ab5b94c949490014ebcac8c672e35"
+  },
+  {
+    "name": "gcc-plain-end",
+    "command": [
+      "g++",
+      "-iquote",
+      "/home/blacknoir/Projects/tiny-pathtracer",
+      "-isystem",
+      "/home/blacknoir/Projects/tiny-pathtracer",
+      "-O3",
+      "-std=c++17",
+      "-march=native",
+      "-ffp-contract=fast",
+      "-fopenmp",
+      "-fdump-tree-unrolljam-details",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-end.cpp",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/gcc-plain-end"
+    ],
+    "source_sha256": "a474a1e49bf167d6ecc2c4694a038d34616b80f6da44675073a82645f7b40027",
+    "binary_sha256": "24c648764b88eaa2663f5cedb5d7eba8201dcc2818b7d9f180342613f061f01c"
+  },
+  {
+    "name": "clang-plain",
+    "command": [
+      "clang++-20",
+      "-isystem",
+      ".",
+      "-O3",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-march=native",
+      "-ffp-contract=fast",
+      "-fopenmp",
+      "pathtracer_plain.cpp",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/clang-plain"
+    ],
+    "source_sha256": "dbf02d4d889d76189459df6c29eb5c53a861672771d457da91865581def58dfc",
+    "binary_sha256": "1d617afa3654e8225060922a2a53d9c1811ec48264555eef2e101b1ffb12695f"
+  },
+  {
+    "name": "clang-plain-strict",
+    "command": [
+      "clang++-20",
+      "-isystem",
+      ".",
+      "-O3",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-march=native",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "pathtracer_plain.cpp",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/clang-plain-strict"
+    ],
+    "source_sha256": "dbf02d4d889d76189459df6c29eb5c53a861672771d457da91865581def58dfc",
+    "binary_sha256": "f9558a2aed32b18238621253cee1fbc4551130c9aa31a292142c3b47a0505e78"
+  },
+  {
+    "name": "clang-stl",
+    "command": [
+      "clang++-20",
+      "-isystem",
+      ".",
+      "-O3",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-march=native",
+      "-ffp-contract=fast",
+      "-fopenmp",
+      "-pthread",
+      "pathtracer_quality.cpp",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/clang-stl"
+    ],
+    "source_sha256": "fb676bb2e40f7095b1d60551f77404fdfb5c8a2ac241314e1985a6c0d10d5822",
+    "binary_sha256": "69fba2173c63ededf89841fc7a1a8bc0224b9e9a57284b6800f8d56bfc5ff61b"
+  },
+  {
+    "name": "clang-stl-strict",
+    "command": [
+      "clang++-20",
+      "-isystem",
+      ".",
+      "-O3",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-march=native",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "-pthread",
+      "pathtracer_quality.cpp",
+      "-o",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/clang-stl-strict"
+    ],
+    "source_sha256": "fb676bb2e40f7095b1d60551f77404fdfb5c8a2ac241314e1985a6c0d10d5822",
+    "binary_sha256": "45e3fd122072b9ea071a21729223e4939c7a7751cf5a1619ef583a7676d36286"
+  }
+]

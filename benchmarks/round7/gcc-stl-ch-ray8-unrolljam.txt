@@ -1,0 +1,345 @@
+;; Function RayScene::intersect_batch.constprop (_ZNK8RayScene15intersect_batchEPK3RayP3HitiR12EmptyScratch.constprop.3, funcdef_no=9969, decl_uid=293842, cgraph_uid=13636, symbol_order=2471)
+
+Analyzing # of iterations of loop 3
+  exit condition [1, + , 1](no_overflow) != 8
+  bounds on difference of bases: 7 ... 7
+  result:
+    # of iterations 7, bounded by 7
+void RayScene::intersect_batch.constprop (const struct RayScene * const this, const struct Ray * rays, struct Hit * hits)
+{
+  float ox[8];
+  float oy[8];
+  float oz[8];
+  float dx[8];
+  float dy[8];
+  float dz[8];
+  float ts[8];
+  float us[8];
+  float vs[8];
+  int ids[8];
+  int r;
+  int i;
+  int r;
+  float inverse;
+  float u;
+  float v;
+  float t;
+  int r;
+  ptrdiff_t __dif;
+  float b$x;
+  float b$y;
+  float b$z;
+  float a$x;
+  float a$y;
+  float a$z;
+  float b$x;
+  float b$y;
+  float b$z;
+  long unsigned int _2;
+  long unsigned int _3;
+  const struct Ray * _5;
+  float _6;
+  float _7;
+  float _8;
+  float _9;
+  float _10;
+  float _11;
+  long unsigned int _14;
+  long unsigned int _15;
+  const struct value_type & _17;
+  float _19;
+  float _20;
+  float _21;
+  float _25;
+  float _26;
+  float _27;
+  float _28;
+  float _29;
+  float _30;
+  float _31;
+  float _32;
+  float _33;
+  float _37;
+  float _38;
+  float _39;
+  float _40;
+  float _41;
+  bool _42;
+  float _43;
+  float _45;
+  float _46;
+  float _47;
+  float _51;
+  float _52;
+  float _53;
+  float _54;
+  float _55;
+  float _56;
+  float _57;
+  float _58;
+  float _60;
+  float _61;
+  float _62;
+  float _63;
+  float _64;
+  float _65;
+  float _66;
+  float _67;
+  float _68;
+  float _69;
+  float _70;
+  float _71;
+  float _72;
+  float _73;
+  float _75;
+  float _76;
+  float _77;
+  float _78;
+  float _79;
+  bool _81;
+  bool _82;
+  bool _84;
+  bool _86;
+  float _88;
+  bool _89;
+  bool _91;
+  float _93;
+  bool _94;
+  bool _95;
+  float iftmp.363_96;
+  long int _97;
+  int iftmp.365_98;
+  int iftmp.365_99;
+  bool _103;
+  bool _104;
+  bool _105;
+  long unsigned int _108;
+  long unsigned int _109;
+  struct Hit * _111;
+  float _112;
+  float _113;
+  float _114;
+  int _115;
+  struct Triangle * _118;
+  struct Triangle * _141;
+  float cstore_158;
+  bool _171;
+  bool _173;
+  int _260;
+
+  <bb 2> [local count: 14598063]:
+  ox = {};
+  oy = {};
+  oz = {};
+  dx = {};
+  dy = {};
+  dz = {};
+  us = {};
+  vs = {};
+
+  <bb 3> [local count: 118111600]:
+  # r_169 = PHI <r_12(19), 0(2)>
+  _2 = (long unsigned int) r_169;
+  _3 = _2 * 24;
+  _5 = rays_4(D) + _3;
+  _6 = _5->origin.x;
+  ox[r_169] = _6;
+  _7 = _5->origin.y;
+  oy[r_169] = _7;
+  _8 = _5->origin.z;
+  oz[r_169] = _8;
+  _9 = _5->direction.x;
+  dx[r_169] = _9;
+  _10 = _5->direction.y;
+  dy[r_169] = _10;
+  _11 = _5->direction.z;
+  dz[r_169] = _11;
+  ts[r_169] =  Inf;
+  ids[r_169] = -1;
+  r_12 = r_169 + 1;
+  if (r_12 != 8)
+    goto <bb 19>; [87.64%]
+  else
+    goto <bb 4>; [12.36%]
+
+  <bb 19> [local count: 103513537]:
+  goto <bb 3>; [100.00%]
+
+  <bb 4> [local count: 14598063]:
+  _141 = MEM[(const struct vector *)this_102(D)].D.86234._M_impl.D.85573._M_finish;
+  _118 = MEM[(const struct vector *)this_102(D)].D.86234._M_impl.D.85573._M_start;
+  _97 = _141 - _118;
+  __dif_164 = _97 /[ex] 72;
+  if (_97 < 0)
+    goto <bb 12>; [0.00%]
+  else
+    goto <bb 5>; [100.00%]
+
+  <bb 5> [local count: 14598063]:
+  _260 = (int) __dif_164;
+  goto <bb 13>; [100.00%]
+
+  <bb 6> [local count: 118111600]:
+  _14 = (long unsigned int) i_170;
+  _15 = _14 * 72;
+  _17 = _118 + _15;
+  b$x_22 = MEM[(const struct Triangle &)_17].e2.x;
+  b$y_23 = MEM[(const struct Triangle &)_17].e2.y;
+  b$z_24 = MEM[(const struct Triangle &)_17].e2.z;
+  a$x_34 = MEM[(const struct Triangle &)_17].e1.x;
+  a$y_35 = MEM[(const struct Triangle &)_17].e1.y;
+  a$z_36 = MEM[(const struct Triangle &)_17].e1.z;
+  b$x_48 = MEM[(const struct Triangle &)_17].p.x;
+  b$y_49 = MEM[(const struct Triangle &)_17].p.y;
+  b$z_50 = MEM[(const struct Triangle &)_17].p.z;
+
+  <bb 7> [local count: 955630224]:
+  # r_172 = PHI <r_100(18), 0(6)>
+  _19 = dx[r_172];
+  _20 = dy[r_172];
+  _21 = dz[r_172];
+  _25 = _20 * b$z_24;
+  _26 = _21 * b$y_23;
+  _27 = _25 - _26;
+  _28 = _21 * b$x_22;
+  _29 = _19 * b$z_24;
+  _30 = _28 - _29;
+  _31 = _19 * b$y_23;
+  _32 = _20 * b$x_22;
+  _33 = _31 - _32;
+  _37 = _27 * a$x_34;
+  _38 = _30 * a$y_35;
+  _39 = _37 + _38;
+  _40 = _33 * a$z_36;
+  _41 = _39 + _40;
+  _42 = _41 < 1.00000001335143196001808973960578441619873046875e-10;
+  _43 = _42 ? 1.00000001335143196001808973960578441619873046875e-10 : _41;
+  inverse_44 = 1.0e+0 / _43;
+  _45 = ox[r_172];
+  _46 = oy[r_172];
+  _47 = oz[r_172];
+  _51 = _45 - b$x_48;
+  _52 = _46 - b$y_49;
+  _53 = _47 - b$z_50;
+  _54 = _27 * _51;
+  _55 = _30 * _52;
+  _56 = _54 + _55;
+  _57 = _33 * _53;
+  _58 = _56 + _57;
+  u_59 = inverse_44 * _58;
+  _60 = a$z_36 * _52;
+  _61 = a$y_35 * _53;
+  _62 = _60 - _61;
+  _63 = a$x_34 * _53;
+  _64 = a$z_36 * _51;
+  _65 = _63 - _64;
+  _66 = a$y_35 * _51;
+  _67 = a$x_34 * _52;
+  _68 = _66 - _67;
+  _69 = _19 * _62;
+  _70 = _20 * _65;
+  _71 = _69 + _70;
+  _72 = _21 * _68;
+  _73 = _71 + _72;
+  v_74 = inverse_44 * _73;
+  _75 = b$x_22 * _62;
+  _76 = b$y_23 * _65;
+  _77 = _75 + _76;
+  _78 = b$z_24 * _68;
+  _79 = _77 + _78;
+  t_80 = inverse_44 * _79;
+  _81 = _41 >= 1.00000001335143196001808973960578441619873046875e-10;
+  _82 = u_59 >= 0.0;
+  _84 = u_59 <= 1.0e+0;
+  _173 = _82 & _84;
+  _171 = _81 & _173;
+  _86 = v_74 >= 0.0;
+  _105 = _86 & _171;
+  _88 = u_59 + v_74;
+  _89 = _88 <= 1.0e+0;
+  _91 = t_80 > 9.99999974737875163555145263671875e-5;
+  _104 = _91 & _105;
+  _93 = ts[r_172];
+  _94 = t_80 < _93;
+  _103 = _94 & _104;
+  _95 = _89 & _103;
+  if (_95 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 477815112]:
+  ts[r_172] = t_80;
+  vs[r_172] = v_74;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 477815112]:
+  iftmp.363_96 = us[r_172];
+  iftmp.365_98 = ids[r_172];
+
+  <bb 10> [local count: 955630224]:
+  # iftmp.365_99 = PHI <i_170(8), iftmp.365_98(9)>
+  # cstore_158 = PHI <u_59(8), iftmp.363_96(9)>
+  us[r_172] = cstore_158;
+  ids[r_172] = iftmp.365_99;
+  r_100 = r_172 + 1;
+  if (r_100 != 8)
+    goto <bb 18>; [87.64%]
+  else
+    goto <bb 11>; [12.36%]
+
+  <bb 18> [local count: 837518623]:
+  goto <bb 7>; [100.00%]
+
+  <bb 11> [local count: 118111600]:
+  i_101 = i_170 + 1;
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [count: 0]:
+  __builtin_unreachable ();
+
+  <bb 13> [local count: 132709663]:
+  # i_170 = PHI <i_101(11), 0(5)>
+  if (i_170 < _260)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 16>; [11.00%]
+
+  <bb 16> [local count: 14598063]:
+
+  <bb 14> [local count: 118111600]:
+  # r_174 = PHI <r_116(17), 0(16)>
+  _108 = (long unsigned int) r_174;
+  _109 = _108 * 16;
+  _111 = hits_110(D) + _109;
+  _112 = ts[r_174];
+  _113 = us[r_174];
+  _114 = vs[r_174];
+  _115 = ids[r_174];
+  _111->t = _112;
+  _111->u = _113;
+  _111->v = _114;
+  _111->triangle = _115;
+  r_116 = r_174 + 1;
+  if (r_116 != 8)
+    goto <bb 17>; [87.64%]
+  else
+    goto <bb 15>; [12.36%]
+
+  <bb 17> [local count: 103513537]:
+  goto <bb 14>; [100.00%]
+
+  <bb 15> [local count: 14598063]:
+  ox ={v} {CLOBBER(eos)};
+  oy ={v} {CLOBBER(eos)};
+  oz ={v} {CLOBBER(eos)};
+  dx ={v} {CLOBBER(eos)};
+  dy ={v} {CLOBBER(eos)};
+  dz ={v} {CLOBBER(eos)};
+  ts ={v} {CLOBBER(eos)};
+  us ={v} {CLOBBER(eos)};
+  vs ={v} {CLOBBER(eos)};
+  ids ={v} {CLOBBER(eos)};
+  return;
+
+}

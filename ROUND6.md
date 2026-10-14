@@ -1,5 +1,8 @@
 # Recovering the STL-free renderer's speed
 
+**Follow-up:** [Round seven](ROUND7.md) compares Clang and isolates the original
+vector loop's guard and header-copying behavior with both storage forms.
+
 The initial plain renderer's slowdown came from generated code, not a need for
 STL. Five ordinary `inline` declarations and one plain-target compiler option
 recover the reference throughput while retaining C arrays, malloc/free, C I/O

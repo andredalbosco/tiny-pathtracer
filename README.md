@@ -2,6 +2,8 @@
 
 For the STL-free implementation, use `pathtracer_plain.cpp`. It uses C arrays,
 C allocation/I/O and OpenMP, with the same sampling computation.
+[Clang versus GCC and the isolated array-loop trigger](ROUND7.md) compare both
+compilers and explain the effect of the vector size guard on GCC's loop passes.
 [The compiler audit and speed recovery](ROUND6.md) explain how a small inlining
 and GCC loop-pass change restores the original speed. The
 [general Astra analysis](ROUND5.md) covers sampling quality and six proposals.
@@ -10,6 +12,17 @@ and GCC loop-pass change restores the original speed. The
 make plain
 ./build/pathtracer_plain 128 320 build/plain.hdr --threads 32
 ```
+
+Clang 20 is also available with separate executables:
+
+```sh
+make clang
+./build/pathtracer_plain_clang 128 320 build/plain-clang.hdr --threads 32
+```
+
+`CLANGXX` defaults to `clang++-20`. Clang's plain build uses ordinary O3/native
+flags. In the measured case it is close to tuned GCC, while the Clang STL
+reference is slower; see round seven for full times, perf and strict checks.
 
 The plain targets use GCC's `-fno-loop-unroll-and-jam` to avoid extra vector
 temporaries in the eight-ray loop. `PLAIN_FLAGS` is overridable; use

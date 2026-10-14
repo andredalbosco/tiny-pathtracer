@@ -1,0 +1,26 @@
+{
+  "parent_commit": "4273290d44e88c26759b291c3315c1c87cf61ee5",
+  "gcc": "g++ (Ubuntu 15.2.0-4ubuntu4) 15.2.0",
+  "clang": "Ubuntu clang version 20.1.8 (0ubuntu4)",
+  "sources": {
+    "pathtracer_plain.cpp": "dbf02d4d889d76189459df6c29eb5c53a861672771d457da91865581def58dfc",
+    "pathtracer_quality.cpp": "fb676bb2e40f7095b1d60551f77404fdfb5c8a2ac241314e1985a6c0d10d5822",
+    "renderer_common.h": "670941f48d733267162ccf530b3f889ef4b9c056f14085014636c39c8e487c34",
+    "simple_kernels.h": "beea7815451bacea2b359a41fb624ec26235c2762b78464f988f7de7feefcecc",
+    "render_driver.h": "9e2d50e10ef1c97882acd87a0d78110f361e2e653b51709ea14d22ca00cb510b",
+    "quality_sampling.h": "c538a49a058a6af8f639892988bb343c76361d62b43c1b2f14c10a3c1a6a3280",
+    "Makefile": "99eb3adb35a90430a4b7b3d536ef4c8532832557ada99820178747c358e4d571"
+  },
+  "runtime_identity": {
+    "normalized_operations_identical": true,
+    "gcc_instruction_count": 21298,
+    "llvm_runtime_instruction_count": 21298
+  },
+  "libraries": {
+    "build/pathtracer_plain": "\tlinux-vdso.so.1 (0x000078f9e9ad2000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000078f9e9986000)\n\tlibgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x000078f9e992d000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000078f9e9600000)\n\t/lib64/ld-linux-x86-64.so.2 (0x000078f9e9ad4000)\n",
+    "build/pathtracer_quality": "\tlinux-vdso.so.1 (0x00007793f8d48000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007793f8800000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007793f8b73000)\n\tlibgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x00007793f8b1a000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007793f8aed000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007793f8400000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007793f8d4a000)\n",
+    "build/pathtracer_plain_clang": "\tlinux-vdso.so.1 (0x00007cb6fd50c000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007cb6fd200000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007cb6fd0f3000)\n\tlibomp.so.5 => /lib/x86_64-linux-gnu/libomp.so.5 (0x00007cb6fcfc0000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007cb6fd4a5000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007cb6fcc00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007cb6fd50e000)\n",
+    "build/pathtracer_quality_clang": "\tlinux-vdso.so.1 (0x00007374427b6000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x0000737442400000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007374422f3000)\n\tlibomp.so.5 => /lib/x86_64-linux-gnu/libomp.so.5 (0x00007374421c0000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007374426f4000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000737441e00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007374427b8000)\n",
+    "build/pass7/gcc-plain-libomp": "\tlinux-vdso.so.1 (0x00007f3749e86000)\n\tlibomp.so.5 => /usr/lib/llvm-20/lib/libomp.so.5 (0x00007f3749d2b000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f3749c07000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f3749800000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f3749e88000)\n"
+  }
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "name": "gcc-stl-ch",
+    "header_copy_excerpt": "gcc-stl-ch-ray8-ch2.txt",
+    "unroll_jam_excerpt": "gcc-stl-ch-ray8-unrolljam.txt",
+    "ray8_jam_reports": []
+  },
+  {
+    "name": "gcc-stl-cached-count",
+    "header_copy_excerpt": "gcc-stl-cached-count-ray8-ch2.txt",
+    "unroll_jam_excerpt": "gcc-stl-cached-count-ray8-unrolljam.txt",
+    "ray8_jam_reports": [
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/stl-cached-count/simple_kernels.h:70:27: optimized: applying unroll and jam with factor 2"
+    ]
+  },
+  {
+    "name": "gcc-stl-distance",
+    "header_copy_excerpt": "gcc-stl-distance-ray8-ch2.txt",
+    "unroll_jam_excerpt": "gcc-stl-distance-ray8-unrolljam.txt",
+    "ray8_jam_reports": [
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/stl-distance/simple_kernels.h:69:27: optimized: applying unroll and jam with factor 2"
+    ]
+  },
+  {
+    "name": "gcc-plain-default",
+    "jam_reports": [
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-default.cpp:280:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-default.cpp:280:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-default.cpp:280:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-default.cpp:280:18: optimized: applying unroll and jam with factor 2"
+    ]
+  },
+  {
+    "name": "gcc-plain-pointer",
+    "jam_reports": [
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-pointer.cpp:280:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-pointer.cpp:280:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-pointer.cpp:280:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-pointer.cpp:280:18: optimized: applying unroll and jam with factor 2"
+    ]
+  },
+  {
+    "name": "gcc-plain-end",
+    "jam_reports": [
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-end.cpp:281:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-end.cpp:281:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-end.cpp:281:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/plain-end.cpp:281:18: optimized: applying unroll and jam with factor 2"
+    ]
+  },
+  {
+    "name": "gcc-max-reference",
+    "jam_reports": [
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/max-reference.cpp:280:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/max-reference.cpp:280:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/max-reference.cpp:280:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/max-reference.cpp:280:18: optimized: applying unroll and jam with factor 2"
+    ]
+  },
+  {
+    "name": "gcc-count-positive",
+    "jam_reports": [
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/count-positive.cpp:281:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/count-positive.cpp:281:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/count-positive.cpp:281:18: optimized: applying unroll and jam with factor 2",
+      "/home/blacknoir/Projects/tiny-pathtracer/build/pass7/count-positive.cpp:281:18: optimized: applying unroll and jam with factor 2"
+    ]
+  },
+  {
+    "name": "gcc-plain-size-guard",
+    "jam_reports": []
+  }
+]

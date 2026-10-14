@@ -1,0 +1,1206 @@
+[
+  {
+    "mode": "uniform",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "cosine",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 1,
+    "samples": 1,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 9,
+    "samples": 3,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 17,
+    "samples": 13,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 32,
+    "samples": 8,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_plain_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 4,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "mis",
+    "width": 64,
+    "samples": 64,
+    "binary": "pathtracer_quality_clang_strict",
+    "threads": 32,
+    "scheduling_pixels_identical": true,
+    "scheduling_work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 320,
+    "samples": 128,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "uniform",
+    "width": 320,
+    "samples": 128,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 320,
+    "samples": 128,
+    "binary": "pathtracer_plain_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  },
+  {
+    "mode": "nee",
+    "width": 320,
+    "samples": 128,
+    "binary": "pathtracer_quality_clang_strict",
+    "identical": true,
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "finite_nonnegative": true,
+    "work_identical": true
+  }
+]
