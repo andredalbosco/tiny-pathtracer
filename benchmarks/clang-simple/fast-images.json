@@ -1,0 +1,14 @@
+[
+  {
+    "scope": "P1",
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "pixels_identical": true
+  },
+  {
+    "scope": "all32",
+    "rmse": 0.0,
+    "max_absolute": 0.0,
+    "pixels_identical": true
+  }
+]

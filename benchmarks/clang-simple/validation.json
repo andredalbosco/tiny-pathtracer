@@ -1,0 +1,121 @@
+[
+  {
+    "width": 1,
+    "samples": 1,
+    "threads": 1,
+    "pixels_identical": true,
+    "sha256": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b"
+  },
+  {
+    "width": 1,
+    "samples": 1,
+    "threads": 4,
+    "pixels_identical": true,
+    "sha256": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b"
+  },
+  {
+    "width": 1,
+    "samples": 1,
+    "threads": 32,
+    "pixels_identical": true,
+    "sha256": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b"
+  },
+  {
+    "width": 9,
+    "samples": 3,
+    "threads": 1,
+    "pixels_identical": true,
+    "sha256": "01c5ef5de3d011f52d6c18bd0082e3ee5263bf225da9457fbcdfe3928c4c848c"
+  },
+  {
+    "width": 9,
+    "samples": 3,
+    "threads": 4,
+    "pixels_identical": true,
+    "sha256": "01c5ef5de3d011f52d6c18bd0082e3ee5263bf225da9457fbcdfe3928c4c848c"
+  },
+  {
+    "width": 9,
+    "samples": 3,
+    "threads": 32,
+    "pixels_identical": true,
+    "sha256": "01c5ef5de3d011f52d6c18bd0082e3ee5263bf225da9457fbcdfe3928c4c848c"
+  },
+  {
+    "width": 17,
+    "samples": 13,
+    "threads": 1,
+    "pixels_identical": true,
+    "sha256": "6ffb6ca8c1ede6a0c8791169fed95a9f99ab5201e007106c793ac08ce8648e6c"
+  },
+  {
+    "width": 17,
+    "samples": 13,
+    "threads": 4,
+    "pixels_identical": true,
+    "sha256": "6ffb6ca8c1ede6a0c8791169fed95a9f99ab5201e007106c793ac08ce8648e6c"
+  },
+  {
+    "width": 17,
+    "samples": 13,
+    "threads": 32,
+    "pixels_identical": true,
+    "sha256": "6ffb6ca8c1ede6a0c8791169fed95a9f99ab5201e007106c793ac08ce8648e6c"
+  },
+  {
+    "width": 33,
+    "samples": 9,
+    "threads": 1,
+    "pixels_identical": true,
+    "sha256": "8d6b26a80ceaea5238cc1fd663dadf2f4fa17227b011f9c5f8be0ea054c3996b"
+  },
+  {
+    "width": 33,
+    "samples": 9,
+    "threads": 4,
+    "pixels_identical": true,
+    "sha256": "8d6b26a80ceaea5238cc1fd663dadf2f4fa17227b011f9c5f8be0ea054c3996b"
+  },
+  {
+    "width": 33,
+    "samples": 9,
+    "threads": 32,
+    "pixels_identical": true,
+    "sha256": "8d6b26a80ceaea5238cc1fd663dadf2f4fa17227b011f9c5f8be0ea054c3996b"
+  },
+  {
+    "width": 64,
+    "samples": 32,
+    "threads": 1,
+    "pixels_identical": true,
+    "sha256": "96b76ec5241c2049f27518cb239ffc188716c83793cd9c698bffa3ca25b8ab2e"
+  },
+  {
+    "width": 64,
+    "samples": 32,
+    "threads": 4,
+    "pixels_identical": true,
+    "sha256": "96b76ec5241c2049f27518cb239ffc188716c83793cd9c698bffa3ca25b8ab2e"
+  },
+  {
+    "width": 64,
+    "samples": 32,
+    "threads": 32,
+    "pixels_identical": true,
+    "sha256": "96b76ec5241c2049f27518cb239ffc188716c83793cd9c698bffa3ca25b8ab2e"
+  },
+  {
+    "width": 320,
+    "samples": 128,
+    "threads": 1,
+    "pixels_identical": true,
+    "sha256": "7be83a5ed68a5160c31cfedc7ae650250b7d8e9906fa7926988c16de62bb4cab"
+  },
+  {
+    "width": 320,
+    "samples": 128,
+    "threads": 32,
+    "pixels_identical": true,
+    "sha256": "7be83a5ed68a5160c31cfedc7ae650250b7d8e9906fa7926988c16de62bb4cab"
+  }
+]

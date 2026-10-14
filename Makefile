@@ -132,7 +132,13 @@ build/pathtracer_clang_strict: pathtracer_clang.cpp stb_image_write.h Makefile |
 render-clang: build/pathtracer_clang
 	./build/pathtracer_clang $(RENDER_ARGS)
 
-test-clang: build/pathtracer_clang build/pathtracer_clang_strict build/pathtracer_plain_clang_strict build/pathtracer_triangles_clang_fields build/pathtracer_triangles_clang_soa
+build/raw_clang: tests/raw_clang.cpp pathtracer_clang.cpp stb_image_write.h Makefile | build
+	$(CLANGXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=fast $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+build/raw_clang_strict: tests/raw_clang.cpp pathtracer_clang.cpp stb_image_write.h Makefile | build
+	$(CLANGXX) $(CPPFLAGS) $(CXXFLAGS) -march=native -ffp-contract=off $(OMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+test-clang: build/pathtracer_clang build/pathtracer_clang_strict build/raw_clang_strict build/pathtracer_plain_clang_strict
 	python3 tests/validate_clang.py
 
 build/pathtracer_plain_clang: pathtracer_plain.cpp stb_image_write.h Makefile | build
@@ -245,7 +251,7 @@ test-compute: build/test_simple build/test_advanced build/pathtracer_simple buil
 	python3 tests/validate_render.py
 
 clean-compute:
-	rm -f build/pathtracer_clang build/pathtracer_clang_strict
+	rm -f build/pathtracer_clang build/pathtracer_clang_strict build/raw_clang build/raw_clang_strict
 	rm -f $(TRIANGLE_TARGETS) $(TRIANGLE_CLANG_TARGETS) $(TRIANGLE_STRICT_TARGETS) $(TRIANGLE_CLANG_STRICT_TARGETS)
 	rm -f build/pathtracer_simple build/pathtracer_simple_strict build/pathtracer_advanced build/pathtracer_advanced_work build/test_simple build/test_advanced
 	rm -f build/pathtracer_simple_pgo build/test_sincos

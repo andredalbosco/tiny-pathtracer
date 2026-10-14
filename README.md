@@ -1,23 +1,21 @@
 # Tiny path tracer
 
-The standalone Clang implementation is `pathtracer_clang.cpp`. It uses fixed
-C arrays and OpenMP, selecting scalar geometry columns for uniform sampling
-and `Float3` field arrays for cosine/NEE/MIS. The selection is compiled into
-each sampling mode; no layout branch is added to the triangle loop. These
-choices follow the uniform and NEE results in [round eight](ROUND8.md).
-Cosine and MIS use the field representation without a separate layout benchmark.
+`pathtracer_clang.cpp` follows the original uniform renderer's structure:
+plain `Scene`, `pathtrace` and `render` functions, plus a small `main`.
+It uses C arrays, per-sample PCG streams, scalar geometry columns, an eight-ray
+intersection and OpenMP. There are no templates or sampling-mode options.
 
 ```sh
 make build/pathtracer_clang
-./build/pathtracer_clang 128 320 build/clang-nee.hdr --threads 32
-./build/pathtracer_clang 128 320 build/clang-uniform.hdr --sampling uniform --threads 32
+./build/pathtracer_clang 128 320 build/clang.hdr 32
 make test-clang
 ```
 
-The default sampling mode is NEE and default output is `build/clang.hdr`.
-`make clang` also builds this executable; `make render-clang` accepts
-`RENDER_ARGS`. [Consolidation checks and timings](CLANG.md) compare it with the
-measured round-eight candidates.
+Arguments are samples, width, output filename and optional thread count.
+The defaults are 128, 320, `build/clang.hdr` and the OpenMP thread count.
+`make clang` also builds it; `make render-clang` accepts `RENDER_ARGS`.
+[Simplicity checks and timings](CLANG.md) compare it with the previous version.
+NEE/cosine/MIS remain available in `pathtracer_plain.cpp` and the quality builds.
 
 For the STL-free implementation, use `pathtracer_plain.cpp`. It uses C arrays,
 C allocation/I/O and OpenMP, with the same sampling computation.
@@ -52,7 +50,7 @@ Clang 20 is also available with separate executables:
 
 ```sh
 make clang
-./build/pathtracer_clang 128 320 build/clang.hdr --threads 32
+./build/pathtracer_clang 128 320 build/clang.hdr 32
 ```
 
 `CLANGXX` defaults to `clang++-20`. Clang's plain build uses ordinary O3/native
