@@ -32,7 +32,7 @@ NVCC ?= nvcc
 CUDA_HOST_CXX ?= g++-13
 CUDA_FLAGS ?= -O2 -std=c++17 -I. -Iexternal/stb
 
-OPTIX_TAG ?= v9.0.0
+OPTIX_TAG ?= v9.1.0
 OPTIX_INCLUDE ?= external/optix-dev-$(OPTIX_TAG)/include
 CLANG_CUDA_CXX ?= clang++
 CLANG_CUDA_FLAGS ?= -O2 -std=c++17 -I. -Iexternal/stb
