@@ -17,7 +17,7 @@ struct Ray { Float3 origin, direction; };
 
 struct Hit {
     float t = INFINITY, u = 0, v = 0;
-    int triangle = -1;
+    int triangle_index = -1;
 };
 
 struct Triangle {
@@ -72,9 +72,9 @@ struct Scene {
     bool intersect(Ray ray, Hit& hit) const {
         hit = {};
         for (int i = 0; i < int(triangles.size()); ++i) {
-            if (triangles[i].intersect(ray, hit)) hit.triangle = i;
+            if (triangles[i].intersect(ray, hit)) hit.triangle_index = i;
         }
-        return hit.triangle >= 0;
+        return hit.triangle_index >= 0;
     }
 };
 
@@ -101,7 +101,7 @@ void add_block(Scene& scene, Float3 center, Float3 size, float degrees,
     add_quad(scene, p, u, v, color, emission);
 }
 
-Scene cornell_box() {
+Scene make_cornell_box() {
     Scene scene;
     scene.camera = {
         {278, 278, -800}, {278, 278, 278}, {0, 1, 0}, 40, 1.0f, {}, {}, {}
@@ -134,7 +134,7 @@ float random_float() {
 
 Float2 random_float2() { return {random_float(), random_float()}; }
 
-Float3 sample_hemisphere(Float3 normal) {
+Float3 sample_uniform_hemisphere(Float3 normal) {
     Float2 sample = random_float2();
     float z = 2 * sample.x - 1;
     float phi = 2 * M_PI * sample.y;
@@ -143,21 +143,21 @@ Float3 sample_hemisphere(Float3 normal) {
     return dot(direction, normal) < 0 ? direction * -1 : direction;
 }
 
-Float3 pathtrace(const Scene& scene, Ray ray) {
+Float3 trace_path(const Scene& scene, Ray ray) {
     Float3 path_weight{1, 1, 1};
 
     for (int depth = 0; depth < max_depth; ++depth) {
         Hit hit;
         if (!scene.intersect(ray, hit)) return {};
 
-        const Triangle& triangle = scene.triangles[hit.triangle];
+        const Triangle& triangle = scene.triangles[hit.triangle_index];
         if (dot(triangle.emission, triangle.emission) > 0)
             return path_weight * triangle.emission;
 
         Float3 position = triangle.p + triangle.e1 * hit.u + triangle.e2 * hit.v;
         Float3 origin = position + triangle.normal * 1e-4f;
 
-        Float3 direction = sample_hemisphere(triangle.normal);
+        Float3 direction = sample_uniform_hemisphere(triangle.normal);
         float cosine = std::max(0.0f, dot(triangle.normal, direction));
         path_weight *= triangle.albedo * (2 * cosine);
 
@@ -183,7 +183,7 @@ void render(const Scene& scene, int samples, int width, int height, float* pixel
                                  + camera.w * focal_length;
                 Ray ray{camera.position, normalize(direction)};
 
-                pixel_color += pathtrace(scene, ray);
+                pixel_color += trace_path(scene, ray);
             }
 
             pixel_color = pixel_color * (1.0f / samples);
@@ -212,7 +212,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    Scene scene = cornell_box();
+    Scene scene = make_cornell_box();
     int height = int(width / scene.camera.aspect);
     std::vector<float> pixels(width * height * 3);
     std::cerr << "Rendering " << width << 'x' << height << " at " << samples << " spp\n";

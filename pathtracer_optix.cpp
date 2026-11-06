@@ -9,14 +9,14 @@
 #include <iterator>
 #include <string>
 
-struct alignas(OPTIX_SBT_RECORD_ALIGNMENT) Record {
+struct alignas(OPTIX_SBT_RECORD_ALIGNMENT) SbtRecord {
     char header[OPTIX_SBT_RECORD_HEADER_SIZE];
 };
 
 struct TriangleMesh {
     float3* vertices;
     Surface* surfaces;
-    void* accelerationBuffer;
+    void* acceleration_buffer;
     OptixTraversableHandle handle;
 };
 
@@ -33,7 +33,7 @@ struct Pipeline {
 };
 
 struct ShaderBindingTable {
-    Record* records;
+    SbtRecord* records;
     OptixShaderBindingTable sbt;
 };
 
@@ -51,14 +51,14 @@ void check(OptixResult error) {
     }
 }
 
-std::string readFile(const std::string& filename) {
+std::string read_file(const std::string& filename) {
     std::ifstream file(filename, std::ios::binary);
     if (!file) { std::cerr << "Cannot read " << filename << '\n'; std::exit(1); }
 
     return std::string(std::istreambuf_iterator<char>(file), std::istreambuf_iterator<char>());
 }
 
-void saveImage(const char* filename, const uchar3* pixels, int width, int height) {
+void write_ppm(const char* filename, const uchar3* pixels, int width, int height) {
     std::ofstream image(filename, std::ios::binary);
     image << "P6\n" << width << ' ' << height << "\n255\n";
     image.write(reinterpret_cast<const char*>(pixels), width * height * 3);
@@ -69,7 +69,7 @@ void saveImage(const char* filename, const uchar3* pixels, int width, int height
     std::cout << "Saved " << filename << '\n';
 }
 
-void setBlock(Quad* quads, float3 center, float3 size, float degrees, uchar3 color) {
+void set_block(Quad* quads, float3 center, float3 size, float degrees, uchar3 color) {
     float angle = degrees * M_PI / 180;
     float c = std::cos(angle), s = std::sin(angle);
     float3 u {size.x * c, 0, -size.x * s};
@@ -87,7 +87,7 @@ void setBlock(Quad* quads, float3 center, float3 size, float degrees, uchar3 col
     quads[5] = {p, u, v, color};
 }
 
-TriangleMesh makeCornellBox(OptixDeviceContext context) {
+TriangleMesh make_cornell_box(OptixDeviceContext context) {
     TriangleMesh geometry {};
 
     uchar3 white {190, 190, 190};
@@ -104,14 +104,14 @@ TriangleMesh makeCornellBox(OptixDeviceContext context) {
         {{213, 554, 227}, {130, 0, 0}, {0, 0, 105}, {255, 255, 255}, {1, 1, 1}}
     };
 
-    setBlock(quads + 6, {370, 82.5f, 169}, {165, 165, 165}, 18, block);
-    setBlock(quads + 12, {187, 165, 351}, {165, 330, 165}, -15, block);
+    set_block(quads + 6, {370, 82.5f, 169}, {165, 165, 165}, 18, block);
+    set_block(quads + 12, {187, 165, 351}, {165, 330, 165}, -15, block);
 
-    const int quadCount = sizeof(quads) / sizeof(Quad);
-    float3 vertices[quadCount * 6];
-    Surface surfaces[quadCount * 2];
+    const int quad_count = sizeof(quads) / sizeof(Quad);
+    float3 vertices[quad_count * 6];
+    Surface surfaces[quad_count * 2];
 
-    for (int i = 0; i < quadCount; ++i) {
+    for (int i = 0; i < quad_count; ++i) {
         const Quad& q = quads[i];
         float3 a = q.origin;
         float3 b {a.x + q.u.x, a.y + q.u.y, a.z + q.u.z};
@@ -139,7 +139,7 @@ TriangleMesh makeCornellBox(OptixDeviceContext context) {
     OptixBuildInput input {};
     input.type = OPTIX_BUILD_INPUT_TYPE_TRIANGLES;
     input.triangleArray.vertexBuffers = &vertex_buffer;
-    input.triangleArray.numVertices = quadCount * 6;
+    input.triangleArray.numVertices = quad_count * 6;
     input.triangleArray.vertexFormat = OPTIX_VERTEX_FORMAT_FLOAT3;
     input.triangleArray.vertexStrideInBytes = sizeof(float3);
     input.triangleArray.flags = &flags;
@@ -153,11 +153,11 @@ TriangleMesh makeCornellBox(OptixDeviceContext context) {
 
     void* scratch;
     check(cudaMalloc(&scratch, sizes.tempSizeInBytes));
-    check(cudaMalloc(&geometry.accelerationBuffer, sizes.outputSizeInBytes));
+    check(cudaMalloc(&geometry.acceleration_buffer, sizes.outputSizeInBytes));
 
     check(optixAccelBuild(context, nullptr, &build_options, &input, 1,
         reinterpret_cast<CUdeviceptr>(scratch), sizes.tempSizeInBytes,
-        reinterpret_cast<CUdeviceptr>(geometry.accelerationBuffer), sizes.outputSizeInBytes,
+        reinterpret_cast<CUdeviceptr>(geometry.acceleration_buffer), sizes.outputSizeInBytes,
         &geometry.handle, nullptr, 0));
     check(cudaDeviceSynchronize());
     check(cudaFree(scratch));
@@ -165,7 +165,7 @@ TriangleMesh makeCornellBox(OptixDeviceContext context) {
     return geometry;
 }
 
-Pipeline makePipeline(OptixDeviceContext context, const std::string& ptx) {
+Pipeline create_pipeline(OptixDeviceContext context, const std::string& ptx) {
     Pipeline pipeline {};
 
     OptixModuleCompileOptions module_options {};
@@ -204,10 +204,10 @@ Pipeline makePipeline(OptixDeviceContext context, const std::string& ptx) {
     return pipeline;
 }
 
-ShaderBindingTable makeShaderBindingTable(const Pipeline& pipeline) {
+ShaderBindingTable create_shader_binding_table(const Pipeline& pipeline) {
     ShaderBindingTable table {};
 
-    Record records[3] {};
+    SbtRecord records[3] {};
     for (int i = 0; i < 3; ++i) check(optixSbtRecordPackHeader(pipeline.groups[i], &records[i]));
 
     check(cudaMalloc(&table.records, sizeof(records)));
@@ -215,22 +215,22 @@ ShaderBindingTable makeShaderBindingTable(const Pipeline& pipeline) {
 
     table.sbt.raygenRecord = reinterpret_cast<CUdeviceptr>(table.records);
     table.sbt.missRecordBase = reinterpret_cast<CUdeviceptr>(table.records + 1);
-    table.sbt.missRecordStrideInBytes = sizeof(Record);
+    table.sbt.missRecordStrideInBytes = sizeof(SbtRecord);
     table.sbt.missRecordCount = 1;
     table.sbt.hitgroupRecordBase = reinterpret_cast<CUdeviceptr>(table.records + 2);
-    table.sbt.hitgroupRecordStrideInBytes = sizeof(Record);
+    table.sbt.hitgroupRecordStrideInBytes = sizeof(SbtRecord);
     table.sbt.hitgroupRecordCount = 1;
 
     return table;
 }
 
-Camera makeCamera(float3 position, float3 target, float3 up, float verticalFov) {
+Camera make_camera(float3 position, float3 target, float3 up, float fovy) {
     Camera camera {};
     camera.position = position;
     camera.forward = normalize(target - position);
     camera.right = normalize(cross(up, camera.forward));
     camera.up = cross(camera.forward, camera.right);
-    camera.tanHalfFov = std::tan(verticalFov * M_PI / 360);
+    camera.tan_half_fov = std::tan(fovy * M_PI / 360);
 
     return camera;
 }
@@ -238,22 +238,22 @@ Camera makeCamera(float3 position, float3 target, float3 up, float verticalFov) 
 uchar3* render(const Pipeline& pipeline, const ShaderBindingTable& table,
                const TriangleMesh& geometry, const Camera& camera, const PointLight& light,
                int width, int height) {
-    Parameters parameters {};
+    LaunchParams parameters {};
     parameters.scene = geometry.handle;
     parameters.surfaces = geometry.surfaces;
     parameters.camera = camera;
     parameters.light = light;
     check(cudaMallocManaged(&parameters.pixels, width * height * sizeof(uchar3)));
 
-    Parameters* deviceParameters;
-    check(cudaMalloc(&deviceParameters, sizeof(parameters)));
-    check(cudaMemcpy(deviceParameters, &parameters, sizeof(parameters), cudaMemcpyHostToDevice));
+    LaunchParams* device_parameters;
+    check(cudaMalloc(&device_parameters, sizeof(parameters)));
+    check(cudaMemcpy(device_parameters, &parameters, sizeof(parameters), cudaMemcpyHostToDevice));
 
-    check(optixLaunch(pipeline.handle, nullptr, reinterpret_cast<CUdeviceptr>(deviceParameters),
-                      sizeof(Parameters), &table.sbt, width, height, 1));
+    check(optixLaunch(pipeline.handle, nullptr, reinterpret_cast<CUdeviceptr>(device_parameters),
+                      sizeof(LaunchParams), &table.sbt, width, height, 1));
     check(cudaDeviceSynchronize());
 
-    check(cudaFree(deviceParameters));
+    check(cudaFree(device_parameters));
 
     return parameters.pixels;
 }
@@ -261,9 +261,9 @@ uchar3* render(const Pipeline& pipeline, const ShaderBindingTable& table,
 int main(int argc, char** argv) {
     const int width = 640, height = 640;
     const char* output = argc == 2 ? argv[1] : "build/optix-cornell.ppm";
-    std::string ptxName = std::string(argv[0]) + ".ptx";
+    std::string ptx_name = std::string(argv[0]) + ".ptx";
 
-    std::string ptx = readFile(ptxName);
+    std::string ptx = read_file(ptx_name);
 
     check(cudaFree(nullptr));
     check(optixInit());
@@ -271,16 +271,16 @@ int main(int argc, char** argv) {
     check(optixDeviceContextCreate(nullptr, nullptr, &context));
     std::cout << "Hello, OptiX!\n";
 
-    TriangleMesh cornellBoxMesh = makeCornellBox(context);
-    Pipeline pipeline = makePipeline(context, ptx);
+    TriangleMesh cornell_box_mesh = make_cornell_box(context);
+    Pipeline pipeline = create_pipeline(context, ptx);
 
-    ShaderBindingTable table = makeShaderBindingTable(pipeline);
+    ShaderBindingTable table = create_shader_binding_table(pipeline);
 
-    Camera camera = makeCamera({278, 278, -800}, {278, 278, 278}, {0, 1, 0}, 40);
+    Camera camera = make_camera({278, 278, -800}, {278, 278, 278}, {0, 1, 0}, 40);
     PointLight light {{278, 553.5f, 279.5f}, {100000, 100000, 100000}};
 
-    uchar3* pixels = render(pipeline, table, cornellBoxMesh, camera, light, width, height);
-    saveImage(output, pixels, width, height);
+    uchar3* pixels = render(pipeline, table, cornell_box_mesh, camera, light, width, height);
+    write_ppm(output, pixels, width, height);
 
     check(cudaFree(pixels));
     check(cudaFree(table.records));
@@ -291,9 +291,9 @@ int main(int argc, char** argv) {
     }
     check(optixModuleDestroy(pipeline.module));
 
-    check(cudaFree(cornellBoxMesh.accelerationBuffer));
-    check(cudaFree(cornellBoxMesh.vertices));
-    check(cudaFree(cornellBoxMesh.surfaces));
+    check(cudaFree(cornell_box_mesh.acceleration_buffer));
+    check(cudaFree(cornell_box_mesh.vertices));
+    check(cudaFree(cornell_box_mesh.surfaces));
 
     check(optixDeviceContextDestroy(context));
 }

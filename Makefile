@@ -15,7 +15,7 @@ build:
 build/pathtracer: pathtracer.cpp utils_linalg.hpp utils_image.hpp external/stb/stb_image_write.h Makefile | build
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(ARCH_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 
-build/pathtracer_simd: pathtracer_simd.cpp external/stb/stb_image_write.h Makefile | build
+build/pathtracer_simd: pathtracer_simd.cpp utils_linalg.hpp external/stb/stb_image_write.h Makefile | build
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(ARCH_FLAGS) $(SIMD_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 
 render: build/pathtracer

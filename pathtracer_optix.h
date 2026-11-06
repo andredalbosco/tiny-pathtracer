@@ -6,7 +6,7 @@
 struct Camera {
     float3 position;
     float3 forward, right, up;
-    float tanHalfFov;
+    float tan_half_fov;
 };
 
 struct Surface {
@@ -20,7 +20,7 @@ struct PointLight {
     float3 intensity;
 };
 
-struct Parameters {
+struct LaunchParams {
     uchar3* pixels;
     OptixTraversableHandle scene;
     const Surface* surfaces;
