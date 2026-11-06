@@ -16,7 +16,7 @@ for name in ['previous','simple']:
     assert len({r['image_sha256'] for r in rows if r['name']==name})==1,(name,'determinism')
 info=dict(parent_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
           previous_source_commit='e90b8d6',clang=subprocess.check_output(['clang++-20','--version'],text=True).splitlines()[0],
-          source_sha256=hashlib.sha256((root/'pathtracer_clang.cpp').read_bytes()).hexdigest(),
+          source_sha256=hashlib.sha256((root/'experiments/pathtracer_clang.cpp').read_bytes()).hexdigest(),
           binary_sha256={n:hashlib.sha256((root/'build'/n).read_bytes()).hexdigest() for n in ['pathtracer_clang','pathtracer_clang_strict','raw_clang','raw_clang_strict']},
           previous_binary_sha256=hashlib.sha256((out/'previous-fast').read_bytes()).hexdigest())
 for name,value in [('summary.json',summary),('fast-images.json',images),('provenance.json',info)]:

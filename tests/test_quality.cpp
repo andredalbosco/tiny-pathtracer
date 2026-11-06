@@ -1,6 +1,6 @@
-#include "simple_kernels.h"
-#include "render_driver.h"
-#include "quality_sampling.h"
+#include "../experiments/simple_kernels.h"
+#include "../experiments/render_driver.h"
+#include "../experiments/quality_sampling.h"
 #include <cassert>
 
 int main() {

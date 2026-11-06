@@ -13,7 +13,7 @@
 #include <sched.h>
 #endif
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
+#include <stb_image_write.h>
 
 static const int max_depth=24;
 static float maximum(float a,float b) { return a<b ? b:a; }

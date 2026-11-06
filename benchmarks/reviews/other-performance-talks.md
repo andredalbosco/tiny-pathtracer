@@ -19,7 +19,7 @@ Timestamp links below were checked against content in the timed caption files. T
 
 ## What the project has already measured
 
-These are project results from [COMPUTATION.md](../../COMPUTATION.md) and [scaling-analysis.md](../../SCALING.md), not measurements made by this review:
+These are project results from [COMPUTATION.md](../../experiments/archive/docs/COMPUTATION.md) and [scaling-analysis.md](../../experiments/archive/docs/SCALING.md), not measurements made by this review:
 
 - Ordinary C++ vectorization over eight replenished paths beats the tested explicit ray kernels on one P core. Explicit intrinsics are not a demonstrated prerequisite for the fastest implementation.
 - Fixed groups have 42.26% software live-slot occupancy; refill reaches about 99.94%. This counts useful ray slots, not hardware vector utilization or execution-unit occupancy.

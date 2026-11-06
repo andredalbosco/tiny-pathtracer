@@ -11,10 +11,10 @@ import tempfile
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--cxx', default='c++')
-parser.add_argument('--flags', default='-isystem . -O3 -std=c++17 -Wall -Wextra -Wpedantic -march=native -ffp-contract=fast -pthread -fopenmp')
+parser.add_argument('--flags', default='-isystem . -isystem external/stb -Iexperiments -O3 -std=c++17 -Wall -Wextra -Wpedantic -march=native -ffp-contract=fast -pthread -fopenmp')
 parser.add_argument('--binary', default='pathtracer_simple_pgo')
 parser.add_argument('--cpu', type=int)
-parser.add_argument('--source', default='pathtracer_simple.cpp')
+parser.add_argument('--source', default='experiments/pathtracer_simple.cpp')
 parser.add_argument('--kernel', default='rays')
 parser.add_argument('--sampling', choices=['uniform','cosine','nee','mis'])
 args = parser.parse_args()
@@ -46,7 +46,7 @@ run = subprocess.run(use,cwd=root,text=True,capture_output=True)
 if run.returncode:raise RuntimeError(run.stderr)
 metadata = dict(compiler=subprocess.check_output(shlex.split(args.cxx)+['--version'],text=True).splitlines()[0],
                 generate=generate,use=use,training=training,diagnostics=run.stderr,
-                source_sha256={f:hashlib.sha256((root/f).read_bytes()).hexdigest() for f in set(['renderer_common.h','render_driver.h','simple_kernels.h',args.source]+(['experimental_kernels.h'] if args.source=='pathtracer_explore.cpp' else [])+(['quality_sampling.h'] if args.source=='pathtracer_quality.cpp' else []))},
+                source_sha256={f:hashlib.sha256((root/f).read_bytes()).hexdigest() for f in set(['experiments/renderer_common.h','experiments/render_driver.h','experiments/simple_kernels.h',args.source]+(['experiments/experimental_kernels.h'] if args.source=='experiments/pathtracer_explore.cpp' else [])+(['experiments/quality_sampling.h'] if args.source=='experiments/pathtracer_quality.cpp' else []))},
                 binary_sha256=hashlib.sha256(binary.read_bytes()).hexdigest(),
                 profiles={str(p.relative_to(build)):hashlib.sha256(p.read_bytes()).hexdigest() for p in profiles.rglob('*.gcda')})
 (build/(args.binary+'-metadata.json')).write_text(json.dumps(metadata,indent=2)+'\n')

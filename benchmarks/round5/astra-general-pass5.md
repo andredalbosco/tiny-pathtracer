@@ -4,7 +4,7 @@ The user's correction is incorporated: this is a general rendering analysis, not
 
 ## Scope and current evidence
 
-Read-only review on 2026-10-14: a fresh cable SSH connection found repository HEAD `ddf6d6cf081d943bccadf283d84dcfe0cbfa5836`. The current `render_driver.h`, `simple_kernels.h`, `quality_sampling.h` and quality entrypoint match the audited round-four local snapshots. The only untracked source then was the parent's in-progress `pathtracer_plain.cpp`. No remote source, settings or benchmarks were changed by this analysis.
+Read-only review on 2026-10-14: a fresh cable SSH connection found repository HEAD `ddf6d6cf081d943bccadf283d84dcfe0cbfa5836`. The current `experiments/render_driver.h`, `experiments/simple_kernels.h`, `experiments/quality_sampling.h` and quality entrypoint match the audited round-four local snapshots. The only untracked source then was the parent's in-progress `experiments/pathtracer_plain.cpp`. No remote source, settings or benchmarks were changed by this analysis.
 
 The decisive observations are:
 

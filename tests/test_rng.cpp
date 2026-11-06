@@ -1,5 +1,5 @@
-#include "simple_kernels.h"
-#include "render_driver.h"
+#include "../experiments/simple_kernels.h"
+#include "../experiments/render_driver.h"
 #include <cassert>
 
 int main() {

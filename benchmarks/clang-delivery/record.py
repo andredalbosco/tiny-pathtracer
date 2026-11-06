@@ -15,7 +15,7 @@ for mode in ['uniform','nee']:
 (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
 info=dict(parent_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
           clang=subprocess.check_output(['clang++-20','--version'],text=True).splitlines()[0],
-          sources={n:hashlib.sha256((root/n).read_bytes()).hexdigest() for n in ['pathtracer_clang.cpp','Makefile','tests/validate_clang.py']},
+          sources={n:hashlib.sha256((root/n).read_bytes()).hexdigest() for n in ['experiments/pathtracer_clang.cpp','Makefile','tests/validate_clang.py']},
           binaries={n:hashlib.sha256((root/'build'/n).read_bytes()).hexdigest() for n in ['pathtracer_clang','pathtracer_clang_strict','pathtracer_triangles_clang_fields','pathtracer_triangles_clang_soa']})
 (out/'provenance.json').write_text(json.dumps(info,indent=2)+'\n')
 for name in ['bench.py','record.py','timings.json','validation.json','summary.json','provenance.json']:

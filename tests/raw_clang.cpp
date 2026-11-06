@@ -1,5 +1,5 @@
 #define PATHTRACER_CLANG_NO_MAIN
-#include "../pathtracer_clang.cpp"
+#include "../experiments/pathtracer_clang.cpp"
 
 int main(int argc, char** argv) {
     int samples = argc > 1 ? atoi(argv[1]) : 8;

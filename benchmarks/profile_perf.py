@@ -58,7 +58,7 @@ for repeat in range(3):
   r=run_perf(configs[i]['name']+'-'+str(repeat),command(configs[i]),['-e',basic_events(configs[i])])
   results[i].append(r)
   print(f"Hardware {repeat+1}/3 {configs[i]['name']} {r['wall_seconds']:.4f}s",flush=True)
-report=dict(workload=dict(width=320,spp=128,max_visits=24),repetitions=3,scope='perf observer runs as root; renderer runs as blacknoir. Counters include startup, preparation, rendering and HDR writing. No machine policy/settings changed.',source_sha256={f:hashlib.sha256((root/f).read_bytes()).hexdigest() for f in ['render_driver.h','renderer_common.h','simple_kernels.h','advanced_kernels.h','pathtracer_simple.cpp','pathtracer_advanced.cpp']},configurations=[dict(config=c,runs=r) for c,r in zip(configs,results)])
+report=dict(workload=dict(width=320,spp=128,max_visits=24),repetitions=3,scope='perf observer runs as root; renderer runs as blacknoir. Counters include startup, preparation, rendering and HDR writing. No machine policy/settings changed.',source_sha256={f:hashlib.sha256((root/f).read_bytes()).hexdigest() for f in ['experiments/render_driver.h','experiments/renderer_common.h','experiments/simple_kernels.h','experiments/advanced_kernels.h','experiments/pathtracer_simple.cpp','experiments/pathtracer_advanced.cpp']},configurations=[dict(config=c,runs=r) for c,r in zip(configs,results)])
 (out/'hardware-stat.json').write_text(json.dumps(report,indent=2)+'\n')
 
 # Separate, small PMU-specific groups keep diagnostics interpretable.

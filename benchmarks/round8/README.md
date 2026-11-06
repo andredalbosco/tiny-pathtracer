@@ -1,6 +1,6 @@
 # Round eight records
 
-See `../../ROUND8.md`. These are measurements on blacknoir's i9-14900K,
+See [ROUND8.md](../../experiments/archive/docs/ROUND8.md). These are measurements on blacknoir's i9-14900K,
 GCC 15.2 and Clang 20.1.8. Binary/source hashes and hardware details are in
 `provenance.json`, `builds.json` and `delivery.json`.
 

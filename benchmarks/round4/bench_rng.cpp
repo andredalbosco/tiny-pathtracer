@@ -1,5 +1,5 @@
-#include "simple_kernels.h"
-#include "render_driver.h"
+#include "../../experiments/simple_kernels.h"
+#include "../../experiments/render_driver.h"
 #include <chrono>
 volatile std::uint64_t sink;
 template<int Draws> void short_streams() {

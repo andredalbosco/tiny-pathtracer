@@ -18,7 +18,7 @@ variants['inline_unroll1']=variants['unroll1'].replace('static void intersect_ba
 records=[]
 for name,source in variants.items():
  file=out/(name+'.cpp');binary=out/name;file.write_text(source)
- cmd=['g++','-iquote',str(root),'-isystem',str(root),'-O3','-std=c++17','-Wall','-Wextra','-Wpedantic','-march=native','-ffp-contract=fast','-fopenmp',str(file),'-o',str(binary)]
+ cmd=['g++','-iquote',str(root),'-isystem',str(root),'-isystem',str(root/'external/stb'),'-I',str(root/'experiments'),'-O3','-std=c++17','-Wall','-Wextra','-Wpedantic','-march=native','-ffp-contract=fast','-fopenmp',str(file),'-o',str(binary)]
  subprocess.run(cmd,check=True)
  records.append(dict(name=name,source_sha256=hashlib.sha256(source.encode()).hexdigest(),binary_sha256=hashlib.sha256(binary.read_bytes()).hexdigest(),command=cmd))
  print(name,flush=True)

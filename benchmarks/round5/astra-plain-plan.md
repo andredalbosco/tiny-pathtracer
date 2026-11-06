@@ -4,7 +4,7 @@ The broader user correction is handled in `astra-general-pass5.md`: this plain r
 
 ## Review result
 
-I read the complete 509-line local `pathtracer_plain.cpp`, SHA256 `eb6ab6ffdc40b1bf3ffb4d3b3690cf8f8a6443a3c366e674dc66277ee0b20ef8`, against the current `renderer_common.h`, `simple_kernels.h`, `render_driver.h`, `quality_sampling.h` and quality entrypoint. No blocking rendering-math or scheduling defect was found by inspection. This is not a substitute for the parent's compiled raw-image tests.
+I read the complete 509-line local `experiments/pathtracer_plain.cpp`, SHA256 `eb6ab6ffdc40b1bf3ffb4d3b3690cf8f8a6443a3c366e674dc66277ee0b20ef8`, against the current `experiments/renderer_common.h`, `experiments/simple_kernels.h`, `experiments/render_driver.h`, `experiments/quality_sampling.h` and quality entrypoint. No blocking rendering-math or scheduling defect was found by inspection. This is not a substitute for the parent's compiled raw-image tests.
 
 The reviewed source has no STL containers or std::thread/chrono/iostream use. It still uses ordinary C++ structs, operators, lambdas and compile-time templates; those are language facilities, consistent with the requested no-STL scope. `<new>` supplies placement construction, while allocation comes from malloc/calloc/posix_memalign. The copied numerical helpers do not acquire different mathematics merely because their names lose `std::`.
 

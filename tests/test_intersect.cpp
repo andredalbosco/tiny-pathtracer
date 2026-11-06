@@ -1,8 +1,8 @@
 #define main pathtracer_main
 #ifdef OPTIM
-#include "../pathtracer_optim.cpp"
+#include "../experiments/pathtracer_optim.cpp"
 #else
-#include "../pathtracer_simd.cpp"
+#include "../experiments/pathtracer_simd.cpp"
 #endif
 #undef main
 

@@ -1,6 +1,6 @@
 # Astra audit: round-four quality prototype
 
-This audit covers the **prototype** quality dataset inspected before the final rerun. Its binary SHA-256 is `a96cce6b81181b17f04b6459cefbaf33bff811b2ed79a5d73c97ac0c6f14673d`; its `quality_sampling.h` SHA-256 is `bceda3a291fb87873f87747e11d225ca4627eb0b0683bbdb59e314fccec1dcd1`. All five local source hashes matched that dataset's `quality/metadata.json` when audited. Root subsequently tightened emitter-plane exclusion and selected NEE as the default; the final quality rerun, including a new E1 scaling measurement, is pending. Do not attribute these prototype numbers to that later executable without its validation and metadata.
+This audit covers the **prototype** quality dataset inspected before the final rerun. Its binary SHA-256 is `a96cce6b81181b17f04b6459cefbaf33bff811b2ed79a5d73c97ac0c6f14673d`; its `experiments/quality_sampling.h` SHA-256 is `bceda3a291fb87873f87747e11d225ca4627eb0b0683bbdb59e314fccec1dcd1`. All five local source hashes matched that dataset's `quality/metadata.json` when audited. Root subsequently tightened emitter-plane exclusion and selected NEE as the default; the final quality rerun, including a new E1 scaling measurement, is pending. Do not attribute these prototype numbers to that later executable without its validation and metadata.
 
 ## Supported results
 

@@ -3,7 +3,7 @@ root=pathlib.Path(__file__).resolve().parents[2];out=root/'build/clang-simple';o
 if not (out/'previous-fast').exists():
     source=out/'previous.cpp'
     source.write_bytes(subprocess.check_output(['git','show','e90b8d6:pathtracer_clang.cpp'],cwd=root))
-    subprocess.run(['clang++-20','-isystem','.','-O3','-std=c++17','-march=native',
+    subprocess.run(['clang++-20','-isystem','.', '-isystem',str(root/'external/stb'),'-I',str(root/'experiments'),'-O3','-std=c++17','-march=native',
                     '-ffp-contract=fast','-fopenmp',str(source),'-o',str(out/'previous-fast')],cwd=root,check=True)
 for scope,threads,cpus in [('P1',1,'8'),('all32',32,','.join(map(str,range(32))))]:
     env=os.environ.copy();env.update(OMP_PROC_BIND='true',OMP_PLACES=','.join('{'+c+'}' for c in cpus.split(',')))

@@ -6,7 +6,7 @@ The best initial source experiment is a direct ray-column interface. Worker resu
 
 ## Baseline and success criterion
 
-Freeze baseline sources and binaries before editing, including both `-ffp-contract=fast` and `off`. Use identical compiler, ordinary flags, output format, scene, PCG seeding, maximum visits, runtime, affinity, and dimensions. The source snapshot's `benchmark_compute.py` records current headers but does not identify the historical source behind every separately named executable. Add per-binary hashes and its source/flag provenance to experiment metadata; a baseline binary built before header edits must not be described by the current headers' hashes.
+Freeze baseline sources and binaries before editing, including both `-ffp-contract=fast` and `off`. Use identical compiler, ordinary flags, output format, scene, PCG seeding, maximum visits, runtime, affinity, and dimensions. The source snapshot's `benchmarks/benchmark_compute.py` records current headers but does not identify the historical source behind every separately named executable. Add per-binary hashes and its source/flag provenance to experiment metadata; a baseline binary built before header edits must not be described by the current headers' hashes.
 
 Primary score remains complete executable wall time, with render-only time retained. The representative score is 320×320 at 128 spp, one P core on CPU 8 and all 32 logical CPUs; calibrate one E core and the homogeneous P/E groups for finalists. Screen small changes with a compact warmed interleaved matrix first. Use the existing five-observation protocol for finalists and preserve raw runs. Do not combine observer/perf launch time with the unprofiled score or run competing CPU jobs.
 
@@ -14,7 +14,7 @@ Compare the frozen baseline against each independent change before combining win
 
 ## 1. Direct columns at the ray-intersection boundary
 
-Current flow, visible in `render_driver.h:245–255` and `simple_kernels.h:60–68`, is:
+Current flow, visible in `experiments/render_driver.h:245–255` and `experiments/simple_kernels.h:60–68`, is:
 
 ```text
 Path storage → temporary Ray[B] → six local float columns → triangle/ray loop → Hit[B]

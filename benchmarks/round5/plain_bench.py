@@ -19,5 +19,5 @@ for mode in ['uniform','nee']:
   for repeat in range(6):
    variants=[('stl','pathtracer_quality'),('plain','pathtracer_plain')];random.Random(358+repeat).shuffle(variants)
    for label,binary in variants:run(label+'-'+mode+'-'+scope+'-'+str(repeat),binary,mode,128,320,threads,cpus)
-report=dict(checks=checks,rows=rows,sources={f:hashlib.sha256((root/f).read_bytes()).hexdigest() for f in ['pathtracer_plain.cpp','render_driver.h','quality_sampling.h','simple_kernels.h','renderer_common.h','pathtracer_quality.cpp']},binaries={f:hashlib.sha256((root/'build'/f).read_bytes()).hexdigest() for f in ['pathtracer_plain','pathtracer_plain_strict','pathtracer_quality','pathtracer_quality_strict']})
+report=dict(checks=checks,rows=rows,sources={f:hashlib.sha256((root/f).read_bytes()).hexdigest() for f in ['experiments/pathtracer_plain.cpp','experiments/render_driver.h','experiments/quality_sampling.h','experiments/simple_kernels.h','experiments/renderer_common.h','experiments/pathtracer_quality.cpp']},binaries={f:hashlib.sha256((root/'build'/f).read_bytes()).hexdigest() for f in ['pathtracer_plain','pathtracer_plain_strict','pathtracer_quality','pathtracer_quality_strict']})
 (out/'results.json').write_text(json.dumps(report,indent=2))

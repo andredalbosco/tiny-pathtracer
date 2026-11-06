@@ -2,7 +2,7 @@
 
 Reviewed 2026-10-13. This is a reading and transcript review, with proposed experiments; no CPU benchmarks or renderer changes were performed for this review.
 
-Current project context, checked against [COMPUTATION.md](../../COMPUTATION.md) and [SCALING.md](../../SCALING.md): i9-14900K, 8 P + 16 E cores, AVX2/FMA, GCC 15.2; ordinary C++ vectorizes across eight independent rays; persistent refill avoids idle path slots; std::thread and OpenMP are effectively tied. Reported P8 and E16 scaling is 7.55× and 15.86× respectively, with about 45.9 million completed paths/s using all 32 logical CPUs. These are project observations, not results from Godbolt's talks.
+Current project context, checked against [COMPUTATION.md](../../experiments/archive/docs/COMPUTATION.md) and [SCALING.md](../../experiments/archive/docs/SCALING.md): i9-14900K, 8 P + 16 E cores, AVX2/FMA, GCC 15.2; ordinary C++ vectorizes across eight independent rays; persistent refill avoids idle path slots; std::thread and OpenMP are effectively tied. Reported P8 and E16 scaling is 7.55× and 15.86× respectively, with about 45.9 million completed paths/s using all 32 logical CPUs. These are project observations, not results from Godbolt's talks.
 
 ## Primary materials actually read
 
@@ -27,7 +27,7 @@ The prior review already covered the [Jane Street Advanced Skylake Deep Dive tra
 
 **Godbolt's evidence:** His 2019 Suzanne DoD renderer retired 154.8 billion instructions against OO's 252.2 billion, yet had 12% branch misses against 0.60%. Combining barycentric rejection predicates cut DoD time from 106 to 68 seconds; the same intervention worsened OO from 80 to 104 seconds. His setup was single-threaded GCC 9.2 on an i9-9980XE. The slides' “36% faster” means approximately 36% less time, or 1.56× throughput. [Performance passage, 43:37 onward](https://www.youtube.com/watch?v=HG6c4Kwbv4I&t=2617s), [predicate intervention, 46:54 onward](https://www.youtube.com/watch?v=HG6c4Kwbv4I&t=2814s).
 
-**Our inference:** This is a close conceptual parallel to the project's explicit ray kernel getting faster after removing staged rejection branches and starting division earlier, despite issuing more divisions. It does not establish that branch misprediction alone caused our improvement: both changes happened together. Hardware counters have since become available; the current-kernel observations are in [PERF.md](../../PERF.md), but the earlier staged variant was not collected in that pass.
+**Our inference:** This is a close conceptual parallel to the project's explicit ray kernel getting faster after removing staged rejection branches and starting division earlier, despite issuing more divisions. It does not establish that branch misprediction alone caused our improvement: both changes happened together. Hardware counters have since become available; the current-kernel observations are in [PERF.md](../../experiments/archive/docs/PERF.md), but the earlier staged variant was not collected in that pass.
 
 **Useful experiment:** If further analysis is desired, compare four equivalent kernels: staged/combined control flow crossed with early/late division. Check the emitted code, fixed-ray outputs, and complete-render time. This can separate code scheduling effects more clearly than counting arithmetic operations.
 

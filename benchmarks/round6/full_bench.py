@@ -2,7 +2,7 @@ import subprocess, pathlib, time, json, hashlib, random, statistics
 root = pathlib.Path(__file__).resolve().parents[2]
 out = root / 'build/pass6'
 configs = [('stl', out/'baseline-stl'), ('plain-old', out/'baseline-plain'), ('plain-fixed', root/'build/pathtracer_plain')]
-report = {'rows': [], 'binaries': {name: hashlib.sha256(binary.read_bytes()).hexdigest() for name,binary in configs}, 'source_sha256': hashlib.sha256((root/'pathtracer_plain.cpp').read_bytes()).hexdigest()}
+report = {'rows': [], 'binaries': {name: hashlib.sha256(binary.read_bytes()).hexdigest() for name,binary in configs}, 'source_sha256': hashlib.sha256((root/'experiments/pathtracer_plain.cpp').read_bytes()).hexdigest()}
 for mode in ['uniform', 'nee']:
     for scope,threads,cpus in [('P1',1,'8'), ('all32',32,','.join(map(str,range(32))))]:
         for repeat in range(6):

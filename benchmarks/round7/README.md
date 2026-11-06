@@ -25,7 +25,7 @@ mkdir -p build/pass7
 python3 benchmarks/round7/build_compare.py
 g++ -isystem . -O3 -std=c++17 -march=native -ffp-contract=fast -pthread -fopenmp \
     -fdump-tree-ch-details -fdump-tree-unrolljam-details \
-    pathtracer_quality.cpp -o build/pass7/gcc-stl-ch
+    experiments/pathtracer_quality.cpp -o build/pass7/gcc-stl-ch
 python3 benchmarks/round7/build_trigger.py
 python3 benchmarks/round7/build_more.py
 python3 benchmarks/round7/screen.py
@@ -39,7 +39,7 @@ scoring, and keep benchmarks sequential:
 
 ```sh
 g++ -isystem . -O3 -std=c++17 -march=native -ffp-contract=fast \
-    -fno-loop-unroll-and-jam -fopenmp -c pathtracer_plain.cpp \
+    -fno-loop-unroll-and-jam -fopenmp -c experiments/pathtracer_plain.cpp \
     -o build/pass7/gcc-plain-libomp.o
 g++ build/pass7/gcc-plain-libomp.o -L/usr/lib/llvm-20/lib \
     -Wl,-rpath,/usr/lib/llvm-20/lib -lomp -o build/pass7/gcc-plain-libomp
