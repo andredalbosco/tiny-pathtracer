@@ -1,7 +1,0 @@
-# started on Tue Oct 13 23:47:01 2026
-
-46155674905,,cpu_atom/cycles/u,10302707209,100.00,,
-54378964704,,cpu_atom/instructions/u,10302707209,100.00,1.18,insn per cycle
-32773132826,,cpu_atom/ref-cycles/u,10302707209,100.00,,
-1540087975,,cpu_atom/branch-instructions/u,10302707209,100.00,,
-82305161,,cpu_atom/branch-misses/u,10302707209,100.00,5.34,of all branches

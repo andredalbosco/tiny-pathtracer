@@ -1,7 +1,0 @@
-# started on Tue Oct 13 22:05:51 2026
-
-46068494587,,cpu_atom/cycles/u,10282840416,100.00,,
-54528925996,,cpu_atom/instructions/u,10282840416,100.00,1.18,insn per cycle
-9601680398,,cpu_atom/arith.fpdiv_active/u,10282840416,100.00,,
-453285,,cpu_atom/mem_load_uops_retired.l1_miss/u,10282840416,100.00,,
-23692454098,,cpu_atom/mem_uops_retired.all_loads/u,10282840416,100.00,,

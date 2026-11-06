@@ -1,9 +1,0 @@
-# started on Wed Oct 14 02:47:18 2026
-
-21057976509,,cpu_core/cycles/u,3577431612,99.00,,
-54979322166,,cpu_core/instructions/u,3577431612,99.00,2.61,insn per cycle
-11378127219,,cpu_core/ref-cycles/u,3577431612,99.00,,
-1669830238,,cpu_core/branch-instructions/u,3577431612,99.00,,
-77110260,,cpu_core/branch-misses/u,3577431612,99.00,4.62,of all branches
-14025182386,,cpu_core/mem_inst_retired.all_loads/u,3577431612,99.00,,
-5449693578,,cpu_core/mem_inst_retired.all_stores/u,3577431612,99.00,,

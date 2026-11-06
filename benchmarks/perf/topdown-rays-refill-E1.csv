@@ -1,7 +1,0 @@
-# started on Tue Oct 13 21:28:19 2026
-
-49615016495,,cpu_atom/cycles/u,11075649648,100.00,,
-8372814579,,cpu_atom/topdown-fe-bound/u,11075649648,100.00,,
-25722208575,,cpu_atom/topdown-bad-spec/u,11075649648,100.00,,
-113450658054,,cpu_atom/topdown-be-bound/u,11075649648,100.00,,
-100408184722,,cpu_atom/topdown-retiring/u,11075649648,100.00,,

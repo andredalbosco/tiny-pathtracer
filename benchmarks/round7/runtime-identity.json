@@ -1,5 +1,0 @@
-{
-  "normalized_operations_identical": true,
-  "gcc_instruction_count": 21298,
-  "llvm_runtime_instruction_count": 21298
-}

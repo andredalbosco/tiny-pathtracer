@@ -1,8 +1,0 @@
-# started on Tue Oct 13 21:28:47 2026
-
-13211343178,,cpu_core/cycles/u,2571822987,99.00,,
-8198555692,,cpu_core/ref-cycles/u,2571822987,99.00,,
-33529081267,,cpu_core/instructions/u,2571822987,99.00,2.54,insn per cycle
-21346229398,,cpu_atom/cycles/u,5169255263,99.00,,
-16426103383,,cpu_atom/ref-cycles/u,5169255263,99.00,,
-25266138147,,cpu_atom/instructions/u,5169255263,99.00,1.18,insn per cycle
