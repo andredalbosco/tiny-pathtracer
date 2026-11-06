@@ -1,8 +1,5 @@
 /build/
 /cornell_box*.hdr
 /cornell_box*.ppm
-/external/optix-dev*/
-/external/raylib-*/
-/external/imgui-*/
-/external/rlimgui-*/
+/external/optix-dev/
 /.cache/
