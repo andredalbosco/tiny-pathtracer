@@ -1,12 +1,9 @@
 #include "pathtracer_optix.h"
-#include "external/cuda/helper_math.h"
 #include <optix_function_table_definition.h>
 #include <optix_stubs.h>
 #include <cmath>
 #include <cstdlib>
-#include <fstream>
 #include <iostream>
-#include <iterator>
 #include <string>
 
 struct alignas(OPTIX_SBT_RECORD_ALIGNMENT) SbtRecord {
@@ -20,12 +17,6 @@ struct TriangleMesh {
     OptixTraversableHandle handle;
 };
 
-struct Quad {
-    float3 origin, u, v;
-    uchar3 color;
-    float3 emission {};
-};
-
 struct Pipeline {
     OptixModule module;
     OptixProgramGroup groups[3];
@@ -36,6 +27,10 @@ struct ShaderBindingTable {
     SbtRecord* records;
     OptixShaderBindingTable sbt;
 };
+
+float3 make_float3(Float3 value) {
+    return {value.x, value.y, value.z};
+}
 
 void check(cudaError_t error) {
     if (error != cudaSuccess) {
@@ -51,95 +46,38 @@ void check(OptixResult error) {
     }
 }
 
-std::string read_file(const std::string& filename) {
-    std::ifstream file(filename, std::ios::binary);
-    if (!file) { std::cerr << "Cannot read " << filename << '\n'; std::exit(1); }
-
-    return std::string(std::istreambuf_iterator<char>(file), std::istreambuf_iterator<char>());
-}
-
-void write_ppm(const char* filename, const uchar3* pixels, int width, int height) {
-    std::ofstream image(filename, std::ios::binary);
-    image << "P6\n" << width << ' ' << height << "\n255\n";
-    image.write(reinterpret_cast<const char*>(pixels), width * height * 3);
-    image.close();
-
-    if (!image) { std::cerr << "Cannot write " << filename << '\n'; std::exit(1); }
-
-    std::cout << "Saved " << filename << '\n';
-}
-
-void set_block(Quad* quads, float3 center, float3 size, float degrees, uchar3 color) {
-    float angle = degrees * M_PI / 180;
-    float c = std::cos(angle), s = std::sin(angle);
-    float3 u {size.x * c, 0, -size.x * s};
-    float3 v {size.z * s, 0, size.z * c};
-    float3 up {0, size.y, 0};
-    float3 p {center.x - (u.x + v.x) * 0.5f,
-              center.y - size.y * 0.5f,
-              center.z - (u.z + v.z) * 0.5f};
-
-    quads[0] = {p, up, u, color};
-    quads[1] = {{p.x + v.x, p.y, p.z + v.z}, u, up, color};
-    quads[2] = {p, v, up, color};
-    quads[3] = {{p.x + u.x, p.y, p.z + u.z}, up, v, color};
-    quads[4] = {{p.x, p.y + size.y, p.z}, v, u, color};
-    quads[5] = {p, u, v, color};
-}
-
-TriangleMesh make_cornell_box(OptixDeviceContext context) {
+TriangleMesh create_triangle_mesh(OptixDeviceContext context,
+                                  const std::vector<Triangle>& triangles) {
+    CHECK(!triangles.empty());
     TriangleMesh geometry {};
+    std::vector<float3> vertices(triangles.size() * 3);
+    std::vector<Surface> surfaces(triangles.size());
 
-    uchar3 white {190, 190, 190};
-    uchar3 red {180, 35, 35};
-    uchar3 green {35, 150, 45};
-    uchar3 block {220, 220, 220};
-
-    Quad quads[18] {
-        {{0, 0, 0}, {0, 555, 0}, {0, 0, 555}, red},
-        {{555, 0, 0}, {0, 0, 555}, {0, 555, 0}, green},
-        {{0, 0, 0}, {0, 0, 555}, {555, 0, 0}, white},
-        {{0, 555, 0}, {555, 0, 0}, {0, 0, 555}, white},
-        {{0, 0, 555}, {0, 555, 0}, {555, 0, 0}, white},
-        {{213, 554, 227}, {130, 0, 0}, {0, 0, 105}, {255, 255, 255}, {1, 1, 1}}
-    };
-
-    set_block(quads + 6, {370, 82.5f, 169}, {165, 165, 165}, 18, block);
-    set_block(quads + 12, {187, 165, 351}, {165, 330, 165}, -15, block);
-
-    const int quad_count = sizeof(quads) / sizeof(Quad);
-    float3 vertices[quad_count * 6];
-    Surface surfaces[quad_count * 2];
-
-    for (int i = 0; i < quad_count; ++i) {
-        const Quad& q = quads[i];
-        float3 a = q.origin;
-        float3 b {a.x + q.u.x, a.y + q.u.y, a.z + q.u.z};
-        float3 c {b.x + q.v.x, b.y + q.v.y, b.z + q.v.z};
-        float3 d {a.x + q.v.x, a.y + q.v.y, a.z + q.v.z};
-
-        vertices[6*i] = a;
-        vertices[6*i + 1] = b;
-        vertices[6*i + 2] = c;
-        vertices[6*i + 3] = a;
-        vertices[6*i + 4] = c;
-        vertices[6*i + 5] = d;
-        surfaces[2*i] = surfaces[2*i + 1] = {
-            normalize(cross(q.u, q.v)), make_float3(q.color.x, q.color.y, q.color.z) / 255.0f, q.emission
+    for (std::size_t i = 0; i < triangles.size(); ++i) {
+        const Triangle& triangle = triangles[i];
+        vertices[3 * i] = make_float3(triangle.p);
+        vertices[3 * i + 1] = make_float3(triangle.p + triangle.e1);
+        vertices[3 * i + 2] = make_float3(triangle.p + triangle.e2);
+        surfaces[i] = {
+            triangle.normal,
+            triangle.albedo,
+            triangle.emission
         };
     }
 
-    check(cudaMalloc(&geometry.vertices, sizeof(vertices)));
-    check(cudaMemcpy(geometry.vertices, vertices, sizeof(vertices), cudaMemcpyHostToDevice));
-    check(cudaMalloc(&geometry.surfaces, sizeof(surfaces)));
-    check(cudaMemcpy(geometry.surfaces, surfaces, sizeof(surfaces), cudaMemcpyHostToDevice));
+    std::size_t vertex_bytes = vertices.size() * sizeof(float3);
+    std::size_t surface_bytes = surfaces.size() * sizeof(Surface);
+    check(cudaMalloc(&geometry.vertices, vertex_bytes));
+    check(cudaMemcpy(geometry.vertices, vertices.data(), vertex_bytes, cudaMemcpyHostToDevice));
+    check(cudaMalloc(&geometry.surfaces, surface_bytes));
+    check(cudaMemcpy(geometry.surfaces, surfaces.data(), surface_bytes, cudaMemcpyHostToDevice));
 
     CUdeviceptr vertex_buffer = reinterpret_cast<CUdeviceptr>(geometry.vertices);
     unsigned flags = OPTIX_GEOMETRY_FLAG_DISABLE_ANYHIT;
     OptixBuildInput input {};
     input.type = OPTIX_BUILD_INPUT_TYPE_TRIANGLES;
     input.triangleArray.vertexBuffers = &vertex_buffer;
-    input.triangleArray.numVertices = quad_count * 6;
+    input.triangleArray.numVertices = unsigned(vertices.size());
     input.triangleArray.vertexFormat = OPTIX_VERTEX_FORMAT_FLOAT3;
     input.triangleArray.vertexStrideInBytes = sizeof(float3);
     input.triangleArray.flags = &flags;
@@ -224,17 +162,6 @@ ShaderBindingTable create_shader_binding_table(const Pipeline& pipeline) {
     return table;
 }
 
-Camera make_camera(float3 position, float3 target, float3 up, float fovy) {
-    Camera camera {};
-    camera.position = position;
-    camera.forward = normalize(target - position);
-    camera.right = normalize(cross(up, camera.forward));
-    camera.up = cross(camera.forward, camera.right);
-    camera.tan_half_fov = std::tan(fovy * M_PI / 360);
-
-    return camera;
-}
-
 uchar3* render(const Pipeline& pipeline, const ShaderBindingTable& table,
                const TriangleMesh& geometry, const Camera& camera, const PointLight& light,
                int width, int height) {
@@ -271,16 +198,17 @@ int main(int argc, char** argv) {
     check(optixDeviceContextCreate(nullptr, nullptr, &context));
     std::cout << "Hello, OptiX!\n";
 
-    TriangleMesh cornell_box_mesh = make_cornell_box(context);
+    std::vector<Triangle> triangles = make_cornell_box();
+    TriangleMesh cornell_box_mesh = create_triangle_mesh(context, triangles);
     Pipeline pipeline = create_pipeline(context, ptx);
 
     ShaderBindingTable table = create_shader_binding_table(pipeline);
 
-    Camera camera = make_camera({278, 278, -800}, {278, 278, 278}, {0, 1, 0}, 40);
+    Camera camera = make_camera({278, 278, -800}, {278, 278, 278}, {0, 1, 0}, 40, float(width) / height);
     PointLight light {{278, 553.5f, 279.5f}, {100000, 100000, 100000}};
 
     uchar3* pixels = render(pipeline, table, cornell_box_mesh, camera, light, width, height);
-    write_ppm(output, pixels, width, height);
+    write_ppm(output, reinterpret_cast<const unsigned char*>(pixels), width, height);
 
     check(cudaFree(pixels));
     check(cudaFree(table.records));
