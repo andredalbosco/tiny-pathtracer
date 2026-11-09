@@ -50,6 +50,9 @@ Float3 trace_path(const Scene& scene, Ray ray, pcg32& random) {
 void render(const Scene& scene, int samples, int width, int height, float* pixels) {
     const Camera& camera = scene.camera;
 
+#ifdef _OPENMP
+    #pragma omp parallel for schedule(dynamic, 1)
+#endif
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
             Float3 pixel_color {};

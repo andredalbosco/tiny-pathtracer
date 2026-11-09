@@ -15,6 +15,7 @@ endif
 CPPFLAGS ?= -isystem . -isystem external/stb
 CXXFLAGS ?= $(OPT_FLAGS) -std=c++17 -Wall -Wextra -Wpedantic
 ARCH_FLAGS ?= -march=native
+OPENMP_FLAGS ?= -fopenmp
 UTILS_HEADERS = utils.h external/pcg/pcg32.h external/stb/stb_image_write.h
 RENDER_ARGS ?=
 
@@ -26,10 +27,10 @@ $(BUILD_DIR):
 	mkdir -p $@
 
 $(BUILD_DIR)/pathtracer: pathtracer.cpp $(UTILS_HEADERS) Makefile | $(BUILD_DIR)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(ARCH_FLAGS) $(CHECK_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(ARCH_FLAGS) $(CHECK_FLAGS) $(OPENMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 
 $(BUILD_DIR)/pathtracer_simd: pathtracer_simd.cpp $(UTILS_HEADERS) Makefile | $(BUILD_DIR)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(ARCH_FLAGS) $(CHECK_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(ARCH_FLAGS) $(CHECK_FLAGS) $(OPENMP_FLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
 
 render: $(BUILD_DIR)/pathtracer
 	./$(BUILD_DIR)/pathtracer $(RENDER_ARGS)
